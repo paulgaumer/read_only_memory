@@ -1,3 +1,5 @@
+require("dotenv").config({ path: `.env.${process.env.NODE_ENV}` })
+
 module.exports = {
   siteMetadata: {
     title: `readonlymemory`,
@@ -28,6 +30,38 @@ module.exports = {
         printRejected: false,
         develop: false,
         tailwind: true,
+      },
+    },
+    {
+      resolve: `gatsby-source-airtable`,
+      options: {
+        apiKey: process.env.GATSBY_AIRTABLE_API_KEY,
+        tables: [
+          {
+            baseId: `app9UK9ZbcSlC8PhP`,
+            tableName: `titles`,
+            tableLinks: [`authors`, `editors`, `collections`],
+          },
+          {
+            baseId: `app9UK9ZbcSlC8PhP`,
+            tableName: `authors`,
+            tableLinks: [`titles`],
+          },
+          {
+            baseId: `app9UK9ZbcSlC8PhP`,
+            tableName: `editors`,
+            tableLinks: [`titles`, `collections`],
+          },
+          {
+            baseId: `app9UK9ZbcSlC8PhP`,
+            tableName: `collections`,
+            tableLinks: [`titles`, `editors`],
+          },
+          {
+            baseId: `app9UK9ZbcSlC8PhP`,
+            tableName: `annexes`,
+          },
+        ],
       },
     },
     {

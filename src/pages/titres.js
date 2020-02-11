@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -13,7 +13,11 @@ const Titles = ({ data }) => {
       <div>
         <ul>
           {edges.map(({ node }) => {
-            return <li>{node.data.name}</li>
+            return (
+              <Link to={`titres/${node.data.slug}`}>
+                <li>{node.data.name}</li>
+              </Link>
+            )
           })}
         </ul>
       </div>
@@ -30,6 +34,7 @@ export const allTitlesQuery = graphql`
         node {
           data {
             name
+            slug
             authors {
               data {
                 name

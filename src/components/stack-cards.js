@@ -19,7 +19,12 @@ const StackCards = props => {
     }
     // return a carousel of stacked images
     return (
-      <div onClick={() => onTinderSwipe()}>
+      <div
+        onClick={() => onTinderSwipe()}
+        onKeyDown={() => onTinderSwipe()}
+        role="button"
+        // tabIndex="0"
+      >
         <TinderLikeCard
           images={arr1}
           width="450"

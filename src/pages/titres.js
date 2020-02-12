@@ -14,7 +14,7 @@ const Titles = ({ data }) => {
       <SEO title="Titres" />
       <div>
         {azRange.map(letter => (
-          <FilteredGroup list={edges} character={letter} />
+          <FilteredGroup list={edges} character={letter} category="titles" />
         ))}
       </div>
     </Layout>

@@ -10,6 +10,7 @@ const ProductPage = ({ data }) => {
   if (product.images) {
     product.images.map(image => {
       images.push(image.thumbnails.full.url)
+      return null
     })
   }
 

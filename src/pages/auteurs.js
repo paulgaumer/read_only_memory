@@ -3,6 +3,8 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import FilteredGroup from "../components/filtered-group"
+import { azRange } from "../utils/utils"
 
 const Authors = ({ data }) => {
   const { edges } = data.allAirtable
@@ -11,12 +13,9 @@ const Authors = ({ data }) => {
     <Layout>
       <SEO title="Auteurs" />
       <div>
-        <ul>
-          {edges.map(({ node }) => {
-            // console.log(node.data.authors)
-            return <li>{node.data.name}</li>
-          })}
-        </ul>
+        {azRange.map(letter => (
+          <FilteredGroup list={edges} character={letter} />
+        ))}
       </div>
     </Layout>
   )
@@ -26,7 +25,10 @@ export default Authors
 
 export const allAuthorsQuery = graphql`
   query allAuthorsQuery {
-    allAirtable(filter: { table: { eq: "authors" } }) {
+    allAirtable(
+      filter: { table: { eq: "authors" } }
+      sort: { fields: data___name }
+    ) {
       edges {
         node {
           data {

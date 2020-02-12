@@ -1,17 +1,23 @@
 import React from "react"
 import Layout from "../components/layout"
+import StackCards from "../components/stack-cards"
 
 const ProductPage = ({ data }) => {
   const product = data.airtable.data
+  let images = []
+
+  // create an array of images from data
+  if (product.images) {
+    product.images.map(image => {
+      images.push(image.thumbnails.full.url)
+    })
+  }
 
   return (
     <Layout>
       <div>
         <h1>{product.name}</h1>
-        {product.images &&
-          product.images.map(image => {
-            return <img src={image.thumbnails.full.url} alt="" />
-          })}
+        <StackCards images={images} />
       </div>
     </Layout>
   )

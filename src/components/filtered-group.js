@@ -5,7 +5,7 @@ import { sanitizeSlug, capitalize } from "../utils/utils"
 const ListItemLink = ({ slug, name }) => {
   return (
     <li>
-      <Link to={`titres/${sanitizeSlug(slug)}`}>{capitalize(name)}</Link>
+      <a href={`titres/${sanitizeSlug(slug)}`}>{capitalize(name)}</a>
     </li>
   )
 }
@@ -16,7 +16,6 @@ const ListItem = ({ name }) => {
 
 const FilteredGroup = ({ character, list, category }) => {
   const char = character
-  console.log(list)
 
   return (
     <div id={char} class="filtered-group">

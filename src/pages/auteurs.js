@@ -9,12 +9,18 @@ import { azRange } from "../utils/utils"
 const Authors = ({ data }) => {
   const { edges } = data.allAirtable
 
+  const list = edges.map(({ node }) => {
+    return {
+      name: node.data.name,
+    }
+  })
+
   return (
     <Layout>
       <SEO title="Auteurs" />
       <div>
         {azRange.map(letter => (
-          <FilteredGroup list={edges} character={letter} />
+          <FilteredGroup list={list} character={letter} />
         ))}
       </div>
     </Layout>

@@ -42,7 +42,9 @@ export const azRange = [
 
 export const filterListByCharacterType = (list, range) => {
   const titlesList = list.map(({ node }) => {
-    return { name: node.data.name, slug: node.data.slug }
+    return node.data.slug
+      ? { name: node.data.name, slug: node.data.slug }
+      : { name: node.data.name }
   })
   let normal = []
   let special = []

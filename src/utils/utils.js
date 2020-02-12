@@ -41,13 +41,18 @@ export const azRange = [
 ]
 
 export const filterListByCharacterType = (list, range) => {
+  // Create a consistent structure for the data
   const titlesList = list.map(({ node }) => {
     return node.data.slug
       ? { name: node.data.name, slug: node.data.slug }
       : { name: node.data.name }
   })
+
+  // Initialize the two types of name
   let normal = []
   let special = []
+
+  // Assign each title to a type of name
   titlesList.map(title => {
     if (title.name !== null) {
       if (

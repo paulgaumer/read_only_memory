@@ -4,24 +4,28 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import FilteredGroup from "../components/filtered-group"
-import { azRange } from "../utils/utils"
+import { azRange, filterListByCharacterType, capitalize } from "../utils/utils"
 
 const Collections = ({ data }) => {
   const { edges } = data.allAirtable
-
-  const list = edges.map(({ node }) => {
-    return {
-      name: node.data.name,
-    }
-  })
+  const filteredList = filterListByCharacterType(edges, azRange)
 
   return (
     <Layout>
-      <SEO title="Collections" />
+      <SEO title="Auteurs" />
       <div>
         {azRange.map(letter => (
-          <FilteredGroup list={list} character={letter} />
+          <FilteredGroup list={filteredList.normal} character={letter} />
         ))}
+        <div id="#" class="filtered-group">
+          {filteredList.special.map(title => {
+            return (
+              <ul>
+                <li>{capitalize(title.name)}</li>
+              </ul>
+            )
+          })}
+        </div>
       </div>
     </Layout>
   )

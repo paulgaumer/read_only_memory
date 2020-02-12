@@ -16,19 +16,20 @@ const ListItem = ({ name }) => {
 
 const FilteredGroup = ({ character, list, category }) => {
   const char = character
+  console.log(list)
 
   return (
     <div id={char} class="filtered-group">
       <ul>
-        {list.map(({ node }) => {
+        {list.map(title => {
           if (
-            node.data.name !== null &&
-            node.data.name.toLowerCase().charAt(0) === char
+            title.name !== null &&
+            title.name.toLowerCase().charAt(0) === char
           ) {
             return category === "titles" ? (
-              <ListItemLink slug={node.data.slug} name={node.data.name} />
+              <ListItemLink slug={title.slug} name={title.name} />
             ) : (
-              <ListItem name={node.data.name} />
+              <ListItem name={title.name} />
             )
           }
           return null

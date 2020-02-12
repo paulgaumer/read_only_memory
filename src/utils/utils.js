@@ -39,3 +39,25 @@ export const azRange = [
   "y",
   "z",
 ]
+
+export const filterListByCharacterType = (list, range) => {
+  const titlesList = list.map(({ node }) => {
+    return { name: node.data.name, slug: node.data.slug }
+  })
+  let normal = []
+  let special = []
+  titlesList.map(title => {
+    if (title.name !== null) {
+      if (
+        range.some(
+          letter => title.name.charAt(0).toLowerCase() === letter.toLowerCase()
+        )
+      ) {
+        normal.push(title)
+      } else {
+        special.push(title)
+      }
+    }
+  })
+  return { normal, special }
+}

@@ -23,6 +23,7 @@ _Website: [readyonlymemory.net](https://readonlymemory.net/)_
 
     ```shell
     cd readonlymemory/
+    yarn install
     gatsby develop
     ```
 

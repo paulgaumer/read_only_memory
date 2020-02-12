@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { sanitizeSlug } from "../utils/utils"
 
 const Titles = ({ data }) => {
   const { edges } = data.allAirtable
@@ -14,7 +15,7 @@ const Titles = ({ data }) => {
         <ul>
           {edges.map(({ node }) => {
             return (
-              <Link to={`titres/${node.data.slug}`}>
+              <Link to={`titres/${sanitizeSlug(node.data.slug)}`}>
                 <li>{node.data.name}</li>
               </Link>
             )

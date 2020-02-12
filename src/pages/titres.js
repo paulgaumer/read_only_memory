@@ -1,9 +1,10 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { sanitizeSlug } from "../utils/utils"
+import FilteredGroup from "../components/filtered-group"
+import { azRange } from "../utils/utils"
 
 const Titles = ({ data }) => {
   const { edges } = data.allAirtable
@@ -12,15 +13,9 @@ const Titles = ({ data }) => {
     <Layout>
       <SEO title="Titres" />
       <div>
-        <ul>
-          {edges.map(({ node }) => {
-            return (
-              <Link to={`titres/${sanitizeSlug(node.data.slug)}`}>
-                <li>{node.data.name}</li>
-              </Link>
-            )
-          })}
-        </ul>
+        {azRange.map(letter => (
+          <FilteredGroup list={edges} character={letter} />
+        ))}
       </div>
     </Layout>
   )
@@ -30,7 +25,10 @@ export default Titles
 
 export const allTitlesQuery = graphql`
   query allTitlesQuery {
-    allAirtable(filter: { table: { eq: "titles" } }) {
+    allAirtable(
+      filter: { table: { eq: "titles" } }
+      sort: { fields: data___name }
+    ) {
       edges {
         node {
           data {

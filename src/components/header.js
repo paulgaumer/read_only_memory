@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 const Header = () => (
-  <header className="fixed top-0 w-full bg-black text-white">
+  <header className="fixed top-0 w-full">
     <div
       style={{
         margin: `0 auto`,

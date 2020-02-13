@@ -3,7 +3,7 @@ import { azRange } from "../utils/utils"
 
 const Footer = () => {
   return (
-    <footer className="fixed bottom-0 w-full bg-black text-white">
+    <footer className="fixed bottom-0 w-full">
       <div
         style={{
           margin: `0 auto`,

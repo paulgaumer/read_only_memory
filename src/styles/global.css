@@ -12,6 +12,18 @@ html {
   scroll-behavior: smooth !important;
 }
 
+body {
+  background-color: black;
+  color: theme("colors.myGrey.secondary");
+}
+
+header {
+  background-color: black;
+}
+footer {
+  background-color: black;
+}
+
 /* Avoids within-page links to jumped the content right at the very top of the viewport, below the fixed header */
 .filtered-group::before {
   display: block;

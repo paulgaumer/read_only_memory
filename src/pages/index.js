@@ -7,7 +7,10 @@ import SEO from "../components/seo"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <Link to="/titres" className="p-2 border border-black rounded-lg">
+    <Link
+      to="/titres"
+      className="p-2 border border-myGrey-primary text-myGrey-primary rounded-lg"
+    >
       ENTRER
     </Link>
   </Layout>

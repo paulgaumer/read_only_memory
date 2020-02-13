@@ -27,7 +27,7 @@ const List = ({ edges }) => {
         <ul>
           {filteredList.special.map((title, i) => {
             return title.slug ? (
-              <Link to={`/titres/${sanitizeSlug(title.slug)}`} key={i}>
+              <Link to={`/titre/${sanitizeSlug(title.slug)}`} key={i}>
                 <li>{capitalize(title.name)}</li>
               </Link>
             ) : (

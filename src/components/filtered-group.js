@@ -6,7 +6,7 @@ import { sanitizeSlug, capitalize } from "../utils/utils"
 const ListItemLink = ({ slug, name }) => {
   return (
     <li>
-      <Link to={`/titres/${sanitizeSlug(slug)}`}>{capitalize(name)}</Link>
+      <Link to={`/titre/${sanitizeSlug(slug)}`}>{capitalize(name)}</Link>
     </li>
   )
 }

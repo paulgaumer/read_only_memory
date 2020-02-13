@@ -1,3 +1,4 @@
+// Function to get rid of special characters invalidating the uri
 export const sanitizeSlug = slug => {
   let sanitizedSlug = ""
   if (slug !== null) {
@@ -17,6 +18,7 @@ export const azRange = [
   "c",
   "d",
   "e",
+  "é",
   "f",
   "g",
   "h",
@@ -48,11 +50,11 @@ export const filterListByCharacterType = (list, range) => {
       : { name: node.data.name }
   })
 
-  // Initialize the two types of name
+  // Categorize the two types of name
   let normal = []
   let special = []
 
-  // Assign each title to a type of name
+  // Check if each title matches the given range and assign it to a category
   titlesList.map(title => {
     if (title.name !== null) {
       if (
@@ -65,6 +67,7 @@ export const filterListByCharacterType = (list, range) => {
         special.push(title)
       }
     }
+    return null
   })
   return { normal, special }
 }

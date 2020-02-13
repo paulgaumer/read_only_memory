@@ -11,13 +11,15 @@ const Footer = () => {
           padding: `1rem 1.0875rem`,
         }}
       >
-        {azRange.map(letter => {
-          return (
-            <span className="pr-2">
-              <a href={`#${letter}`}>{letter.toUpperCase()}</a>
-            </span>
-          )
-        })}
+        {azRange
+          .filter(i => i !== "é")
+          .map(letter => {
+            return (
+              <span className="pr-2" key={letter}>
+                <a href={`#${letter}`}>{letter.toUpperCase()}</a>
+              </span>
+            )
+          })}
       </div>
     </footer>
   )

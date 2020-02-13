@@ -10,6 +10,7 @@ import {
 
 const List = ({ edges }) => {
   // Filter the list to separate names starting with special character
+
   const filteredList = filterListByCharacterType(edges, azRange)
 
   return (

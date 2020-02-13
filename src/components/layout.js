@@ -21,11 +21,12 @@ const Layout = ({ children, location = "" }) => {
     <>
       <Header siteTitle={data.site.siteMetadata.title} location={location} />
       <div
-        style={{
-          margin: `80px auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
+        // style={{
+        //   margin: `80px auto`,
+        //   maxWidth: 960,
+        //   padding: `0 1.0875rem 1.45rem`,
+        // }}
+        className="px-4"
       >
         <main>{children}</main>
       </div>

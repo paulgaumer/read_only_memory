@@ -45,6 +45,7 @@ export const azRange = [
 export const filterListByCharacterType = (list, range) => {
   // Create a consistent structure for the data
   const titlesList = list.map(({ node }) => {
+    console.log(node)
     return node.data.slug
       ? { name: node.data.name, slug: node.data.slug }
       : { name: node.data.name }

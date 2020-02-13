@@ -4,11 +4,11 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import List from "../components/list"
 
-const Collections = ({ data }) => {
+const Collections = ({ data, location }) => {
   const { edges } = data.allAirtable
 
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title="Auteurs" />
       <List edges={edges} />
     </Layout>

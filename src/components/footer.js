@@ -15,7 +15,7 @@ const Footer = () => {
           .filter(i => i !== "é")
           .map(letter => {
             return (
-              <span className="pr-2" key={letter}>
+              <span className="pr-2 hover:text-myGrey-primary" key={letter}>
                 <a href={`#${letter}`}>{letter.toUpperCase()}</a>
               </span>
             )

@@ -4,11 +4,11 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import MyAccordion from "../components/accordion"
 
-const About = ({ data }) => {
+const About = ({ data, location }) => {
   const { edges } = data.allAirtable
 
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title="A propos" />
       <div>
         <MyAccordion edges={edges} />

@@ -1,17 +1,13 @@
 import React from "react"
 import { Link } from "gatsby"
 import FilteredGroup from "./filtered-group"
-import {
-  azRange,
-  filterListByCharacterType,
-  capitalize,
-  sanitizeSlug,
-} from "../utils/utils"
+import { azRange, capitalize, sanitizeSlug } from "../utils/utils"
+import { filterListByCharacterType } from "../utils/structure-data"
 
-const List = ({ edges }) => {
+const List = ({ edges, origin }) => {
   // Filter the list to separate names starting with special character
 
-  const filteredList = filterListByCharacterType(edges, azRange)
+  const filteredList = filterListByCharacterType(edges, origin, azRange)
 
   return (
     <div>

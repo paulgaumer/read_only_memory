@@ -1,47 +1,3 @@
-// Function to get rid of special characters invalidating the uri
-export const sanitizeSlug = slug => {
-  let sanitizedSlug = ""
-  if (slug !== null) {
-    sanitizedSlug = slug.replace("%", "-")
-  }
-  return sanitizedSlug
-}
-
-export const capitalize = s => {
-  if (typeof s !== "string") return ""
-  return s.charAt(0).toUpperCase() + s.slice(1)
-}
-
-export const azRange = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "é",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z",
-]
-
 const structureData = (list, origin) => {
   const titlesList = list.map(({ node }) => {
     const { data } = node
@@ -77,7 +33,7 @@ const structureData = (list, origin) => {
         })
       }
 
-      const organizedData = {
+      const structuredData = {
         name: data.name,
         slug: data.slug,
         titles: titles,
@@ -86,7 +42,7 @@ const structureData = (list, origin) => {
         collections: collections,
       }
 
-      return organizedData
+      return structuredData
     }
 
     // DATA COMING FROM AUTHORS
@@ -122,7 +78,7 @@ const structureData = (list, origin) => {
         })
       }
 
-      const organizedData = {
+      const structuredData = {
         name: data.name,
         titles: titles,
         authors: authors,
@@ -130,7 +86,7 @@ const structureData = (list, origin) => {
         collections: collections,
       }
 
-      return organizedData
+      return structuredData
     }
 
     // DATA COMING FROM EDITORS
@@ -155,7 +111,7 @@ const structureData = (list, origin) => {
         })
       }
 
-      const organizedData = {
+      const structuredData = {
         name: data.name,
         titles: titles,
         authors: authors,
@@ -163,7 +119,7 @@ const structureData = (list, origin) => {
         collections: collections,
       }
 
-      return organizedData
+      return structuredData
     }
 
     // DATA COMING FROM COLLECTIONS
@@ -188,7 +144,7 @@ const structureData = (list, origin) => {
         })
       }
 
-      const organizedData = {
+      const structuredData = {
         name: data.name,
         titles: titles,
         authors: authors,
@@ -196,7 +152,7 @@ const structureData = (list, origin) => {
         collections: collections,
       }
 
-      return organizedData
+      return structuredData
     }
 
     return null
@@ -208,11 +164,11 @@ export const filterListByCharacterType = (list, origin, range) => {
   // Get list of structured data
   const titlesList = structureData(list, origin)
 
-  // Categorize the two types of name
+  // Categorize the two types of names
   let normal = []
   let special = []
 
-  // Check if each title matches the given range and assign it to a category
+  // Check if each title matches the given range and group them by first letters
   titlesList.map(title => {
     if (title.name !== null) {
       if (

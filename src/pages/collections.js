@@ -9,8 +9,8 @@ const Collections = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <SEO title="Auteurs" />
-      <List edges={edges} />
+      <SEO title="Collections" />
+      <List edges={edges} origin={"collections"} />
     </Layout>
   )
 }

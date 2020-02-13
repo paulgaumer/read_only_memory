@@ -28,7 +28,7 @@ const Layout = ({ children, location = "" }) => {
         // }}
         className="px-4"
       >
-        <main>{children}</main>
+        <main className="mt-24">{children}</main>
       </div>
       <Footer />
     </>

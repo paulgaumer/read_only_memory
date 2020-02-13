@@ -24,7 +24,7 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.allAirtable.edges.forEach(({ node }) => {
     const sanitizedSlug = sanitizeSlug(node.data.slug)
     createPage({
-      path: `/titres/${sanitizedSlug}`,
+      path: `/titre/${sanitizedSlug}`,
       component: path.resolve("./src/templates/product.js"),
       context: {
         slug: sanitizedSlug,

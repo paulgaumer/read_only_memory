@@ -23,7 +23,8 @@ const StackCards = props => {
         onClick={() => onTinderSwipe()}
         onKeyDown={() => onTinderSwipe()}
         role="button"
-        // tabIndex="0"
+        tabIndex="0"
+        className="outline-none"
       >
         <TinderLikeCard
           images={arr1}

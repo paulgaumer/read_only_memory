@@ -3,7 +3,12 @@ import { azRange } from "../utils/utils"
 
 const Footer = ({ location }) => {
   const navList = ["titres", "auteurs", "editeurs", "collections"]
-  const isCategoryPage = () => navList.includes(location.pathname.slice(1))
+  const isCategoryPage = () => {
+    if (location.pathname === "/") {
+      return false
+    }
+    navList.includes(location.pathname.slice(1))
+  }
   return (
     <footer
       className={`fixed bottom-0 w-full text-5xl ${

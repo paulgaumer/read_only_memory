@@ -27,7 +27,12 @@ const NavListItem = ({ location, category }) => {
 
 const Header = ({ location }) => {
   const navList = ["titres", "auteurs", "editeurs", "collections"]
-  const isCategoryPage = () => navList.includes(location.pathname.slice(1))
+  const isCategoryPage = () => {
+    if (location.pathname === "/") {
+      return false
+    }
+    navList.includes(location.pathname.slice(1))
+  }
 
   return (
     <header

@@ -20,13 +20,7 @@ const Layout = ({ children, location = "" }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} location={location} />
-      <div
-      // style={{
-      //   margin: `80px auto`,
-      //   maxWidth: 960,
-      //   padding: `0 1.0875rem 1.45rem`,
-      // }}
-      >
+      <div>
         <main className="mt-24">{children}</main>
       </div>
       <Footer />

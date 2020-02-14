@@ -1,7 +1,7 @@
 import React from "react"
-import { Link } from "gatsby"
 import GroupByLetter from "./group-letter"
-import { azRange, capitalize, sanitizeSlug } from "../utils/utils"
+import ListItem from "./list-item"
+import { azRange } from "../utils/utils"
 import { sortListByFirstCharacter } from "../utils/structure-data"
 
 const List = ({ edges, origin, location }) => {
@@ -21,17 +21,9 @@ const List = ({ edges, origin, location }) => {
       ))}
       {/* Display names starting with special characters */}
       <div id="#" className="filtered-group">
-        <ul>
-          {sortedList.special.map((title, i) => {
-            return title.slug ? (
-              <Link to={`/titre/${sanitizeSlug(title.slug)}`} key={i}>
-                <li>{capitalize(title.name)}</li>
-              </Link>
-            ) : (
-              <li key={i}>{capitalize(title.name)}</li>
-            )
-          })}
-        </ul>
+        {sortedList.special.map((item, location) => {
+          return <ListItem item={item} location={location} />
+        })}
       </div>
     </div>
   )

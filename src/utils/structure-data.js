@@ -1,3 +1,5 @@
+import { deleteMultiples } from "./utils"
+
 const structureData = (list, origin) => {
   const titlesList = list.map(({ node }) => {
     const { data } = node
@@ -36,10 +38,10 @@ const structureData = (list, origin) => {
       const structuredData = {
         name: data.name,
         slug: data.slug,
-        titles: titles,
-        authors: authors,
-        editors: editors,
-        collections: collections,
+        titles: deleteMultiples(titles),
+        authors: deleteMultiples(authors),
+        editors: deleteMultiples(editors),
+        collections: deleteMultiples(collections),
       }
 
       return structuredData
@@ -80,10 +82,10 @@ const structureData = (list, origin) => {
 
       const structuredData = {
         name: data.name,
-        titles: titles,
-        authors: authors,
-        editors: editors,
-        collections: collections,
+        titles: deleteMultiples(titles),
+        authors: deleteMultiples(authors),
+        editors: deleteMultiples(editors),
+        collections: deleteMultiples(collections),
       }
 
       return structuredData
@@ -113,10 +115,10 @@ const structureData = (list, origin) => {
 
       const structuredData = {
         name: data.name,
-        titles: titles,
-        authors: authors,
-        editors: editors,
-        collections: collections,
+        titles: deleteMultiples(titles),
+        authors: deleteMultiples(authors),
+        editors: deleteMultiples(editors),
+        collections: deleteMultiples(collections),
       }
 
       return structuredData
@@ -146,10 +148,10 @@ const structureData = (list, origin) => {
 
       const structuredData = {
         name: data.name,
-        titles: titles,
-        authors: authors,
-        editors: editors,
-        collections: collections,
+        titles: deleteMultiples(titles),
+        authors: deleteMultiples(authors),
+        editors: deleteMultiples(editors),
+        collections: deleteMultiples(collections),
       }
 
       return structuredData

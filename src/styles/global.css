@@ -28,8 +28,8 @@ footer {
 .filtered-group::before {
   display: block;
   content: " ";
-  margin-top: -100px;
-  height: 100px;
+  margin-top: -250px;
+  height: 250px;
   visibility: hidden;
   pointer-events: none;
 }

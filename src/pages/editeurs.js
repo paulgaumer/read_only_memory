@@ -10,7 +10,7 @@ const Editors = ({ data, location }) => {
   return (
     <Layout location={location}>
       <SEO title="Editeurs" />
-      <List edges={edges} origin={"editors"} />
+      <List edges={edges} origin={"editors"} location={location} />
     </Layout>
   )
 }

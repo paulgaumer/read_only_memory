@@ -2,8 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 
 const Header = ({ location }) => {
-  console.log(location.pathname)
-
   return (
     <header className="fixed top-0 w-full">
       <div

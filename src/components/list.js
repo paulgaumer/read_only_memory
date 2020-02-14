@@ -1,10 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
-import GroupByLetter from "./filtered-group"
+import GroupByLetter from "./group-letter"
 import { azRange, capitalize, sanitizeSlug } from "../utils/utils"
 import { sortListByFirstCharacter } from "../utils/structure-data"
 
-const List = ({ edges, origin }) => {
+const List = ({ edges, origin, location }) => {
   // Filter the list to sort names starting with special character or normal letters
   const sortedList = sortListByFirstCharacter(edges, origin, azRange)
 
@@ -12,7 +12,12 @@ const List = ({ edges, origin }) => {
     <div>
       {/* Display names matching the given range */}
       {azRange.map(letter => (
-        <GroupByLetter list={sortedList.normal} letter={letter} key={letter} />
+        <GroupByLetter
+          list={sortedList.normal}
+          letter={letter}
+          key={letter}
+          location={location}
+        />
       ))}
       {/* Display names starting with special characters */}
       <div id="#" className="filtered-group">

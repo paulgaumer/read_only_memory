@@ -31,7 +31,7 @@ const Header = ({ location }) => {
     if (location.pathname === "/") {
       return false
     }
-    navList.includes(location.pathname.slice(1))
+    return navList.includes(location.pathname.slice(1))
   }
 
   return (

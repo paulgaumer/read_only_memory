@@ -3,6 +3,9 @@ export const sanitizeSlug = slug => {
   let sanitizedSlug = ""
   if (slug !== null) {
     sanitizedSlug = slug.replace("%", "-")
+    // console.log(sanitizedSlug)
+    sanitizedSlug = sanitizedSlug.replace("?", "")
+    // console.log(sanitizedSlug)
   }
   return sanitizedSlug
 }

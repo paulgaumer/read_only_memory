@@ -28,11 +28,27 @@ const NavListItem = ({ location, category }) => {
 const Header = ({ location }) => {
   const navList = ["titres", "auteurs", "editeurs", "collections"]
 
+  const isCategoryPage = () => navList.includes(location.pathname.slice(1))
+
   return (
-    <header className="fixed top-0 w-full">
-      <div className="flex justify-between pt-2 pb-0 px-4 text-5xl">
+    <header
+      className={`fixed top-0 w-full ${
+        isCategoryPage() ? "" : "border-b border-myGrey-secondary"
+      }`}
+    >
+      <div className="flex justify-between flex-row-reverse pt-2 pb-0 px-4 text-5xl">
+        {/* A propos nav */}
+        <Link to="/a-propos/" className="uppercase">
+          à propos
+        </Link>
+
+        {/* ReadONlyMemory on Index Page */}
+        {location.pathname === "/" && (
+          <p className="uppercase text-myGrey-primary">readonlymemory</p>
+        )}
+
         {/* Categories nav */}
-        {navList.includes(location.pathname.slice(1)) && (
+        {isCategoryPage() && (
           <div className="categories">
             <ul className="flex">
               {navList.map(category => (
@@ -41,7 +57,9 @@ const Header = ({ location }) => {
             </ul>
           </div>
         )}
-        {!navList.includes(location.pathname.slice(1)) && (
+
+        {/* Back button */}
+        {!isCategoryPage() && location.pathname !== "/" && (
           <div className="categories">
             <Link to="/titres" className="flex items-center">
               <span className="text-myGrey-secondary">&#9664;</span>
@@ -49,10 +67,6 @@ const Header = ({ location }) => {
             </Link>
           </div>
         )}
-        {/* A propos nav */}
-        <span className="uppercase">
-          <Link to="/a-propos/">à propos</Link>
-        </span>
       </div>
     </header>
   )

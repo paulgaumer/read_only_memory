@@ -10,16 +10,13 @@ import {
 
 const MyAccordion = ({ edges }) => {
   return (
-    <Accordion
-      allowZeroExpanded={true}
-      className="border-b border-myGrey-secondary"
-    >
+    <Accordion allowZeroExpanded={true}>
       {edges.map(({ node }) => {
         return (
           <AccordionItem
             key={node.data.id}
             uuid={node.data.id}
-            className="border-t border-myGrey-secondary"
+            className="border-b border-myGrey-secondary"
           >
             <AccordionItemHeading>
               <AccordionItemButton className="outline-none">

@@ -23,7 +23,7 @@ const Layout = ({ children, location = "" }) => {
       <div>
         <main className="mt-24">{children}</main>
       </div>
-      <Footer />
+      <Footer location={location} />
     </>
   )
 }

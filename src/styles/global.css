@@ -13,15 +13,15 @@ html {
 }
 
 body {
-  background-color: black;
+  background-color: theme("colors.myGrey.background");
   color: theme("colors.myGrey.secondary");
 }
 
 header {
-  background-color: black;
+  background-color: theme("colors.myGrey.background");
 }
 footer {
-  background-color: black;
+  background-color: theme("colors.myGrey.background");
 }
 
 /* Avoids within-page links to jumped the content right at the very top of the viewport, below the fixed header */

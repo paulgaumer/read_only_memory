@@ -160,7 +160,7 @@ const structureData = (list, origin) => {
   return titlesList
 }
 
-export const filterListByCharacterType = (list, origin, range) => {
+export const sortListByFirstCharacter = (list, origin, range) => {
   // Get list of structured data
   const titlesList = structureData(list, origin)
 

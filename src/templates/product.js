@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import StackCards from "../components/stack-cards"
 
-const ProductPage = ({ data }) => {
+const ProductPage = ({ data, location }) => {
   const product = data.airtable.data
   let images = []
 
@@ -15,7 +15,7 @@ const ProductPage = ({ data }) => {
   }
 
   return (
-    <Layout>
+    <Layout location={location}>
       <div>
         <h1>{product.name}</h1>
         <StackCards images={images} />

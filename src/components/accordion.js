@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import {
   Accordion,
   AccordionItem,
@@ -9,12 +9,9 @@ import {
 } from "react-accessible-accordion"
 
 const MyAccordion = ({ edges }) => {
-  const [isOpen, setIsOpen] = useState(false)
-
   return (
     <Accordion
       allowZeroExpanded={true}
-      onChange={uuid => setIsOpen(uuid)}
       className="border-b border-myGrey-secondary"
     >
       {edges.map(({ node }) => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { sanitizeSlug, capitalize } from "../utils/utils"
+import { sanitizeSlug, capitalize, categoryToFrench } from "../utils/utils"
 
 const ItemName = ({ item }) => {
   return (
@@ -30,7 +30,6 @@ const ItemCategory = ({ info, name }) => {
 }
 
 const ItemGrid = styled.div`
-  display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
   &.grid-titles {
     grid-template-areas: "name authors editors collections";
@@ -89,11 +88,20 @@ const ListItem = ({ item, location }) => {
   return (
     <ItemGrid
       data-name="list-item"
-      className={`border-b border-myGrey-secondary pb-2 px-4 ${gridTemplate}`}
+      className={`md:grid border-b border-myGrey-secondary pb-2 px-4 ${gridTemplate}`}
     >
       <ItemName item={item} />
       {categories.map(category => {
-        return <ItemCategory info={item[category]} name={category} />
+        return (
+          <div>
+            {item[category].length >= 1 && (
+              <p className="md:hidden">
+                {capitalize(categoryToFrench(category))}
+              </p>
+            )}
+            <ItemCategory info={item[category]} name={category} />
+          </div>
+        )
       })}
     </ItemGrid>
   )

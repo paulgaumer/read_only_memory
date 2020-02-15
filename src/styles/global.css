@@ -33,3 +33,20 @@ footer {
   visibility: hidden;
   pointer-events: none;
 }
+
+/* Mobile Menu Only: check https://github.com/negomi/react-burger-menu before changing */
+.bm-burger-button {
+  width: 36px;
+  height: 30px;
+  /* position: relative;
+  float: right;
+  margin-top: 1rem;
+  margin-right: 1rem; */
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
+.bm-burger-bars {
+  background: theme("colors.myGrey.primary");
+}
+/* ----------------- */

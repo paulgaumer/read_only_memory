@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import MenuMobile from "./header/menu-mobile"
 
 const NavListItem = ({ location, category }) => {
   // Add the accent for proper display in the navbar
@@ -36,11 +37,11 @@ const Header = ({ location }) => {
 
   return (
     <header
-      className={`fixed top-0 w-full ${
+      className={`md:mb-0 md:fixed top-0 w-full ${
         isCategoryPage() ? "" : "border-b border-myGrey-secondary"
       }`}
     >
-      <div className="flex justify-between flex-row-reverse pt-2 pb-0 px-4 text-5xl">
+      <div className="hidden md:flex justify-between flex-row-reverse pt-2 pb-0 px-4 text-3xl lg:text-5xl ">
         {/* A propos nav */}
         <Link to="/a-propos/" className="uppercase">
           à propos
@@ -71,6 +72,9 @@ const Header = ({ location }) => {
             </Link>
           </div>
         )}
+      </div>
+      <div className="text-4xl md:hidden">
+        <MenuMobile />
       </div>
     </header>
   )

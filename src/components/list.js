@@ -10,7 +10,8 @@ const List = ({ edges, origin, location }) => {
 
   return (
     <div>
-      <p className="text-3xl pt-2 pl-2 pb-4">READONLYMEMORY</p>
+      {/* Title showing only on mobile */}
+      <p className="md:hidden text-3xl pt-2 pl-4 pb-4">READONLYMEMORY</p>
       {/* Display names matching the given range */}
       {azRange.map(letter => (
         <GroupByLetter

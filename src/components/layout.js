@@ -22,7 +22,7 @@ const Layout = ({ children, location = "" }) => {
       <div id="outer-container">
         <Header siteTitle={data.site.siteMetadata.title} location={location} />
         <div>
-          <main id="page-wrap" className="md:mt-24">
+          <main id="page-wrap" className="mb-20 md:mt-16 lg:mt-20 xl:mt-24">
             {children}
           </main>
         </div>

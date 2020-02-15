@@ -41,7 +41,7 @@ const Header = ({ location }) => {
         isCategoryPage() ? "" : "border-b border-myGrey-secondary"
       }`}
     >
-      <div className="hidden md:flex justify-between flex-row-reverse pt-2 pb-0 px-4 text-3xl lg:text-5xl ">
+      <div className="hidden md:flex justify-between flex-row-reverse pt-2 pb-0 px-4 text-3xl lg:text-4xl xl:text-5xl ">
         {/* A propos nav */}
         <Link to="/a-propos/" className="uppercase">
           à propos

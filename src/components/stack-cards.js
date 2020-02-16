@@ -30,7 +30,7 @@ const StackCards = props => {
           images={arr1}
           width="450"
           height="350"
-          direction="swipeCornerDownRight"
+          direction="swipeRightRotate"
           duration={10}
           ref={node => setTinder(node)}
         />

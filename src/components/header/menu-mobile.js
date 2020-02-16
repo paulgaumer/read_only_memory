@@ -3,11 +3,24 @@ import { Link } from "gatsby"
 import { slide as Menu } from "react-burger-menu"
 
 const MenuMobile = () => {
+  var styles = {
+    bmBurgerButton: {
+      position: "fixed",
+      width: "36px",
+      height: "30px",
+      top: "1rem",
+      right: "1rem",
+    },
+    bmBurgerBars: {
+      background: "#E5E5E5",
+    },
+  }
   return (
     <Menu
       pageWrapId={"page-wrap"}
       outerContainerId={"outer-container"}
       className="bg-myGrey-secondary text-myGrey-primary pl-6 pt-2"
+      styles={styles}
       width={"290px"}
       left
     >

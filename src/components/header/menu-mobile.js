@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import { slide as Menu } from "react-burger-menu"
 
 const MenuMobile = () => {
@@ -10,25 +11,29 @@ const MenuMobile = () => {
       width={"290px"}
       left
     >
-      <a id="titles" className="menu-item outline-none pb-4" href="/titres">
+      <Link id="titles" className="menu-item outline-none pb-4" to="/titres">
         Titres
-      </a>
-      <a id="authors" className="menu-item outline-none pb-4" href="/auteurs">
+      </Link>
+      <Link id="authors" className="menu-item outline-none pb-4" to="/auteurs">
         Auteurs
-      </a>
-      <a id="editeurs" className="menu-item outline-none pb-4" href="/editeurs">
+      </Link>
+      <Link
+        id="editeurs"
+        className="menu-item outline-none pb-4"
+        to="/editeurs"
+      >
         Éditeurs
-      </a>
-      <a
+      </Link>
+      <Link
         id="collections"
         className="menu-item outline-none pb-4"
-        href="/collections"
+        to="/collections"
       >
         Collections
-      </a>
-      <a id="about" className="menu-item outline-none pb-4" href="/a-propos">
+      </Link>
+      <Link id="about" className="menu-item outline-none pb-4" to="/a-propos">
         À propos
-      </a>
+      </Link>
     </Menu>
   )
 }

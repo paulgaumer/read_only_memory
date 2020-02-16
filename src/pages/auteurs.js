@@ -10,7 +10,7 @@ const Authors = ({ data, location }) => {
   return (
     <Layout location={location}>
       <SEO title="Auteurs" />
-      <List edges={edges} origin={"authors"} location={location} />
+      <List edges={edges} page={"authors"} />
     </Layout>
   )
 }

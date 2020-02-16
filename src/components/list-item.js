@@ -61,29 +61,29 @@ const ItemGrid = styled.div`
   }
 `
 
-const ListItem = ({ item, location }) => {
+const ListItem = ({ item, page }) => {
   const categories = ["titles", "authors", "editors", "collections"]
   const [gridTemplate, setGridTemplate] = useState("grid-titles")
 
   useEffect(() => {
-    switch (location.pathname) {
-      case "/titres":
+    switch (page) {
+      case "titles":
         setGridTemplate("grid-titles")
         break
-      case "/auteurs":
+      case "authors":
         setGridTemplate("grid-authors")
         break
-      case "/editeurs":
+      case "editors":
         setGridTemplate("grid-editors")
         break
-      case "/collections":
+      case "collections":
         setGridTemplate("grid-collections")
         break
       default:
         setGridTemplate("grid-titles")
         break
     }
-  }, [location.pathname])
+  }, [page])
 
   return (
     <ItemGrid

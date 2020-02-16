@@ -4,9 +4,9 @@ import ListItem from "./list-item"
 import { azRange } from "../utils/utils"
 import { sortListByFirstCharacter } from "../utils/structure-data"
 
-const List = ({ edges, origin, location }) => {
+const List = ({ edges, page }) => {
   // Filter the list to sort names starting with special character or normal letters
-  const sortedList = sortListByFirstCharacter(edges, origin, azRange)
+  const sortedList = sortListByFirstCharacter(edges, page, azRange)
 
   return (
     <div>
@@ -18,13 +18,13 @@ const List = ({ edges, origin, location }) => {
           list={sortedList.normal}
           letter={letter}
           key={letter}
-          location={location}
+          page={page}
         />
       ))}
       {/* Display names starting with special characters */}
       <div id="#" className="filtered-group">
-        {sortedList.special.map((item, location) => {
-          return <ListItem item={item} location={location} />
+        {sortedList.special.map(item => {
+          return <ListItem item={item} page={page} />
         })}
       </div>
     </div>

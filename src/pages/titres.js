@@ -10,7 +10,7 @@ const Titles = ({ data, location }) => {
   return (
     <Layout location={location}>
       <SEO title="Titres" />
-      <List edges={edges} origin={"titles"} location={location} />
+      <List edges={edges} page={"titles"} />
     </Layout>
   )
 }

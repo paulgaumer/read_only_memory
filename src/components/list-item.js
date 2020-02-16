@@ -23,7 +23,9 @@ const ItemCategory = ({ info, name }) => {
   return (
     <div data-name={name} className="ml-4">
       {info.map(e => (
-        <p className="py-1">{e}</p>
+        <p className="py-1" key={e}>
+          {e}
+        </p>
       ))}
     </div>
   )
@@ -95,7 +97,7 @@ const ListItem = ({ item, page }) => {
       {categories.map(category => {
         if (category !== page) {
           return (
-            <div>
+            <div key={category}>
               {/* Category title for mobile layout */}
               {item[category].length >= 1 && (
                 <p className="md:hidden">

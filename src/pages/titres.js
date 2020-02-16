@@ -25,6 +25,7 @@ export const allTitlesQuery = graphql`
     ) {
       edges {
         node {
+          id
           data {
             name
             slug

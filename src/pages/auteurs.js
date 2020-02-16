@@ -25,6 +25,7 @@ export const allAuthorsQuery = graphql`
     ) {
       edges {
         node {
+          id
           data {
             name
             titles {

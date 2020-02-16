@@ -22,6 +22,7 @@ export const allEditorsQuery = graphql`
     allAirtable(filter: { table: { eq: "editors" } }) {
       edges {
         node {
+          id
           data {
             name
             titles {

@@ -9,7 +9,7 @@ const GroupByLetter = ({ letter, list, page }) => {
           item.name !== null &&
           item.name.toLowerCase().charAt(0) === letter
         ) {
-          return <ListItem item={item} page={page} />
+          return <ListItem item={item} page={page} key={item.id} />
         }
         return null
       })}

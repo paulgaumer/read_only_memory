@@ -36,6 +36,7 @@ const structureData = (list, origin) => {
       }
 
       const structuredData = {
+        id: node.id,
         name: data.name,
         slug: data.slug,
         titles: deleteMultiples(titles),
@@ -81,6 +82,7 @@ const structureData = (list, origin) => {
       }
 
       const structuredData = {
+        id: node.id,
         name: data.name,
         titles: deleteMultiples(titles),
         authors: deleteMultiples(authors),
@@ -114,6 +116,7 @@ const structureData = (list, origin) => {
       }
 
       const structuredData = {
+        id: node.id,
         name: data.name,
         titles: deleteMultiples(titles),
         authors: deleteMultiples(authors),
@@ -147,6 +150,7 @@ const structureData = (list, origin) => {
       }
 
       const structuredData = {
+        id: node.id,
         name: data.name,
         titles: deleteMultiples(titles),
         authors: deleteMultiples(authors),

@@ -26,7 +26,7 @@ const List = ({ edges, page }) => {
       {/* Display names starting with special characters */}
       <div id="#" className="filtered-group">
         {sortedList.special.map(item => {
-          return <ListItem item={item} page={page} />
+          return <ListItem item={item} page={page} key={item.id} />
         })}
       </div>
     </div>

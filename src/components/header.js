@@ -58,7 +58,11 @@ const Header = ({ location }) => {
           <div className="categories">
             <ul className="flex">
               {navList.map(category => (
-                <NavListItem location={location} category={category} />
+                <NavListItem
+                  location={location}
+                  category={category}
+                  key={category}
+                />
               ))}
             </ul>
           </div>

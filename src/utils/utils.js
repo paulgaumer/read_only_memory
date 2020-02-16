@@ -27,16 +27,12 @@ export const categoryToFrench = category => {
   switch (category) {
     case "titles":
       return "titres"
-      break
     case "editors":
       return "éditeurs"
-      break
     case "authors":
       return "auteurs"
-      break
     case "collections":
       return "collections"
-      break
     default:
       break
   }

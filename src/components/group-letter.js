@@ -1,7 +1,7 @@
 import React from "react"
 import ListItem from "./list-item"
 
-const GroupByLetter = ({ letter, list, location }) => {
+const GroupByLetter = ({ letter, list, page }) => {
   return (
     <div id={letter} data-name="filtered-group">
       {list.map((item, i) => {
@@ -9,7 +9,7 @@ const GroupByLetter = ({ letter, list, location }) => {
           item.name !== null &&
           item.name.toLowerCase().charAt(0) === letter
         ) {
-          return <ListItem item={item} location={location} />
+          return <ListItem item={item} page={page} />
         }
         return null
       })}

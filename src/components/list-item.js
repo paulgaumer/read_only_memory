@@ -65,6 +65,7 @@ const ListItem = ({ item, page }) => {
   const categories = ["titles", "authors", "editors", "collections"]
   const [gridTemplate, setGridTemplate] = useState("grid-titles")
 
+  // Select a template for CSS Grid area based on the current page
   useEffect(() => {
     switch (page) {
       case "titles":
@@ -92,16 +93,21 @@ const ListItem = ({ item, page }) => {
     >
       <ItemName item={item} />
       {categories.map(category => {
-        return (
-          <div>
-            {item[category].length >= 1 && (
-              <p className="md:hidden">
-                {capitalize(categoryToFrench(category))}
-              </p>
-            )}
-            <ItemCategory info={item[category]} name={category} />
-          </div>
-        )
+        if (category !== page) {
+          return (
+            <div>
+              {/* Category title for mobile layout */}
+              {item[category].length >= 1 && (
+                <p className="md:hidden">
+                  {capitalize(categoryToFrench(category))}
+                </p>
+              )}
+              {/* ***** */}
+              <ItemCategory info={item[category]} name={category} />
+            </div>
+          )
+        }
+        return null
       })}
     </ItemGrid>
   )

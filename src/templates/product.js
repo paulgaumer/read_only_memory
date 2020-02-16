@@ -17,8 +17,55 @@ const ProductPage = ({ data, location }) => {
   return (
     <Layout location={location}>
       <div>
-        <h1>{product.name}</h1>
-        <StackCards images={images} />
+        <div
+          data-name="product-top-bar"
+          className="grid grid-cols-4 px-4 pb-3 border-b border-myGrey-secondary"
+        >
+          <div data-name="title-details" className="text-myGrey-primary">
+            <h1>{product.name}</h1>
+            <p>{product.year}</p>
+          </div>
+          <div data-name="authors">
+            {product.authors !== null &&
+              product.authors.map(author => (
+                <p key={author.id}>{author.data.name}</p>
+              ))}
+          </div>
+          <div data-name="editors">
+            {product.editors !== null &&
+              product.editors.map(editor => (
+                <p key={editor.id}>{editor.data.name}</p>
+              ))}
+          </div>
+          <div data-name="collections">
+            {product.collections !== null &&
+              product.collections.map(collection => (
+                <p key={collection.id}>{collection.data.name}</p>
+              ))}
+          </div>
+        </div>
+
+        <div data-name="product-body" className="md:flex px-4 py-4">
+          <div>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio
+            cumque nesciunt voluptatem perspiciatis molestias nostrum ducimus
+            quos debitis alias corporis placeat doloremque provident cum, ipsum
+            amet laudantium aspernatur, explicabo labore! Lorem, ipsum dolor sit
+            amet consectetur adipisicing elit. Vero explicabo nam iusto
+            necessitatibus, aut, quod non alias quasi saepe qui laudantium ab
+            quis, quae voluptatem amet in quam. Natus, harum? Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Quia quisquam corrupti ipsam?
+            Mollitia, illum. Corporis laboriosam, minima unde animi numquam id,
+            praesentium beatae repellat eligendi eaque ut magnam ipsam optio?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere a
+            odit ipsum tenetur exercitationem corrupti sint asperiores unde sed!
+            Voluptatum totam suscipit explicabo deleniti earum, maxime veniam
+            expedita commodi harum?
+          </div>
+          <div className="ml-20 mr-4" style={{ marginTop: "-30px" }}>
+            <StackCards images={images} />
+          </div>
+        </div>
       </div>
     </Layout>
   )

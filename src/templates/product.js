@@ -1,6 +1,21 @@
 import React from "react"
 import Layout from "../components/layout"
 import StackCards from "../components/stack-cards"
+import imgIcon from "../images/image-icon.svg"
+
+const ProductImages = ({ images }) => {
+  console.log(images)
+  if (images.length >= 1) {
+    return <StackCards images={images} />
+  } else {
+    return (
+      <div className="flex flex-col items-center">
+        <img src={imgIcon} alt="" className="w-40 mb-8" />
+        <p className="text-xl">Pas d'images de disponibles pour le moment</p>
+      </div>
+    )
+  }
+}
 
 const ProductPage = ({ data, location }) => {
   const product = data.airtable.data
@@ -45,7 +60,7 @@ const ProductPage = ({ data, location }) => {
           </div>
         </div>
 
-        <div data-name="product-body" className="md:flex px-4 py-4">
+        <div data-name="product-body" className="md:grid grid-cols-2 px-4 py-4">
           <div>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio
             cumque nesciunt voluptatem perspiciatis molestias nostrum ducimus
@@ -62,8 +77,8 @@ const ProductPage = ({ data, location }) => {
             Voluptatum totam suscipit explicabo deleniti earum, maxime veniam
             expedita commodi harum?
           </div>
-          <div className="ml-20 mr-4" style={{ marginTop: "-30px" }}>
-            <StackCards images={images} />
+          <div className="flex justify-center items-center">
+            <ProductImages images={images} />
           </div>
         </div>
       </div>

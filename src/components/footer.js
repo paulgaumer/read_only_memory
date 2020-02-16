@@ -31,6 +31,9 @@ const Footer = ({ location }) => {
                 </span>
               )
             })}
+        {!navList.includes(location.pathname.slice(1)) && (
+          <p className="float-right">CONTRIBUTIONS</p>
+        )}
       </div>
     </footer>
   )

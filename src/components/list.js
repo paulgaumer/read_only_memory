@@ -1,7 +1,7 @@
 import React from "react"
 import GroupByLetter from "./group-letter"
 import ListItem from "./list-item"
-import { azRange } from "../utils/utils"
+import { azRange, categoryToFrench } from "../utils/utils"
 import { sortListByFirstCharacter } from "../utils/structure-data"
 
 const List = ({ edges, page }) => {
@@ -11,7 +11,9 @@ const List = ({ edges, page }) => {
   return (
     <div>
       {/* Title showing only on mobile */}
-      <p className="md:hidden text-3xl pt-2 pl-4 pb-4">READONLYMEMORY</p>
+      <p className="md:hidden text-3xl pt-2 pl-4 pb-4 uppercase">
+        {categoryToFrench(page).slice(0, -1)}
+      </p>
       {/* Display names matching the given range */}
       {azRange.map(letter => (
         <GroupByLetter

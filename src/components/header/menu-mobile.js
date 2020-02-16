@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { slide as Menu } from "react-burger-menu"
 
 const MenuMobile = () => {
+  // Keep styles as CSS-in-JS to be processed in production build
   var styles = {
     bmBurgerButton: {
       position: "fixed",
@@ -19,30 +20,30 @@ const MenuMobile = () => {
     <Menu
       pageWrapId={"page-wrap"}
       outerContainerId={"outer-container"}
-      className="bg-myGrey-secondary text-myGrey-primary pl-6 pt-2"
+      className="bg-myGrey-secondary text-myGrey-primary text-3xl pl-8 pt-6 uppercase"
       styles={styles}
       width={"290px"}
       left
     >
       <Link id="titles" className="menu-item outline-none pb-4" to="/titres">
-        Titres
+        Titre
       </Link>
       <Link id="authors" className="menu-item outline-none pb-4" to="/auteurs">
-        Auteurs
+        Auteur
       </Link>
       <Link
         id="editeurs"
         className="menu-item outline-none pb-4"
         to="/editeurs"
       >
-        Éditeurs
+        Éditeur
       </Link>
       <Link
         id="collections"
         className="menu-item outline-none pb-4"
         to="/collections"
       >
-        Collections
+        Collection
       </Link>
       <Link id="about" className="menu-item outline-none pb-4" to="/a-propos">
         À propos

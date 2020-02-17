@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import StackCards from "../components/stack-cards"
-import imgIcon from "../images/image-icon.svg"
+import ImgIcon from "../components/img-icon"
 
 const ProductImages = ({ images }) => {
   console.log(images)
@@ -9,9 +9,12 @@ const ProductImages = ({ images }) => {
     return <StackCards images={images} />
   } else {
     return (
-      <div className="flex flex-col items-center">
-        <img src={imgIcon} alt="" className="w-40 mb-8" />
-        <p className="text-xl">Pas d'images de disponibles pour le moment</p>
+      <div className="flex flex-col items-center pt-8">
+        {/* <img src={imgIcon} alt="" className="w-40 mb-8" /> */}
+        <ImgIcon fill="#4A4A4A" width="9rem" />
+        <p className="text-xl mt-8">
+          Pas d'images de disponibles pour le moment
+        </p>
       </div>
     )
   }
@@ -61,7 +64,7 @@ const ProductPage = ({ data, location }) => {
         </div>
 
         <div data-name="product-body" className="md:grid grid-cols-2 px-4 py-4">
-          <div>
+          <div className="pt-8">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio
             cumque nesciunt voluptatem perspiciatis molestias nostrum ducimus
             quos debitis alias corporis placeat doloremque provident cum, ipsum

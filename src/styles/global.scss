@@ -4,10 +4,11 @@
 
 @tailwind utilities;
 
-/* --------------------------- */
+/* *************************** */
 /* CUSTOM CSS*/
 /* --------------------------- */
 
+// Theme color sets. Change these variables to change the dark & light mode preferences.
 $background-color-dark: theme("colors.myGrey.background");
 $text-color-primary-dark: theme("colors.myGrey.primary");
 $text-color-secondary-dark: theme("colors.myGrey.secondary");
@@ -52,4 +53,4 @@ footer {
   visibility: hidden;
   pointer-events: none;
 }
-/* *********** */
+/* *************************** */

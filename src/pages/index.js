@@ -15,7 +15,7 @@ const IndexPage = ({ location }) => (
     <Container className="flex justify-center items-center">
       <Link
         to="/titres"
-        className="text-6xl p-2 border border-myGrey-primary text-myGrey-primary rounded-lg"
+        className="text-6xl p-2 border border-myGrey-primary text-primary rounded-lg"
       >
         ENTRER
       </Link>

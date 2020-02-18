@@ -20,7 +20,7 @@ const MenuMobile = () => {
     <Menu
       pageWrapId={"page-wrap"}
       outerContainerId={"outer-container"}
-      className="bg-myGrey-secondary text-myGrey-primary text-3xl pl-8 pt-6 uppercase"
+      className="bg-myGrey-secondary text-primary text-3xl pl-8 pt-6 uppercase"
       styles={styles}
       width={"290px"}
       left

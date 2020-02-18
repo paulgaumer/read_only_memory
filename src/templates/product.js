@@ -58,7 +58,7 @@ const ProductPage = ({ data, location }) => {
           data-name="product-top-bar"
           className="grid grid-cols-4 px-4 pb-3 border-b border-myGrey-secondary"
         >
-          <div data-name="title-details" className="text-myGrey-primary">
+          <div data-name="title-details" className="text-primary">
             <h1>{product.name}</h1>
             <p>{product.year}</p>
           </div>

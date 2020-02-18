@@ -1,0 +1,55 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+/* --------------------------- */
+/* CUSTOM CSS*/
+/* --------------------------- */
+
+$background-color-dark: theme("colors.myGrey.background");
+$text-color-primary-dark: theme("colors.myGrey.primary");
+$text-color-secondary-dark: theme("colors.myGrey.secondary");
+$background-color-light: theme("colors.white");
+$text-color-primary-light: theme("colors.blue.800");
+$text-color-secondary-light: theme("colors.blue.500");
+
+html {
+  scroll-behavior: smooth !important;
+}
+
+body {
+  background-color: $background-color-dark;
+  color: $text-color-secondary-dark;
+  &.light-mode {
+    background-color: $background-color-light;
+    color: $text-color-secondary-light;
+  }
+}
+
+.text-primary {
+  color: $text-color-primary-dark;
+  .light-mode & {
+    color: $text-color-primary-light;
+  }
+}
+
+header,
+footer {
+  background-color: $background-color-dark;
+  .light-mode & {
+    background-color: $background-color-light;
+  }
+}
+
+/* Avoids within-page links to jumped the content right at the very top of the viewport, below the fixed header */
+.filtered-group::before {
+  display: block;
+  content: " ";
+  margin-top: -250px;
+  height: 250px;
+  visibility: hidden;
+  pointer-events: none;
+}
+/* *********** */

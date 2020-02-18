@@ -10,11 +10,7 @@ const NavListItem = ({ location, category }) => {
   const isCurrentLocation = location.pathname === `/${category}`
 
   return (
-    <li
-      className={`${
-        isCurrentLocation ? "text-myGrey-primary" : ""
-      } uppercase pr-5`}
-    >
+    <li className={`${isCurrentLocation ? "text-primary" : ""} uppercase pr-5`}>
       <Link to={`/${category}`} className="flex items-center">
         <span className={`${isCurrentLocation ? "inline-block" : "hidden"}`}>
           ►
@@ -50,7 +46,7 @@ const Header = ({ location }) => {
 
         {/* ReadONlyMemory on Index Page */}
         {location.pathname === "/" && (
-          <p className="uppercase text-myGrey-primary">readonlymemory</p>
+          <p className="uppercase text-primary">readonlymemory</p>
         )}
 
         {/* Categories nav */}
@@ -72,7 +68,7 @@ const Header = ({ location }) => {
         {!isCategoryPage() && location.pathname !== "/" && (
           <div className="categories">
             <Link to="/titres" className="flex items-center">
-              <span className="text-myGrey-secondary">&#9664;</span>
+              <span>&#9664;</span>
               <p className="uppercase">avant</p>
             </Link>
           </div>

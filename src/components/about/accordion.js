@@ -23,7 +23,7 @@ const MyAccordion = ({ edges }) => {
                 <AccordionItemState>
                   {state => {
                     return (
-                      <div className="flex text-myGrey-primary px-4">
+                      <div className="flex text-primary px-4">
                         <span style={{ flex: "0 0 30%" }}>
                           {node.data.name}
                         </span>

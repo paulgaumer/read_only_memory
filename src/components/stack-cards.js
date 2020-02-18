@@ -28,9 +28,17 @@ const StackCards = props => {
       >
         <TinderLikeCard
           images={arr1}
-          width="450"
-          height="350"
-          direction="swipeRightRotate"
+          width={
+            props.windowSize === "sm" || props.windowSize === "md"
+              ? "350"
+              : "450"
+          }
+          height={
+            props.windowSize === "sm" || props.windowSize === "md"
+              ? "250"
+              : "350"
+          }
+          direction="swipeDown"
           duration={10}
           ref={node => setTinder(node)}
         />

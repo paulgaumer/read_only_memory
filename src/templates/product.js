@@ -1,20 +1,20 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Layout from "../components/layout"
 import StackCards from "../components/stack-cards"
 import ImgIcon from "../components/img-icon"
 
-const ProductImages = ({ images }) => {
-  console.log(images)
+const ProductImages = ({ images, windowSize }) => {
   if (images.length >= 1) {
-    return <StackCards images={images} />
+    return <StackCards images={images} windowSize={windowSize} />
   } else {
     return (
       <div className="flex flex-col items-center pt-8">
         {/* <img src={imgIcon} alt="" className="w-40 mb-8" /> */}
-        <ImgIcon fill="#4A4A4A" width="9rem" />
-        <p className="text-xl mt-8">
-          Pas d'images de disponibles pour le moment
-        </p>
+        <ImgIcon
+          fill="#4A4A4A"
+          width={windowSize === "sm" || windowSize === "md" ? "6rem" : "9rem"}
+        />
+        <p className="text-xl mt-8">Pas d'images pour le moment</p>
       </div>
     )
   }
@@ -23,6 +23,25 @@ const ProductImages = ({ images }) => {
 const ProductPage = ({ data, location }) => {
   const product = data.airtable.data
   let images = []
+  const [windowWidth, setWindowWidth] = useState("")
+
+  useEffect(() => {
+    if (typeof window !== `undefined`) {
+      setWindowWidth(window.innerWidth)
+    }
+  }, [])
+
+  const getWindowSize = size => {
+    if (size >= 1280) {
+      return "xl"
+    } else if (size >= 1024) {
+      return "lg"
+    } else if (size >= 768) {
+      return "md"
+    } else {
+      return "sm"
+    }
+  }
 
   // create an array of images from data
   if (product.images) {
@@ -81,7 +100,10 @@ const ProductPage = ({ data, location }) => {
             expedita commodi harum?
           </div>
           <div className="flex justify-center items-center">
-            <ProductImages images={images} />
+            <ProductImages
+              images={images}
+              windowSize={getWindowSize(windowWidth)}
+            />
           </div>
         </div>
       </div>

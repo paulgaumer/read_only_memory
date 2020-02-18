@@ -38,6 +38,18 @@ export const categoryToFrench = category => {
   }
 }
 
+export const getWindowSize = size => {
+  if (size >= 1280) {
+    return "xl"
+  } else if (size >= 1024) {
+    return "lg"
+  } else if (size >= 768) {
+    return "md"
+  } else {
+    return "sm"
+  }
+}
+
 export const azRange = [
   "a",
   "b",

@@ -11,7 +11,7 @@ const Footer = ({ location }) => {
   }
   return (
     <footer
-      className={`fixed bottom-0 w-full text-5xl ${
+      className={`fixed bottom-0 w-full text-3xl lg:text-4xl xl:text-5xl ${
         isCategoryPage() ? "" : "border-t border-myGrey-secondary"
       }`}
       // style={{ height: "72px" }}
@@ -32,7 +32,7 @@ const Footer = ({ location }) => {
               )
             })}
         {!navList.includes(location.pathname.slice(1)) && (
-          <p className="float-right">CONTRIBUTIONS</p>
+          <p className="text-center md:float-right">CONTRIBUTIONS</p>
         )}
       </div>
     </footer>

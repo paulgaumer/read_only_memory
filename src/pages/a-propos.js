@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import MyAccordion from "../components/accordion"
+import MyAccordion from "../components/about/accordion"
 
 const About = ({ data, location }) => {
   const { edges } = data.allAirtable

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import Layout from "../components/layout"
-import StackCards from "../components/stack-cards"
-import ImgIcon from "../components/img-icon"
+import StackCards from "../components/product/stack-cards"
+import ImgIcon from "../components/product/img-icon"
 
 const ProductImages = ({ images, windowSize, name }) => {
   if (images.length >= 1) {

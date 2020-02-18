@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { sanitizeSlug, capitalize, categoryToFrench } from "../utils/utils"
+import { sanitizeSlug, capitalize, categoryToFrench } from "../../utils/utils"
 
 const ItemName = ({ item }) => {
   return (

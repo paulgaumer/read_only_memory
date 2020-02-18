@@ -1,5 +1,5 @@
 import React from "react"
-import { azRange } from "../utils/utils"
+import { azRange } from "../../utils/utils"
 
 const Footer = ({ location }) => {
   const navList = ["titres", "auteurs", "editeurs", "collections"]

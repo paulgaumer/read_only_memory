@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import MenuMobile from "./header/menu-mobile"
+import MenuMobile from "./menu-mobile"
 
 const NavListItem = ({ location, category }) => {
   // Add the accent for proper display in the navbar

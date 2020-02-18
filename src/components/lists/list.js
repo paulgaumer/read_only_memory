@@ -1,8 +1,8 @@
 import React from "react"
 import GroupByLetter from "./group-letter"
 import ListItem from "./list-item"
-import { azRange, categoryToFrench } from "../utils/utils"
-import { sortListByFirstCharacter } from "../utils/structure-data"
+import { azRange, categoryToFrench } from "../../utils/utils"
+import { sortListByFirstCharacter } from "../../utils/structure-data"
 
 const List = ({ edges, page }) => {
   // Filter the list to sort names starting with special character or normal letters

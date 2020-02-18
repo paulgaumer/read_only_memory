@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import List from "../components/list"
+import List from "../components/lists/list"
 
 const Editors = ({ data, location }) => {
   const { edges } = data.allAirtable

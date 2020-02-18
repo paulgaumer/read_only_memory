@@ -3,9 +3,9 @@ import Layout from "../components/layout"
 import StackCards from "../components/stack-cards"
 import ImgIcon from "../components/img-icon"
 
-const ProductImages = ({ images, windowSize }) => {
+const ProductImages = ({ images, windowSize, name }) => {
   if (images.length >= 1) {
-    return <StackCards images={images} windowSize={windowSize} />
+    return <StackCards images={images} windowSize={windowSize} name={name} />
   } else {
     return (
       <div className="flex flex-col items-center pt-8">
@@ -102,6 +102,7 @@ const ProductPage = ({ data, location }) => {
           <div className="flex justify-center items-center">
             <ProductImages
               images={images}
+              name={product.name}
               windowSize={getWindowSize(windowWidth)}
             />
           </div>

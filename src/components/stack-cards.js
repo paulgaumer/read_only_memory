@@ -1,14 +1,14 @@
 import React, { useState } from "react"
 import { TinderLikeCard } from "react-stack-cards"
 
-const StackCards = props => {
+const StackCards = ({ images, windowSize, name }) => {
   const [tinder, setTinder] = useState(null)
 
   const onTinderSwipe = () => {
     tinder.swipe()
   }
 
-  const arr = props.images
+  const arr = images
   let arr1 = arr
 
   // check for the number of images
@@ -28,16 +28,8 @@ const StackCards = props => {
       >
         <TinderLikeCard
           images={arr1}
-          width={
-            props.windowSize === "sm" || props.windowSize === "md"
-              ? "350"
-              : "450"
-          }
-          height={
-            props.windowSize === "sm" || props.windowSize === "md"
-              ? "250"
-              : "350"
-          }
+          width={windowSize === "sm" || windowSize === "md" ? "350" : "450"}
+          height={windowSize === "sm" || windowSize === "md" ? "250" : "350"}
           direction="swipeDown"
           duration={10}
           ref={node => setTinder(node)}
@@ -46,7 +38,14 @@ const StackCards = props => {
     )
   } else {
     // return a single image
-    return <img src={arr[0]} alt="" />
+    return (
+      <img
+        src={arr[0]}
+        alt={name}
+        width={windowSize === "sm" || windowSize === "md" ? "350" : "450"}
+        className="pt-8 lg:pt-0"
+      />
+    )
   }
 }
 

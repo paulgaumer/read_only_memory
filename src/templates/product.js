@@ -25,9 +25,18 @@ const ProductPage = ({ data, location }) => {
   let images = []
   const [windowWidth, setWindowWidth] = useState("")
 
+  const handleWindowResize = () => {
+    setWindowWidth(window.innerWidth)
+  }
+
   useEffect(() => {
+    // Check for the presence of window. Needed for SSR.
     if (typeof window !== `undefined`) {
       setWindowWidth(window.innerWidth)
+      window.addEventListener("resize", handleWindowResize)
+      return () => {
+        window.removeEventListener("resize", handleWindowResize)
+      }
     }
   }, [])
 

@@ -91,7 +91,7 @@ const ListItem = ({ item, page }) => {
   return (
     <ItemGrid
       data-name="list-item"
-      className={`md:grid border-b last:border-b-0 border-myGrey-secondary pb-2 px-4 ${gridTemplate}`}
+      className={`md:grid border-b border-myGrey-secondary pb-2 px-4 ${gridTemplate}`}
     >
       <ItemName item={item} />
       {categories.map(category => {

@@ -24,18 +24,14 @@ const NavListItem = ({ location, category }) => {
 
 const Header = ({ location }) => {
   const navList = ["titres", "auteurs", "editeurs", "collections"]
-  const isCategoryPage = () => {
-    if (location.pathname === "/") {
-      return false
-    }
-    return navList.includes(location.pathname.slice(1))
-  }
+  const isCategoryPage = () => navList.includes(location.pathname.slice(1))
+  const isHomePage = () => location.pathname === "/"
 
   return (
     <header
       className={`md:mb-0 md:fixed top-0 w-full ${
         isCategoryPage() ? "" : "border-b border-myGrey-secondary"
-      }`}
+      } ${isHomePage() ? "home-header" : ""}`}
     >
       {/* NON-MOBILE MENU */}
       <div className="hidden md:flex justify-between flex-row-reverse pt-2 pb-0 px-4 text-3xl lg:text-4xl xl:text-5xl ">

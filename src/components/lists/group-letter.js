@@ -3,7 +3,7 @@ import ListItem from "./list-item"
 
 const GroupByLetter = ({ letter, list, page }) => {
   return (
-    <div id={letter} data-name="filtered-group">
+    <div id={letter} className="filtered-group">
       {list.map((item, i) => {
         if (
           item.name !== null &&

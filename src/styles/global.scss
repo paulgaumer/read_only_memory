@@ -45,12 +45,24 @@ footer {
 }
 
 /* Avoids within-page links to jumped the content right at the very top of the viewport, below the fixed header */
+// .filtered-group {
+//   scroll-margin-top: 80px;
+// }
 .filtered-group::before {
   display: block;
   content: " ";
-  margin-top: -250px;
-  height: 250px;
   visibility: hidden;
   pointer-events: none;
+  margin-top: -80px;
+  height: 80px;
+
+  @media (max-width: 1023px) {
+    margin-top: -55px;
+    height: 55px;
+  }
+  @media (max-width: 767px) {
+    margin-top: 0px;
+    height: 0px;
+  }
 }
 /* *************************** */

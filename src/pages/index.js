@@ -1,14 +1,43 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
-// import styled from "styled-components"
+import styled from "styled-components"
 import useDarkMode from "use-dark-mode"
 import SEO from "../components/seo"
 import "../styles/global.scss"
 
-// const Container = styled.div`
-//   min-height: -webkit-fill-available;
-//   min-height: 100vh;
-// `
+const Container = styled.div`
+  /* min-height: -webkit-fill-available;
+  min-height: 100vh; */
+
+  @-webkit-keyframes slideInFromTop {
+    0% {
+      -webkit-height: 0px;
+    }
+    50% {
+      -webkit-height: 500px;
+    }
+    100% {
+      -webkit-height: ${props => props.windowHeight + "px"};
+    }
+  }
+
+  @keyframes slideInFromTop {
+    0% {
+      height: 0px;
+    }
+    100% {
+      height: ${props => props.windowHeight + "px"};
+    }
+  }
+
+  -webkit-animation-name: slideInFromTop;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-timing-function: ease-out;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+  animation: slideInFromTop 1.5s ease-out 0s 1 forwards;
+`
 
 const IndexPage = () => {
   // Use JS to handle window height for mobile browsers
@@ -29,9 +58,10 @@ const IndexPage = () => {
   return (
     <>
       <SEO title="Home" />
-      <div
+      <Container
         className="flex flex-col text-3xl lg:text-4xl xl:text-5xl"
-        style={{ height: `${windowHeight}px` }}
+        // style={{ height: `${windowHeight}px` }}
+        windowHeight={windowHeight}
       >
         <Link
           to="/titres"
@@ -62,7 +92,7 @@ const IndexPage = () => {
             </div>
           </div>
         </Link>
-      </div>
+      </Container>
     </>
   )
 }

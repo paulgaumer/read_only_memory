@@ -1,25 +1,38 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
-import styled from "styled-components"
+// import styled from "styled-components"
 import useDarkMode from "use-dark-mode"
 import SEO from "../components/seo"
 import "../styles/global.scss"
 
-const Container = styled.div`
-  min-height: -webkit-fill-available;
-  min-height: 100vh;
-`
+// const Container = styled.div`
+//   min-height: -webkit-fill-available;
+//   min-height: 100vh;
+// `
 
 const IndexPage = () => {
-  const darkMode = useDarkMode(false)
+  // Use JS to handle window height for mobile browsers
+  const [windowHeight, setWindowHeight] = useState("")
+  useEffect(() => {
+    // Check for the presence of window. Needed for SSR.
+    if (typeof window !== undefined) {
+      setWindowHeight(window.innerHeight)
+    }
+  }, [])
 
+  // Setup the switch between dark & light mode
+  const darkMode = useDarkMode(false)
   const handleClick = mode => {
     return mode === "dark" ? darkMode.enable() : darkMode.disable()
   }
+
   return (
     <>
       <SEO title="Home" />
-      <Container className="flex flex-col text-3xl lg:text-4xl xl:text-5xl">
+      <div
+        className="flex flex-col text-3xl lg:text-4xl xl:text-5xl"
+        style={{ height: `${windowHeight}px` }}
+      >
         <Link
           to="/titres"
           className="flex-auto block flex flex-col"
@@ -49,7 +62,7 @@ const IndexPage = () => {
             </div>
           </div>
         </Link>
-      </Container>
+      </div>
     </>
   )
 }

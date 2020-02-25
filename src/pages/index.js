@@ -1,13 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
-import styled from "styled-components"
 import useDarkMode from "use-dark-mode"
 import SEO from "../components/seo"
 import "../styles/global.scss"
-
-const Container = styled.div`
-  height: 100vh;
-`
 
 const IndexPage = () => {
   const darkMode = useDarkMode(false)
@@ -18,7 +13,7 @@ const IndexPage = () => {
   return (
     <>
       <SEO title="Home" />
-      <Container className="flex flex-col text-3xl lg:text-4xl xl:text-5xl">
+      <div className="h-screen flex flex-col text-3xl lg:text-4xl xl:text-5xl">
         <Link
           to="/titres"
           className="flex-auto block flex flex-col"
@@ -48,7 +43,7 @@ const IndexPage = () => {
             </div>
           </div>
         </Link>
-      </Container>
+      </div>
     </>
   )
 }

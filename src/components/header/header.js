@@ -25,13 +25,12 @@ const NavListItem = ({ location, category }) => {
 const Header = ({ location }) => {
   const navList = ["titres", "auteurs", "editeurs", "collections"]
   const isCategoryPage = () => navList.includes(location.pathname.slice(1))
-  const isHomePage = () => location.pathname === "/"
 
   return (
     <header
       className={`md:mb-0 md:fixed top-0 w-full ${
         isCategoryPage() ? "" : "border-b border-myGrey-secondary"
-      } ${isHomePage() ? "home-header" : ""}`}
+      }`}
     >
       {/* NON-MOBILE MENU */}
       <div className="hidden md:flex justify-between flex-row-reverse pt-2 pb-0 px-4 text-3xl lg:text-4xl xl:text-5xl ">
@@ -39,11 +38,6 @@ const Header = ({ location }) => {
         <Link to="/a-propos/" className="uppercase">
           à propos
         </Link>
-
-        {/* ReadONlyMemory on Index Page */}
-        {location.pathname === "/" && (
-          <p className="uppercase text-primary">readonlymemory</p>
-        )}
 
         {/* Categories nav */}
         {isCategoryPage() && (
@@ -61,7 +55,7 @@ const Header = ({ location }) => {
         )}
 
         {/* Back button */}
-        {!isCategoryPage() && location.pathname !== "/" && (
+        {!isCategoryPage() && (
           <div className="categories">
             <Link to="/titres" className="flex items-center">
               <span>&#9664;</span>
@@ -74,7 +68,7 @@ const Header = ({ location }) => {
       {/* MOBILE-MENU */}
       <div className="text-4xl md:hidden">
         {/* Back button */}
-        {!isCategoryPage() && location.pathname !== "/" && (
+        {!isCategoryPage() && (
           <div className="categories pb-4 pl-3">
             <Link to="/titres" className="flex items-center">
               <span className="text-myGrey-secondary">&#9664;</span>

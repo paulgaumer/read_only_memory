@@ -2,23 +2,20 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import useDarkMode from "use-dark-mode"
-import "../styles/global.scss"
-
-// import Layout from "../components/layout"
 import SEO from "../components/seo"
+import "../styles/global.scss"
 
 const Container = styled.div`
   height: 100vh;
 `
 
-const IndexPage = ({ location }) => {
+const IndexPage = () => {
   const darkMode = useDarkMode(false)
 
   const handleClick = mode => {
     return mode === "dark" ? darkMode.enable() : darkMode.disable()
   }
   return (
-    // <Layout location={location}>
     <>
       <SEO title="Home" />
       <Container className="flex flex-col text-3xl lg:text-4xl xl:text-5xl">
@@ -53,7 +50,6 @@ const IndexPage = ({ location }) => {
         </Link>
       </Container>
     </>
-    // </Layout>
   )
 }
 

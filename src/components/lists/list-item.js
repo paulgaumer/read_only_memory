@@ -7,13 +7,13 @@ const ItemName = ({ item }) => {
   return (
     <div data-name="name">
       {item.slug ? (
-        <p className="text-myGrey-primary">
+        <p className="text-primary">
           <Link to={`/titre/${sanitizeSlug(item.slug)}`}>
             {capitalize(item.name)}
           </Link>
         </p>
       ) : (
-        <p className="text-myGrey-primary">{capitalize(item.name)}</p>
+        <p className="text-primary">{capitalize(item.name)}</p>
       )}
     </div>
   )

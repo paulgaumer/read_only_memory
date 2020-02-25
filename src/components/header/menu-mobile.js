@@ -1,8 +1,18 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
 import { slide as Menu } from "react-burger-menu"
 
 const MenuMobile = () => {
+  const [selectedTheme, setSelectedTheme] = useState("")
+
+  useEffect(() => {
+    if (typeof document !== undefined) {
+      return document.body.classList.contains("light-mode")
+        ? setSelectedTheme("light")
+        : undefined
+    }
+  }, [])
+
   // Keep styles as CSS-in-JS to be processed in production build
   var styles = {
     bmBurgerButton: {
@@ -13,14 +23,14 @@ const MenuMobile = () => {
       right: "1rem",
     },
     bmBurgerBars: {
-      background: "#E5E5E5",
+      background: selectedTheme === "light" ? "#4A4A4A" : "#E5E5E5",
     },
   }
   return (
     <Menu
       pageWrapId={"page-wrap"}
       outerContainerId={"outer-container"}
-      className="bg-myGrey-secondary text-myGrey-primary text-3xl pl-8 pt-6 uppercase"
+      className="bg-myGrey-secondary text-primary text-3xl pl-8 pt-6 uppercase"
       styles={styles}
       width={"290px"}
       left

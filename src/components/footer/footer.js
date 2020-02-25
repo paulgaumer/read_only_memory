@@ -3,22 +3,17 @@ import { azRange } from "../../utils/utils"
 
 const Footer = ({ location }) => {
   const navList = ["titres", "auteurs", "editeurs", "collections"]
-  const isCategoryPage = () => {
-    if (location.pathname === "/") {
-      return false
-    }
-    navList.includes(location.pathname.slice(1))
-  }
+  const isCategoryPage = () => navList.includes(location.pathname.slice(1))
+  const isHomePage = () => location.pathname === "/"
   return (
     <footer
       className={`fixed bottom-0 w-full text-3xl lg:text-4xl xl:text-5xl ${
         isCategoryPage() ? "" : "border-t border-myGrey-secondary"
-      }`}
-      // style={{ height: "72px" }}
+      } ${isHomePage() ? "bg-homepage-light" : ""}`}
     >
       <div className="px-4 overflow-x-auto">
         {/* Alphabet Nav */}
-        {navList.includes(location.pathname.slice(1)) &&
+        {isCategoryPage() &&
           azRange
             .filter(i => i !== "é")
             .map(letter => {
@@ -31,7 +26,7 @@ const Footer = ({ location }) => {
                 </span>
               )
             })}
-        {!navList.includes(location.pathname.slice(1)) && (
+        {!isCategoryPage() && (
           <p className="text-center md:float-right">CONTRIBUTIONS</p>
         )}
       </div>

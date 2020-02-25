@@ -10,11 +10,7 @@ const NavListItem = ({ location, category }) => {
   const isCurrentLocation = location.pathname === `/${category}`
 
   return (
-    <li
-      className={`${
-        isCurrentLocation ? "text-myGrey-primary" : ""
-      } uppercase pr-5`}
-    >
+    <li className={`${isCurrentLocation ? "text-primary" : ""} uppercase pr-5`}>
       <Link to={`/${category}`} className="flex items-center">
         <span className={`${isCurrentLocation ? "inline-block" : "hidden"}`}>
           ►
@@ -28,12 +24,7 @@ const NavListItem = ({ location, category }) => {
 
 const Header = ({ location }) => {
   const navList = ["titres", "auteurs", "editeurs", "collections"]
-  const isCategoryPage = () => {
-    if (location.pathname === "/") {
-      return false
-    }
-    return navList.includes(location.pathname.slice(1))
-  }
+  const isCategoryPage = () => navList.includes(location.pathname.slice(1))
 
   return (
     <header
@@ -47,11 +38,6 @@ const Header = ({ location }) => {
         <Link to="/a-propos/" className="uppercase">
           à propos
         </Link>
-
-        {/* ReadONlyMemory on Index Page */}
-        {location.pathname === "/" && (
-          <p className="uppercase text-myGrey-primary">readonlymemory</p>
-        )}
 
         {/* Categories nav */}
         {isCategoryPage() && (
@@ -69,10 +55,10 @@ const Header = ({ location }) => {
         )}
 
         {/* Back button */}
-        {!isCategoryPage() && location.pathname !== "/" && (
+        {!isCategoryPage() && (
           <div className="categories">
             <Link to="/titres" className="flex items-center">
-              <span className="text-myGrey-secondary">&#9664;</span>
+              <span>&#9664;</span>
               <p className="uppercase">avant</p>
             </Link>
           </div>
@@ -82,7 +68,7 @@ const Header = ({ location }) => {
       {/* MOBILE-MENU */}
       <div className="text-4xl md:hidden">
         {/* Back button */}
-        {!isCategoryPage() && location.pathname !== "/" && (
+        {!isCategoryPage() && (
           <div className="categories pb-4 pl-3">
             <Link to="/titres" className="flex items-center">
               <span className="text-myGrey-secondary">&#9664;</span>

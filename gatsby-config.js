@@ -19,10 +19,17 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     {
-      resolve: `gatsby-plugin-postcss`,
+      resolve: `gatsby-plugin-sass`,
       options: {
+        // Configure SASS to process Tailwind
         postCssPlugins: [require("tailwindcss"), require("autoprefixer")],
       },
+    },
+    {
+      resolve: `gatsby-plugin-postcss`,
+      // options: {
+      //   postCssPlugins: [require("tailwindcss"), require("autoprefixer")],
+      // },
     },
     {
       resolve: `gatsby-plugin-purgecss`,
@@ -62,6 +69,15 @@ module.exports = {
             tableName: `annexes`,
           },
         ],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-use-dark-mode",
+      options: {
+        classNameDark: "dark-mode",
+        classNameLight: "light-mode",
+        storageKey: "darkMode",
+        minify: true,
       },
     },
     {

@@ -9,7 +9,7 @@ const MenuMobile = () => {
     if (typeof document !== undefined) {
       return document.body.classList.contains("light-mode")
         ? setSelectedTheme("light")
-        : null
+        : undefined
     }
   }, [])
 

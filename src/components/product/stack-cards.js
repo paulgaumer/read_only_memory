@@ -4,6 +4,12 @@ import { TinderLikeCard } from "react-stack-cards"
 const StackCards = ({ images, windowSize, name }) => {
   const [tinder, setTinder] = useState(null)
 
+  // console.log(windowSize)
+
+  const isSmallDevice = () => {
+    return windowSize === "sm" || windowSize === "md"
+  }
+
   const onTinderSwipe = () => {
     tinder.swipe()
   }
@@ -28,8 +34,8 @@ const StackCards = ({ images, windowSize, name }) => {
       >
         <TinderLikeCard
           images={arr1}
-          width={windowSize === "sm" || windowSize === "md" ? "350" : "450"}
-          height={windowSize === "sm" || windowSize === "md" ? "250" : "350"}
+          height={isSmallDevice() ? "250" : "350"}
+          width={isSmallDevice() ? "350" : "450"}
           direction="swipeDown"
           duration={10}
           ref={node => setTinder(node)}
@@ -42,7 +48,7 @@ const StackCards = ({ images, windowSize, name }) => {
       <img
         src={arr[0]}
         alt={name}
-        width={windowSize === "sm" || windowSize === "md" ? "350" : "450"}
+        width={isSmallDevice() ? "350" : "450"}
         className="pt-8 lg:pt-0"
       />
     )

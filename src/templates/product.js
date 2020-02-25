@@ -25,9 +25,17 @@ const ProductPage = ({ data, location }) => {
   let images = []
   const [windowWidth, setWindowWidth] = useState("")
 
+  const handleWindowResize = () => {
+    setWindowWidth(window.innerWidth)
+  }
+
   useEffect(() => {
-    if (typeof window !== `undefined`) {
+    if (typeof window !== undefined) {
       setWindowWidth(window.innerWidth)
+      window.addEventListener("resize", handleWindowResize)
+      return () => {
+        window.removeEventListener("resize", handleWindowResize)
+      }
     }
   }, [])
 

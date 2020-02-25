@@ -21,10 +21,10 @@ const IndexPage = () => {
       <Container className="flex flex-col text-3xl lg:text-4xl xl:text-5xl">
         <Link
           to="/titres"
-          className="flex-auto block"
+          className="flex-auto block flex flex-col"
           onClick={() => handleClick("dark")}
         >
-          <div className="bg-homepage-dark w-full h-full">
+          <div className="bg-homepage-dark w-full flex-auto">
             <div className="py-2 px-4 border-b border-myGrey-secondary flex justify-between">
               <p className="text-myGrey-primary">
                 <span>►</span>READONLYMEMORY
@@ -35,10 +35,10 @@ const IndexPage = () => {
         </Link>
         <Link
           to="/titres"
-          className="flex-auto block"
+          className="flex-auto block flex flex-col"
           onClick={() => handleClick("light")}
         >
-          <div className="bg-homepage-light h-full flex items-end text-myGrey-secondary">
+          <div className="bg-homepage-light w-full flex-auto flex items-end text-myGrey-secondary">
             <div className="py-2 px-4 border-t border-myGrey-secondary flex-auto flex justify-end md:justify-between">
               <p className="hidden md:block">LIGHT</p>
               <p>

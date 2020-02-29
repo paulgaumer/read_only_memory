@@ -42,18 +42,18 @@ const MenuMobile = () => {
         Auteur
       </Link>
       <Link
-        id="editeurs"
-        className="menu-item outline-none pb-4"
-        to="/editeurs"
-      >
-        Éditeur
-      </Link>
-      <Link
         id="collections"
         className="menu-item outline-none pb-4"
         to="/collections"
       >
         Collection
+      </Link>
+      <Link
+        id="editeurs"
+        className="menu-item outline-none pb-4"
+        to="/editeurs"
+      >
+        Éditeur
       </Link>
       <Link id="about" className="menu-item outline-none pb-4" to="/a-propos">
         À propos

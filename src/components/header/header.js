@@ -59,7 +59,7 @@ const Header = ({ location }) => {
           <div className="categories">
             <Link to="/titres" className="flex items-center">
               <span>&#9664;</span>
-              <p className="uppercase">avant</p>
+              <p className="uppercase">répertoire</p>
             </Link>
           </div>
         )}
@@ -72,7 +72,7 @@ const Header = ({ location }) => {
           <div className="categories pb-4 pl-3">
             <Link to="/titres" className="flex items-center">
               <span className="text-myGrey-secondary">&#9664;</span>
-              <p className="uppercase">avant</p>
+              <p className="uppercase">répertoire</p>
             </Link>
           </div>
         )}

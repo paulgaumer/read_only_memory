@@ -25,14 +25,15 @@ export const allCollectionsQuery = graphql`
           id
           data {
             name
-            editors {
-              data {
-                name
-              }
-            }
             titles {
               data {
+                slug
                 name
+                editors {
+                  data {
+                    name
+                  }
+                }
                 authors {
                   data {
                     name

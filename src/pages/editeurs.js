@@ -27,17 +27,18 @@ export const allEditorsQuery = graphql`
             name
             titles {
               data {
+                slug
                 name
                 authors {
                   data {
                     name
                   }
                 }
-              }
-            }
-            collections {
-              data {
-                name
+                collections {
+                  data {
+                    name
+                  }
+                }
               }
             }
           }

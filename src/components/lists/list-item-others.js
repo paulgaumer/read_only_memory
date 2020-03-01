@@ -46,7 +46,7 @@ const ItemCategory = ({ categoryInfo, name, title }) => {
   )
 }
 
-const ListItemOthers = ({ item, page }) => {
+const ListItemOthers = ({ item, page, location }) => {
   const categories = ["titles", "authors", "editors", "collections"]
   const [gridTemplate, setGridTemplate] = useState("grid-authors")
 
@@ -72,11 +72,14 @@ const ListItemOthers = ({ item, page }) => {
     <div id={item.name}>
       {item.titles.map((title, i) => {
         return (
-          <Link to={sanitizeSlug(title.slug)}>
+          <Link
+            to={sanitizeSlug(title.slug)}
+            state={{ prevPath: location.pathname }}
+            key={title.id}
+          >
             <ItemGrid
               data-name="list-item"
               className={`md:grid border-b border-myGrey-secondary pb-2 px-4 ${gridTemplate}`}
-              key={title.id}
             >
               {/* NAME */}
               <div data-name="name" className="text-primary">

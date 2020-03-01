@@ -10,7 +10,7 @@ const Collections = ({ data, location }) => {
   return (
     <Layout location={location}>
       <SEO title="Collections" />
-      <List edges={edges} page={"collections"} />
+      <List edges={edges} page={"collections"} location={location} />
     </Layout>
   )
 }

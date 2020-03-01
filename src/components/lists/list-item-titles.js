@@ -25,12 +25,15 @@ const ItemGrid = styled.div`
     grid-area: collections;
   }
 `
-const ItemName = ({ item }) => {
+const ItemName = ({ item, location }) => {
   return (
     <div data-name="name">
       {item.slug ? (
         <p className="text-primary">
-          <Link to={`/titre/${sanitizeSlug(item.slug)}`}>
+          <Link
+            to={`/titre/${sanitizeSlug(item.slug)}`}
+            state={{ prevPath: location.pathname }}
+          >
             {capitalize(item.name)}
           </Link>
         </p>
@@ -53,7 +56,7 @@ const ItemCategory = ({ categoryInfo, name }) => {
   )
 }
 
-const ListItemTitles = ({ item, page }) => {
+const ListItemTitles = ({ item, page, location }) => {
   const categories = ["titles", "authors", "editors", "collections"]
 
   return (
@@ -62,7 +65,7 @@ const ListItemTitles = ({ item, page }) => {
       className={`md:grid border-b border-myGrey-secondary pb-2 px-4 grid-titles`}
     >
       {/* NAME */}
-      <ItemName item={item} />
+      <ItemName item={item} location={location} />
       {/* CATEGORIES INFO */}
       {categories.map(category => {
         if (category !== page) {

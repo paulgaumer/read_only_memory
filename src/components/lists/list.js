@@ -5,7 +5,7 @@ import ListItemOthers from "./list-item-others"
 import { azRange, categoryToFrench } from "../../utils/utils"
 import { sortListByFirstCharacter } from "../../utils/structure-data"
 
-const List = ({ edges, page }) => {
+const List = ({ edges, page, location }) => {
   // Filter the list to sort names starting with special character or normal letters
   const sortedList = sortListByFirstCharacter(edges, page, azRange)
 
@@ -22,15 +22,26 @@ const List = ({ edges, page }) => {
           letter={letter}
           key={letter}
           page={page}
+          location={location}
         />
       ))}
       {/* Display names starting with special characters */}
       <div id="#" className="filtered-group">
         {sortedList.special.map(item => {
           return page === "titles" ? (
-            <ListItemTitles item={item} page={page} key={item.id} />
+            <ListItemTitles
+              item={item}
+              page={page}
+              key={item.id}
+              location={location}
+            />
           ) : (
-            <ListItemOthers item={item} page={page} key={item.id} />
+            <ListItemOthers
+              item={item}
+              page={page}
+              key={item.id}
+              location={location}
+            />
           )
         })}
       </div>

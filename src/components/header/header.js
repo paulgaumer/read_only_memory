@@ -26,6 +26,12 @@ const Header = ({ location }) => {
   const navList = ["titres", "auteurs", "collections", "editeurs"]
   const isCategoryPage = () => navList.includes(location.pathname.slice(1))
 
+  const navigateBack = () => {
+    return location.state.prevPath !== undefined
+      ? location.state.prevPath
+      : "/titres"
+  }
+
   return (
     <header
       className={`md:mb-0 md:fixed top-0 w-full ${
@@ -57,7 +63,7 @@ const Header = ({ location }) => {
         {/* Back button */}
         {!isCategoryPage() && (
           <div className="categories">
-            <Link to="/titres" className="flex items-center">
+            <Link to={navigateBack()} className="flex items-center">
               <span>&#9664;</span>
               <p className="uppercase">répertoire</p>
             </Link>
@@ -70,7 +76,7 @@ const Header = ({ location }) => {
         {/* Back button */}
         {!isCategoryPage() && (
           <div className="categories pb-4 pl-3">
-            <Link to="/titres" className="flex items-center">
+            <Link to={navigateBack()} className="flex items-center">
               <span className="text-myGrey-secondary">&#9664;</span>
               <p className="uppercase">répertoire</p>
             </Link>

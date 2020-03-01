@@ -50,31 +50,26 @@ const structureData = (list, origin) => {
 
     // DATA COMING FROM AUTHORS
     if (origin === "authors") {
+      // console.log(data)
       if (data.titles !== null) {
-        titles = data.titles.map(title => {
+        data.titles.map(title => {
           if (title.data.name !== null) {
-            return title.data.name
-          }
-          return null
-        })
-        data.titles.map(title => {
-          if (title.data.editors !== null) {
-            title.data.editors.map(editor => {
-              if (editor.data.name !== null) {
-                return editors.push(editor.data.name)
-              }
-              return null
-            })
-          }
-          return null
-        })
-        data.titles.map(title => {
-          if (title.data.collections !== null) {
-            title.data.collections.map(collection => {
-              if (collection.data.name !== null) {
-                return collections.push(collection.data.name)
-              }
-              return null
+            if (title.data.editors !== null) {
+              editors = title.data.editors.map(editor => {
+                return editor.data.name
+              })
+            }
+            if (title.data.collections !== null) {
+              collections = title.data.collections.map(collection => {
+                return collection.data.name
+              })
+            }
+            titles.push({
+              id: title.id,
+              slug: `/titre/${title.data.slug}`,
+              name: title.data.name,
+              editors: editors,
+              collections: collections,
             })
           }
           return null
@@ -84,11 +79,10 @@ const structureData = (list, origin) => {
       const structuredData = {
         id: node.id,
         name: data.name,
-        titles: deleteMultiples(titles),
-        authors: deleteMultiples(authors),
-        editors: deleteMultiples(editors),
-        collections: deleteMultiples(collections),
+        titles: titles,
       }
+
+      // console.log(structuredData)
 
       return structuredData
     }

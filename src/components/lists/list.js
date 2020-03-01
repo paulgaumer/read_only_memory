@@ -1,6 +1,7 @@
 import React from "react"
 import GroupByLetter from "./group-letter"
-import ListItem from "./list-item"
+import ListItemTitles from "./list-item-titles"
+import ListItemOthers from "./list-item-others"
 import { azRange, categoryToFrench } from "../../utils/utils"
 import { sortListByFirstCharacter } from "../../utils/structure-data"
 
@@ -26,7 +27,11 @@ const List = ({ edges, page }) => {
       {/* Display names starting with special characters */}
       <div id="#" className="filtered-group">
         {sortedList.special.map(item => {
-          return <ListItem item={item} page={page} key={item.id} />
+          return page === "titles" ? (
+            <ListItemTitles item={item} page={page} key={item.id} />
+          ) : (
+            <ListItemOthers item={item} page={page} key={item.id} />
+          )
         })}
       </div>
     </div>

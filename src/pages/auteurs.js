@@ -30,6 +30,7 @@ export const allAuthorsQuery = graphql`
             name
             titles {
               data {
+                slug
                 name
                 editors {
                   data {

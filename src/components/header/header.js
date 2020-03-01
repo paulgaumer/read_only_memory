@@ -27,9 +27,13 @@ const Header = ({ location }) => {
   const isCategoryPage = () => navList.includes(location.pathname.slice(1))
 
   const navigateBack = () => {
-    return location.state.prevPath !== undefined
-      ? location.state.prevPath
-      : "/titres"
+    if (location.state !== undefined) {
+      return location.state.prevPath !== undefined
+        ? location.state.prevPath
+        : "/titres"
+    } else {
+      return "/titres"
+    }
   }
 
   return (

@@ -7,9 +7,6 @@ import MyAccordion from "../components/about/accordion"
 const About = ({ data, location }) => {
   const { edges } = data.allAirtable
 
-  // Check if the current location url matches the category
-  const isCurrentLocation = location.pathname === `/a-propos`
-
   return (
     <Layout location={location}>
       <SEO title="A propos" />

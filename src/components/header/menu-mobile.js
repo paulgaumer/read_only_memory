@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "gatsby"
 import { slide as Menu } from "react-burger-menu"
+import ThemeSwitcher from "./theme-switcher"
 
 const MenuMobile = () => {
   const [selectedTheme, setSelectedTheme] = useState("")
@@ -58,6 +59,7 @@ const MenuMobile = () => {
       <Link id="about" className="menu-item outline-none pb-4" to="/a-propos">
         À propos
       </Link>
+      <ThemeSwitcher />
     </Menu>
   )
 }

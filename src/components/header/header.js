@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import MenuMobile from "./menu-mobile"
+import ThemeSwitcher from "./theme-switcher"
 
 const NavListItem = ({ location, category }) => {
   // Add the accent for proper display in the navbar
@@ -48,10 +49,8 @@ const Header = ({ location }) => {
     >
       {/* NON-MOBILE MENU */}
       <div className="hidden md:flex justify-between flex-row-reverse pt-2 pb-0 px-4 text-3xl lg:text-4xl xl:text-5xl ">
-        {/* Placeholder nav */}
-        <Link to="/a-propos/" className="uppercase">
-          ON/OFF
-        </Link>
+        {/* Change Theme */}
+        <ThemeSwitcher />
 
         {/* Categories nav */}
         {isCategoryPage() && (

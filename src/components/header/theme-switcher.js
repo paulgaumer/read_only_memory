@@ -17,11 +17,15 @@ const ThemeSwitcher = () => {
 
   // Used "useReducer" to get rid of the asynchronous state issue happening with "useState"
   // -----------------------------------
-  const initialState =
-    typeof document !== undefined &&
-    document.body.classList.contains("light-mode")
-      ? "light"
-      : "dark"
+  const checkBodyTheme = () => {
+    if (typeof document !== undefined) {
+      return document.body.classList.contains("light-mode") ? "light" : "dark"
+    } else {
+      return ""
+    }
+  }
+
+  const initialState = checkBodyTheme()
 
   function reducer(state, action) {
     switch (action.type) {

@@ -27,10 +27,14 @@ const Header = ({ location }) => {
   const isCategoryPage = () => navList.includes(location.pathname.slice(1))
 
   const navigateBack = () => {
-    if (location.state !== undefined) {
-      return location.state.prevPath !== undefined
-        ? location.state.prevPath
-        : "/titres"
+    if (location.state !== null) {
+      if (location.state !== undefined) {
+        return location.state.prevPath !== undefined
+          ? location.state.prevPath
+          : "/titres"
+      } else {
+        return "/titres"
+      }
     } else {
       return "/titres"
     }
@@ -44,9 +48,9 @@ const Header = ({ location }) => {
     >
       {/* NON-MOBILE MENU */}
       <div className="hidden md:flex justify-between flex-row-reverse pt-2 pb-0 px-4 text-3xl lg:text-4xl xl:text-5xl ">
-        {/* A propos nav */}
+        {/* Placeholder nav */}
         <Link to="/a-propos/" className="uppercase">
-          à propos
+          ON/OFF
         </Link>
 
         {/* Categories nav */}

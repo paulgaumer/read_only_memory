@@ -22,13 +22,14 @@ const MyAccordion = ({ edges }) => {
               <AccordionItemButton className="outline-none">
                 <AccordionItemState>
                   {state => {
+                    console.log(state)
                     return (
                       <div className="flex text-primary px-4">
                         <span style={{ flex: "0 0 30%" }}>
                           {node.data.name}
                         </span>
                         {state.expanded ? (
-                          <span className="text-myGrey-secondary">&#9660;</span>
+                          <span className="text-myGrey-primary">&#9660;</span>
                         ) : (
                           <span className="text-myGrey-secondary">&#9654;</span>
                         )}

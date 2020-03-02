@@ -12,6 +12,9 @@ module.exports = {
           dark: "#121012",
         },
       },
+      screens: {
+        xxl: "1360px",
+      },
     },
   },
   variants: {

@@ -1,4 +1,4 @@
-import React, { useReducer } from "react"
+import React, { useReducer, useEffect } from "react"
 import useDarkMode from "use-dark-mode"
 
 const ThemeSwitcher = () => {
@@ -17,11 +17,16 @@ const ThemeSwitcher = () => {
 
   // Used "useReducer" to get rid of the asynchronous state issue happening with "useState"
   // -----------------------------------
-  const initialState =
-    typeof document !== undefined &&
-    document.body.classList.contains("light-mode")
-      ? "light"
-      : "dark"
+  const initialState = ""
+
+  useEffect(() => {
+    if (typeof document !== undefined) {
+      const currentTheme = document.body.classList.contains("light-mode")
+        ? "light"
+        : "dark"
+      dispatch({ type: currentTheme })
+    }
+  }, [])
 
   function reducer(state, action) {
     switch (action.type) {

@@ -39,7 +39,7 @@ const ThemeSwitcher = () => {
     }
   }
   const [selectedTheme, dispatch] = useReducer(reducer, initialState)
-  // -----------------------------------
+  // ----------------------------------
 
   return (
     <div>

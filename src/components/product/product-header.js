@@ -4,9 +4,9 @@ const ProductHeader = ({ product }) => {
   return (
     <div
       data-name="product-top-bar"
-      className="grid grid-cols-4 px-4 pb-3 border-b border-myGrey-secondary"
+      className="grid grid-cols-4 px-4 pb-3 border-b border-myGrey-secondary text-primary"
     >
-      <div data-name="title-details" className="text-primary">
+      <div data-name="title-details">
         <h1>{product.name}</h1>
         <p>{product.year}</p>
       </div>

@@ -12,7 +12,7 @@ const ProductImages = ({ images, windowSize, name }) => {
           fill="#4A4A4A"
           width={windowSize === "sm" || windowSize === "md" ? "6rem" : "9rem"}
         />
-        <p className="text-xl mt-8">Pas d'images pour le moment</p>
+        <p className="text-xl mt-8">Documentation en cours</p>
       </div>
     )
   }

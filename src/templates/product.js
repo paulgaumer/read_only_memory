@@ -26,6 +26,7 @@ export const productQuery = graphql`
         name
         content
         year
+        urls
         images {
           thumbnails {
             full {

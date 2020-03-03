@@ -1,5 +1,8 @@
 import { deleteMultiples } from "./utils"
 
+// --------------------------------------------------------------
+// USED IN INDEXES TO STRUCTURE THE RAW DATA COMING FROM AIRTABLE
+// --------------------------------------------------------------
 const structureData = (list, origin) => {
   const titlesList = list.map(({ node }) => {
     const { data } = node
@@ -160,6 +163,9 @@ const structureData = (list, origin) => {
   return titlesList
 }
 
+// ---------------------------------------------------------
+// USED IN INDEXES TO STRUCTURE THE DATA INTO SIMILAR BLOCKS
+// ---------------------------------------------------------
 export const sortListByFirstCharacter = (list, origin, range) => {
   // Get list of structured data
   const titlesList = structureData(list, origin)
@@ -184,4 +190,29 @@ export const sortListByFirstCharacter = (list, origin, range) => {
     return null
   })
   return { normal, special }
+}
+
+// ----------------------------------------------------------
+// USED IN PRODUCT PAGE TO SORT THE URLS STRING FROM AIRTABLE
+// ----------------------------------------------------------
+export const sortProductUrls = entry => {
+  if (entry !== null) {
+    // Split string
+    const splitEntry = entry.split(";")
+
+    // Get rid of empty strings created by the split()
+    const filteredUrls = splitEntry.filter(url => url !== "")
+
+    // Divide url description & url link
+    const urlBlocks = filteredUrls.map(url => {
+      return url.split("\n")
+    })
+
+    // Get rid of empty strings created by the split()
+    const final = urlBlocks.map(block => block.filter(e => e !== ""))
+
+    return final
+  } else {
+    return entry
+  }
 }

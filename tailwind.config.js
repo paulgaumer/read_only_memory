@@ -1,6 +1,10 @@
 module.exports = {
   theme: {
     extend: {
+      fontFamily: {
+        body: ["iAWriter"],
+        headerFooter: ["HelveticaLTStd-Roman"],
+      },
       colors: {
         myGrey: {
           primary: "#EEEEEF",

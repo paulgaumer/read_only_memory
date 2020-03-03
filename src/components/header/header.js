@@ -43,7 +43,7 @@ const Header = ({ location }) => {
 
   return (
     <header
-      className={`md:mb-0 md:fixed top-0 w-full ${
+      className={`font-headerFooter md:mb-0 md:fixed top-0 w-full ${
         isCategoryPage() ? "" : "border-b border-myGrey-secondary"
       }`}
     >

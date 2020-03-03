@@ -40,6 +40,15 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        custom: {
+          families: ["iAWriter", "HelveticaLTStd-Roman"],
+          urls: ["/fonts/fonts.css"],
+        },
+      },
+    },
+    {
       resolve: `gatsby-source-airtable`,
       options: {
         apiKey: process.env.GATSBY_AIRTABLE_API_KEY,

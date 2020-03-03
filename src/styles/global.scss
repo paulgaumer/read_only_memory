@@ -13,8 +13,8 @@ $background-color-dark: theme("colors.myGrey.background");
 $text-color-primary-dark: theme("colors.myGrey.primary");
 $text-color-secondary-dark: theme("colors.myGrey.secondary");
 $background-color-light: theme("colors.myGrey.primary");
-$text-color-primary-light: theme("colors.blue.800");
-$text-color-secondary-light: theme("colors.blue.500");
+$text-color-primary-light: theme("colors.myBlack");
+$text-color-secondary-light: theme("colors.myGrey.lightSecondary");
 
 html {
   scroll-behavior: smooth !important;
@@ -52,6 +52,12 @@ body {
   color: $text-color-primary-dark;
   .light-mode & {
     color: $text-color-primary-light;
+  }
+}
+.text-secondary {
+  color: $text-color-secondary-dark;
+  .light-mode & {
+    color: $text-color-secondary-light;
   }
 }
 

@@ -3,13 +3,15 @@ module.exports = {
     extend: {
       colors: {
         myGrey: {
-          primary: "#E5E5E5",
+          primary: "#EEEEEF",
           secondary: "#4A4A4A",
+          lightSecondary: "#6B6A6B",
           background: "#121012",
         },
         myBlue: "#0B01AC",
+        myBlack: "#1B191B",
         homepage: {
-          light: "#E5E5E5",
+          light: "#EEEEEF",
           dark: "#121012",
         },
       },

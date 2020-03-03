@@ -45,7 +45,10 @@ const ThemeSwitcher = () => {
     <div>
       <span
         onClick={() => handleClick("light")}
-        className={`${
+        onKeyDown={() => handleClick("light")}
+        role="button"
+        tabIndex="0"
+        className={`outline-none ${
           selectedTheme === "light" ? "text-primary" : "cursor-pointer"
         }`}
       >
@@ -54,7 +57,10 @@ const ThemeSwitcher = () => {
       <span>/</span>
       <span
         onClick={() => handleClick("dark")}
-        className={`${
+        onKeyDown={() => handleClick("dark")}
+        role="button"
+        tabIndex="0"
+        className={`outline-none ${
           selectedTheme === "dark" ? "text-primary" : "cursor-pointer"
         }`}
       >

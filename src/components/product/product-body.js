@@ -5,14 +5,17 @@ import { sortProductUrls } from "../../utils/structure-data"
 import { bigLorem, getWindowSize } from "../../utils/utils"
 
 const DescriptionDiv = styled.div`
-  max-height: calc(100vh - 270px);
+  /* Add scroll behaviour on the description text from screen size md */
+  @media (min-width: 768px) {
+    max-height: calc(100vh - 270px);
+  }
 `
 
 const UrlBlock = ({ url }) => {
   // console.log(url)
   return url.map(el => {
     return el.search("http") !== -1 ? (
-      <a href={el} target="_blank" key={el}>
+      <a href={el} target="_blank" rel="noopener noreferrer" key={el}>
         {el}
       </a>
     ) : (
@@ -24,7 +27,7 @@ const UrlBlock = ({ url }) => {
 const UrlBlocks = ({ urls }) => {
   // console.log(urls)
   if (urls === null) {
-    return <p>URL à compléter</p>
+    return <p className="text-myBlue">URL à compléter</p>
   }
 
   return urls.map(url => {
@@ -82,10 +85,7 @@ const ProductBody = ({ product }) => {
       {/* -------- */}
 
       {/* CAROUSEL */}
-      <div
-        className="flex justify-center items-center"
-        style={{ flexBasis: "40%" }}
-      >
+      <div className="flex justify-center" style={{ flexBasis: "40%" }}>
         <ProductImages
           images={images}
           name={product.name}

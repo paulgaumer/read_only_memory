@@ -4,7 +4,7 @@ import ProductImages from "./product-images"
 import { sortProductUrls } from "../../utils/structure-data"
 import { bigLorem, getWindowSize } from "../../utils/utils"
 
-const Description = styled.div`
+const DescriptionDiv = styled.div`
   max-height: calc(100vh - 270px);
 `
 
@@ -29,7 +29,7 @@ const UrlBlocks = ({ urls }) => {
 
   return urls.map(url => {
     return (
-      <div className="text-myBlue pb-3" key={url}>
+      <div className="text-myBlue pb-3 break-all" key={url}>
         <UrlBlock url={url} />
       </div>
     )
@@ -65,16 +65,27 @@ const ProductBody = ({ product }) => {
   }
 
   return (
-    <div data-name="product-body" className="md:grid md:grid-cols-3 px-4 pt-4">
-      <Description className="mt-6 md:overflow-y-auto">
+    <div data-name="product-body" className="px-4 pt-4 md:flex">
+      {/* PRODUCT DESCRIPTION */}
+      <DescriptionDiv
+        className="mt-6 md:overflow-y-auto"
+        style={{ flexBasis: "40%" }}
+      >
         <p className="">{bigLorem}</p>
-      </Description>
-      <div className="mt-6 px-4">
+      </DescriptionDiv>
+      {/* -------- */}
+
+      {/* LIST OF URLS */}
+      <div className="mt-6 px-4" style={{ flexBasis: "20%" }}>
         <UrlBlocks urls={urls} />
       </div>
+      {/* -------- */}
 
       {/* CAROUSEL */}
-      <div className="flex justify-center items-center">
+      <div
+        className="flex justify-center items-center"
+        style={{ flexBasis: "40%" }}
+      >
         <ProductImages
           images={images}
           name={product.name}

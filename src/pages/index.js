@@ -27,11 +27,11 @@ const IndexPage = () => {
           onClick={() => handleClick("dark")}
         >
           <div className="bg-homepage-dark w-full flex-auto">
-            <div className="py-2 px-4 border-b border-myGrey-secondary flex justify-between">
-              <p className="text-myGrey-primary">
+            <div className="py-2 px-4 border-b border-myGrey-secondary text-secondary flex justify-between">
+              <p className="hidden md:block text-myGrey-secondary">OFF</p>
+              <p>
                 <span>►</span>READONLYMEMORY
               </p>
-              <p className="hidden md:block text-myGrey-secondary">NIGHT</p>
             </div>
           </div>
         </Link>
@@ -40,13 +40,13 @@ const IndexPage = () => {
           className="flex-auto block flex flex-col"
           onClick={() => handleClick("light")}
         >
-          <div className="bg-homepage-light w-full flex-auto flex items-end text-myGrey-secondary">
+          <div className="bg-homepage-light w-full flex-auto flex items-end text-secondary">
             <div className="py-2 px-4 border-t border-myGrey-secondary flex-auto flex justify-end md:justify-between">
-              <p className="hidden md:block">LIGHT</p>
               <p>
                 <span>►</span>
                 READONLYMEMORY
               </p>
+              <p className="hidden md:block">ON</p>
             </div>
           </div>
         </Link>

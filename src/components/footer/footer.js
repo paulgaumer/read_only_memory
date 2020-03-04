@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import ThemeSwitcher from "../header/theme-switcher"
+import ThemeToggle from "../header/theme-toggle"
 import { azRange } from "../../utils/utils"
 
 const Footer = ({ location }) => {
@@ -41,7 +41,7 @@ const Footer = ({ location }) => {
         </Link>
       </div>
       <div className="md:hidden px-4">
-        <ThemeSwitcher />
+        <ThemeToggle />
       </div>
     </footer>
   )

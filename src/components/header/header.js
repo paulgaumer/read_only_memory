@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import ThemeSwitcher from "./theme-switcher"
+import ThemeToggle from "./theme-toggle"
 
 const NavListItem = ({ location, category }) => {
   // Add the accent for proper display in the navbar
@@ -76,7 +76,7 @@ const Header = ({ location }) => {
 
         {/* Change Theme */}
         <div className="hidden md:block">
-          <ThemeSwitcher />
+          <ThemeToggle />
         </div>
       </div>
     </header>

@@ -13,10 +13,10 @@ const NavListItem = ({ location, category }) => {
     <li className={`${isCurrentLocation ? "text-primary" : ""} pr-5`}>
       <Link to={`/${category}`} className="flex items-center">
         <span className={`${isCurrentLocation ? "inline-block" : "hidden"}`}>
-          ►
+          &#9654;&#xFE0E;
         </span>
         {/* Get rid of the final "s" */}
-        <span className="uppercase">{categoryName.slice(0, -1)}</span>
+        <p className="uppercase">{categoryName.slice(0, -1)}</p>
       </Link>
     </li>
   )

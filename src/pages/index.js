@@ -30,7 +30,7 @@ const IndexPage = () => {
             <div className="py-2 px-4 border-b border-myGrey-secondary text-secondary flex justify-center md:justify-between">
               <p className="hidden md:block text-myGrey-secondary">OFF</p>
               <p>
-                <span>►</span>READONLYMEMORY
+                <span>&#9654;&#xFE0E;</span>READONLYMEMORY
               </p>
             </div>
           </div>
@@ -43,7 +43,7 @@ const IndexPage = () => {
           <div className="bg-homepage-light w-full flex-auto flex items-end text-secondary">
             <div className="py-2 px-4 border-t border-myGrey-secondary flex-auto flex justify-center md:justify-between">
               <p>
-                <span>►</span>
+                <span>&#9654;&#xFE0E;</span>
                 READONLYMEMORY
               </p>
               <p className="hidden md:block">ON</p>

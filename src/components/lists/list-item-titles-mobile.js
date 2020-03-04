@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "gatsby"
 import { sanitizeSlug, capitalize } from "../../utils/utils"
 import {

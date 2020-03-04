@@ -48,25 +48,6 @@ const ItemCategory = ({ categoryInfo, name, title }) => {
 
 const ListItemOthers = ({ item, page, location }) => {
   const categories = ["titles", "authors", "editors", "collections"]
-  const [gridTemplate, setGridTemplate] = useState("grid-authors")
-
-  // Select a template for CSS Grid area based on the current page
-  useEffect(() => {
-    switch (page) {
-      case "authors":
-        setGridTemplate("grid-authors")
-        break
-      case "editors":
-        setGridTemplate("grid-editors")
-        break
-      case "collections":
-        setGridTemplate("grid-collections")
-        break
-      default:
-        setGridTemplate("grid-authors")
-        break
-    }
-  }, [page])
 
   return (
     <div id={item.name}>
@@ -79,7 +60,7 @@ const ListItemOthers = ({ item, page, location }) => {
           >
             <ItemGrid
               data-name="list-item"
-              className={`md:grid border-b border-myGrey-secondary pb-2 px-4 ${gridTemplate}`}
+              className={`md:grid border-b border-myGrey-secondary pb-2 px-4 grid-${page}`}
             >
               {/* NAME */}
               <div data-name="name" className="text-primary">

@@ -27,7 +27,7 @@ const IndexPage = () => {
           onClick={() => handleClick("dark")}
         >
           <div className="bg-homepage-dark w-full flex-auto">
-            <div className="py-2 px-4 border-b border-myGrey-secondary text-secondary flex justify-between">
+            <div className="py-2 px-4 border-b border-myGrey-secondary text-secondary flex justify-center md:justify-between">
               <p className="hidden md:block text-myGrey-secondary">OFF</p>
               <p>
                 <span>►</span>READONLYMEMORY
@@ -41,7 +41,7 @@ const IndexPage = () => {
           onClick={() => handleClick("light")}
         >
           <div className="bg-homepage-light w-full flex-auto flex items-end text-secondary">
-            <div className="py-2 px-4 border-t border-myGrey-secondary flex-auto flex justify-end md:justify-between">
+            <div className="py-2 px-4 border-t border-myGrey-secondary flex-auto flex justify-center md:justify-between">
               <p>
                 <span>►</span>
                 READONLYMEMORY

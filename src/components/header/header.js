@@ -51,7 +51,7 @@ const Header = ({ location }) => {
         {!isCategoryPage() && (
           <div className="categories">
             <Link to={navigateBack()} className="flex items-center">
-              <span>&#9664;</span>
+              <span>&#9664;&#xFE0E;</span>
               <p className="uppercase">répertoire</p>
             </Link>
           </div>

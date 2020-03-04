@@ -28,9 +28,11 @@ const MyAccordion = ({ edges }) => {
                           {node.data.name}
                         </span>
                         {state.expanded ? (
-                          <span className="text-primary">&#9660;</span>
+                          <span className="text-primary">&#9660;&#xFE0E;</span>
                         ) : (
-                          <span className="text-secondary">&#9654;</span>
+                          <span className="text-secondary">
+                            &#9654;&#xFE0E;
+                          </span>
                         )}
                       </div>
                     )

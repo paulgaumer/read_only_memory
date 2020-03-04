@@ -36,7 +36,7 @@ const Footer = ({ location }) => {
           to="/a-propos/"
           className={`${isAboutPage() ? "text-primary" : ""} uppercase`}
         >
-          <span>►</span>
+          <span>&#9658;&#xFE0E;</span>
           <span>à propos</span>
         </Link>
       </div>

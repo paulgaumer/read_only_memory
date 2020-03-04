@@ -33,7 +33,7 @@ const Footer = ({ location }) => {
           <p className="text-center md:float-right">CONTRIBUTIONS</p>
         )} */}
       </div>
-      <div className="px-4">
+      <div className="px-4 hidden md:block">
         <Link
           to="/a-propos/"
           className={`${isAboutPage() ? "text-primary" : ""} uppercase`}

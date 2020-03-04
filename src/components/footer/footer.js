@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import ThemeSwitcher from "../header/theme-switcher"
 import { azRange } from "../../utils/utils"
 
 const Footer = ({ location }) => {
@@ -14,7 +15,7 @@ const Footer = ({ location }) => {
         isCategoryPage() ? "" : "border-t border-myGrey-secondary"
       } ${isHomePage() ? "bg-homepage-light" : ""} flex justify-between`}
     >
-      <div className="px-4 overflow-x-auto">
+      <div className="hidden md:block px-4 overflow-x-auto">
         {/* Alphabet Nav */}
         {isCategoryPage() &&
           azRange
@@ -29,11 +30,8 @@ const Footer = ({ location }) => {
                 </span>
               )
             })}
-        {/* {!isCategoryPage() && (
-          <p className="text-center md:float-right">CONTRIBUTIONS</p>
-        )} */}
       </div>
-      <div className="px-4 hidden md:block">
+      <div className="px-4">
         <Link
           to="/a-propos/"
           className={`${isAboutPage() ? "text-primary" : ""} uppercase`}
@@ -41,6 +39,9 @@ const Footer = ({ location }) => {
           <span>►</span>
           <span>à propos</span>
         </Link>
+      </div>
+      <div className="md:hidden px-4">
+        <ThemeSwitcher />
       </div>
     </footer>
   )

@@ -11,7 +11,7 @@ const Footer = ({ location }) => {
 
   return (
     <footer
-      className={`font-headerFooter fixed bottom-0 w-full text-3xl lg:text-4xl xxl:text-5xl ${
+      className={`font-headerFooter fixed bottom-0 pt-2 w-full text-3xl lg:text-4xl xxl:text-5xl ${
         isCategoryPage() ? "" : "border-t border-myGrey-secondary"
       } ${isHomePage() ? "bg-homepage-light" : ""} flex justify-between`}
     >

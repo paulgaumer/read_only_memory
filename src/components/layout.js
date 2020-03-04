@@ -11,7 +11,7 @@ const Layout = ({ children, location = "" }) => {
       <div id="outer-container">
         <Header location={location} />
         <div className="font-body">
-          <main id="page-wrap" className="mb-20 md:mt-16 lg:mt-20 xl:mt-24">
+          <main id="page-wrap" className="mb-20 mt-16 lg:mt-20 xl:mt-24">
             {children}
           </main>
         </div>

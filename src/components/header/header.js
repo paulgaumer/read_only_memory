@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import MenuMobile from "./menu-mobile"
 import ThemeSwitcher from "./theme-switcher"
 
 const NavListItem = ({ location, category }) => {
@@ -43,30 +42,11 @@ const Header = ({ location }) => {
 
   return (
     <header
-      className={`font-headerFooter md:mb-0 md:fixed top-0 w-full ${
+      className={`font-headerFooter fixed top-0 w-full ${
         isCategoryPage() ? "" : "border-b border-myGrey-secondary"
       }`}
     >
-      {/* NON-MOBILE MENU */}
-      <div className="hidden md:flex justify-between flex-row-reverse pt-2 pb-0 px-4 text-3xl lg:text-4xl xl:text-5xl ">
-        {/* Change Theme */}
-        <ThemeSwitcher />
-
-        {/* Categories nav */}
-        {isCategoryPage() && (
-          <div className="categories">
-            <ul className="flex">
-              {navList.map(category => (
-                <NavListItem
-                  location={location}
-                  category={category}
-                  key={category}
-                />
-              ))}
-            </ul>
-          </div>
-        )}
-
+      <div className="flex justify-between flex-row pt-2 pb-0 px-4 text-3xl lg:text-4xl xl:text-5xl ">
         {/* Back button */}
         {!isCategoryPage() && (
           <div className="categories">
@@ -76,22 +56,29 @@ const Header = ({ location }) => {
             </Link>
           </div>
         )}
+
+        {/* Categories nav */}
+        <div className="w-full overflow-x-auto">
+          {isCategoryPage() && (
+            <div className="categories">
+              <ul className="flex">
+                {navList.map(category => (
+                  <NavListItem
+                    location={location}
+                    category={category}
+                    key={category}
+                  />
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+
+        {/* Change Theme */}
+        <div className="hidden md:block">
+          <ThemeSwitcher />
+        </div>
       </div>
-      {/* ************************ */}
-      {/* MOBILE-MENU */}
-      <div className="text-4xl md:hidden">
-        {/* Back button */}
-        {!isCategoryPage() && (
-          <div className="categories pb-4 pl-3">
-            <Link to={navigateBack()} className="flex items-center">
-              <span className="text-myGrey-secondary">&#9664;</span>
-              <p className="uppercase">répertoire</p>
-            </Link>
-          </div>
-        )}
-        <MenuMobile />
-      </div>
-      {/* ************************ */}
     </header>
   )
 }

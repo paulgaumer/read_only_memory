@@ -34,10 +34,10 @@ const Footer = ({ location }) => {
       <div className="px-4">
         <Link
           to="/a-propos/"
-          className={`${isAboutPage() ? "text-primary" : ""} uppercase`}
+          className={`${isAboutPage() ? "text-primary" : ""}`}
         >
           <span>&#9658;&#xFE0E;</span>
-          <span>à propos</span>
+          <span className="uppercase">à propos</span>
         </Link>
       </div>
       <div className="md:hidden px-4">

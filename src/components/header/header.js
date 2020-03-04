@@ -10,7 +10,7 @@ const NavListItem = ({ location, category }) => {
   const isCurrentLocation = location.pathname === `/${category}`
 
   return (
-    <li className={`${isCurrentLocation ? "text-primary" : ""} uppercase pr-5`}>
+    <li className={`${isCurrentLocation ? "text-primary" : ""} pr-5`}>
       <Link to={`/${category}`} className="flex items-center">
         <span className={`${isCurrentLocation ? "inline-block" : "hidden"}`}>
           ►

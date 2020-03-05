@@ -75,9 +75,12 @@ const ProductHeader = ({ product }) => {
           <AccordionItemPanel>
             <div className="text-primary px-4">
               {product.authors !== null && (
-                <div data-name="authors" className="pb-2 pl-4">
-                  {product.authors.map(author => (
-                    <p key={author.id}>{author.data.name}</p>
+                <div data-name="authors" className="pb-2 pl-4 flex flex-wrap">
+                  {product.authors.map((author, i) => (
+                    <>
+                      <p key={author.id}>{author.data.name}</p>
+                      {i < product.authors.length - 1 && <span>, </span>}
+                    </>
                   ))}
                 </div>
               )}

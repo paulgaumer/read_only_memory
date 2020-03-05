@@ -9,19 +9,59 @@ import {
 } from "react-accessible-accordion"
 import { sanitizeSlug, capitalize } from "../../utils/utils"
 
-const ItemCategory = ({ categoryInfo, name, title }) => {
+const ItemCategories = ({ item, page }) => {
+  console.log(item)
   return (
-    <div data-name={name} className="ml-4">
-      {name === "titles" && <p className="py-1">{title}</p>}
-      {name !== "titles" &&
-        categoryInfo.map(info => (
-          <p className="py-1" key={info}>
-            {info}
-          </p>
-        ))}
-    </div>
+    <>
+      {page !== "titles" && (
+        <div data-name="titles" className="px-4 text-primary pl-8">
+          <p className="py-1">{item.name}</p>
+        </div>
+      )}
+      {page !== "authors" && item["authors"].length >= 1 && (
+        <div data-name="authors" className="px-4 text-primary pl-12">
+          {item["authors"].map((info, i) => (
+            <p className="py-1" key={`${info}-${i}`}>
+              {info}
+            </p>
+          ))}
+        </div>
+      )}
+      {page !== "editors" && item["editors"].length >= 1 && (
+        <div data-name="editors" className="px-4 text-primary pl-16">
+          {item["editors"].map((info, i) => (
+            <p className="py-1" key={`${info}-${i}`}>
+              {info}
+            </p>
+          ))}
+        </div>
+      )}
+      {page !== "collections" && item["collections"].length >= 1 && (
+        <div data-name={"collections"} className="px-4 text-primary pl-20">
+          {item["collections"].map((info, i) => (
+            <p className="py-1" key={`${info}-${i}`}>
+              {info}
+            </p>
+          ))}
+        </div>
+      )}
+    </>
   )
 }
+
+// const ItemCategory = ({ categoryInfo, name, title }) => {
+//   return (
+//     <div data-name={name} className="ml-4">
+//       {name === "titles" && <p className="py-1">{title}</p>}
+//       {name !== "titles" &&
+//         categoryInfo.map(info => (
+//           <p className="py-1" key={info}>
+//             {info}
+//           </p>
+//         ))}
+//     </div>
+//   )
+// }
 
 const ListItemOthers = ({ item, page, location }) => {
   const categories = ["titles", "authors", "editors", "collections"]
@@ -62,7 +102,7 @@ const ListItemOthers = ({ item, page, location }) => {
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
-              {categories.map(category => {
+              {/* {categories.map(category => {
                 if (category !== page) {
                   return (
                     <Link
@@ -81,7 +121,13 @@ const ListItemOthers = ({ item, page, location }) => {
                   )
                 }
                 return null
-              })}
+              })} */}
+              <Link
+                to={`/titre/${sanitizeSlug(title.slug)}`}
+                state={{ prevPath: location.pathname }}
+              >
+                <ItemCategories item={title} page={page} />
+              </Link>
             </AccordionItemPanel>
           </AccordionItem>
         )

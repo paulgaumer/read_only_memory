@@ -9,20 +9,51 @@ import {
   AccordionItemState,
 } from "react-accessible-accordion"
 
-const ItemCategory = ({ categoryInfo, name }) => {
+const ItemCategories = ({ item, page }) => {
   return (
-    <div data-name={name} className="px-4 text-primary">
-      {categoryInfo.map(info => (
-        <p className="py-1" key={info}>
-          {info}
-        </p>
-      ))}
-    </div>
+    <>
+      {page !== "titles" && item["titles"].length >= 1 && (
+        <div data-name="titles" className="px-4 text-primary pl-4">
+          {item["titles"].map(info => (
+            <p className="py-1" key={info}>
+              {info}
+            </p>
+          ))}
+        </div>
+      )}
+      {page !== "authors" && item["authors"].length >= 1 && (
+        <div data-name="authors" className="px-4 text-primary pl-8">
+          {item["authors"].map(info => (
+            <p className="py-1" key={info}>
+              {info}
+            </p>
+          ))}
+        </div>
+      )}
+      {page !== "editors" && item["editors"].length >= 1 && (
+        <div data-name="editors" className="px-4 text-primary pl-12">
+          {item["editors"].map(info => (
+            <p className="py-1" key={info}>
+              {info}
+            </p>
+          ))}
+        </div>
+      )}
+      {page !== "collections" && item["collections"].length >= 1 && (
+        <div data-name={"collections"} className="px-4 text-primary pl-16">
+          {item["collections"].map(info => (
+            <p className="py-1" key={info}>
+              {info}
+            </p>
+          ))}
+        </div>
+      )}
+    </>
   )
 }
 
 const ListItemTitlesMobile = ({ item, page, location }) => {
-  const categories = ["titles", "authors", "editors", "collections"]
+  // const categories = ["titles", "authors", "editors", "collections"]
 
   return (
     <AccordionItem
@@ -55,23 +86,12 @@ const ListItemTitlesMobile = ({ item, page, location }) => {
         </AccordionItemButton>
       </AccordionItemHeading>
       <AccordionItemPanel>
-        {categories.map(category => {
-          if (category !== page) {
-            return (
-              <Link
-                to={`/titre/${sanitizeSlug(item.slug)}`}
-                state={{ prevPath: location.pathname }}
-              >
-                <ItemCategory
-                  categoryInfo={item[category]}
-                  name={category}
-                  key={category}
-                />
-              </Link>
-            )
-          }
-          return null
-        })}
+        <Link
+          to={`/titre/${sanitizeSlug(item.slug)}`}
+          state={{ prevPath: location.pathname }}
+        >
+          <ItemCategories item={item} page={page} />
+        </Link>
       </AccordionItemPanel>
     </AccordionItem>
   )

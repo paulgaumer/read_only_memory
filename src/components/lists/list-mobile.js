@@ -3,7 +3,7 @@ import { Accordion } from "react-accessible-accordion"
 import GroupByLetterMobile from "./group-letter-mobile"
 import ListItemTitlesMobile from "./list-item-titles-mobile"
 import ListItemOthersMobile from "./list-item-others-mobile"
-import { azRange, categoryToFrench } from "../../utils/utils"
+import { azRange } from "../../utils/utils"
 
 const ListMobile = ({ sortedList, page, location }) => {
   return (

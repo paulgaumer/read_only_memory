@@ -10,7 +10,6 @@ import {
 import { sanitizeSlug, capitalize } from "../../utils/utils"
 
 const ItemCategories = ({ item, page }) => {
-  console.log(item)
   return (
     <>
       {page !== "titles" && (
@@ -49,23 +48,7 @@ const ItemCategories = ({ item, page }) => {
   )
 }
 
-// const ItemCategory = ({ categoryInfo, name, title }) => {
-//   return (
-//     <div data-name={name} className="ml-4">
-//       {name === "titles" && <p className="py-1">{title}</p>}
-//       {name !== "titles" &&
-//         categoryInfo.map(info => (
-//           <p className="py-1" key={info}>
-//             {info}
-//           </p>
-//         ))}
-//     </div>
-//   )
-// }
-
 const ListItemOthers = ({ item, page, location }) => {
-  const categories = ["titles", "authors", "editors", "collections"]
-
   return (
     <div id={item.name}>
       {item.titles.map((title, i) => {
@@ -102,26 +85,6 @@ const ListItemOthers = ({ item, page, location }) => {
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
-              {/* {categories.map(category => {
-                if (category !== page) {
-                  return (
-                    <Link
-                      to={`${sanitizeSlug(title.slug)}`}
-                      state={{ prevPath: location.pathname }}
-                    >
-                      <div key={category} className="text-primary">
-                        <ItemCategory
-                          categoryInfo={title[category]}
-                          name={category}
-                          title={title.name}
-                          key={`${title.id}-${category}`}
-                        />
-                      </div>
-                    </Link>
-                  )
-                }
-                return null
-              })} */}
               <Link
                 to={`/titre/${sanitizeSlug(title.slug)}`}
                 state={{ prevPath: location.pathname }}

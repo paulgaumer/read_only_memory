@@ -9,7 +9,6 @@ const SwitchExample = () => {
   }
 
   const [isChecked, setIsChecked] = useState(false)
-  const [selectedTheme, setSelectedTheme] = useState("dark")
 
   const handleChange = () => {
     setIsChecked(!isChecked)
@@ -21,14 +20,14 @@ const SwitchExample = () => {
       const initialTheme = document.body.classList.contains("light-mode")
         ? "light"
         : "dark"
-      setSelectedTheme(initialTheme)
       setIsChecked(initialTheme === "light" ? true : false)
     }
   }, [])
 
   return (
-    <label>
+    <label htmlFor="themeSwitch">
       <Switch
+        id="themeSwitch"
         onChange={handleChange}
         checked={isChecked}
         offColor="#4A4A4A"

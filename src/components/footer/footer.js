@@ -1,13 +1,15 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Link } from "gatsby"
 import ThemeToggle from "../header/theme-toggle"
 import { azRange } from "../../utils/utils"
+import { GlobalStateContext } from "../../context/global-context-provider"
 
 const Footer = ({ location }) => {
   const navList = ["titres", "auteurs", "editeurs", "collections"]
   const isCategoryPage = () => navList.includes(location.pathname.slice(1))
   const isHomePage = () => location.pathname === "/"
   const isAboutPage = () => location.pathname === "/a-propos/"
+  const themeState = useContext(GlobalStateContext)
 
   return (
     <footer
@@ -23,7 +25,11 @@ const Footer = ({ location }) => {
             .map(letter => {
               return (
                 <span
-                  className="pr-4 md:pr-2 hover:text-myGrey-primary"
+                  className={`pr-4 md:pr-2 hover:${
+                    themeState === "light"
+                      ? "text-myBlack"
+                      : "text-myGrey-primary"
+                  }`}
                   key={letter}
                 >
                   <a href={`#${letter}`}>{letter.toUpperCase()}</a>

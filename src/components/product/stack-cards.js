@@ -75,7 +75,7 @@ const StackCards = ({ images, windowSize, name }) => {
       <img
         src={arr[0]}
         alt={name}
-        width={imgWidth()}
+        style={{ maxWidth: imgWidth() }}
         className="pt-8 lg:pt-0"
       />
     )

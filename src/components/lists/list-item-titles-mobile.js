@@ -24,14 +24,16 @@ const ItemCategories = ({ item, page }) => {
       {page !== "authors" && item["authors"].length >= 1 && (
         <div
           data-name="authors"
-          className="px-4 text-primary pl-8 flex flex-wrap"
+          className="px-4 text-primary pl-8 flex flex-wrap items-baseline"
         >
           {item["authors"].map((info, i) => (
             <>
               <p className="py-1" key={info}>
                 {info}
               </p>
-              {i < item["authors"].length - 1 && <span>, </span>}
+              {i < item["authors"].length - 1 && (
+                <span className="pr-1">,</span>
+              )}
             </>
           ))}
         </div>

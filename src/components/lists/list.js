@@ -44,13 +44,9 @@ const List = ({ edges, page, location }) => {
           })}
         </div>
       </div>
-
-      <ListMobile
-        className="md:hidden"
-        sortedList={sortedList}
-        page={page}
-        location={location}
-      />
+      <div className="md:hidden">
+        <ListMobile sortedList={sortedList} page={page} location={location} />
+      </div>
     </>
   )
 }

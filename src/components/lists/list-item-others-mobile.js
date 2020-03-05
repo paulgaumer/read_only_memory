@@ -86,7 +86,7 @@ const ListItemOthers = ({ item, page, location }) => {
             </AccordionItemHeading>
             <AccordionItemPanel>
               <Link
-                to={`/titre/${sanitizeSlug(title.slug)}`}
+                to={`${sanitizeSlug(title.slug)}`}
                 state={{ prevPath: location.pathname }}
               >
                 <ItemCategories item={title} page={page} />

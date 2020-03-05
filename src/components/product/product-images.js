@@ -7,9 +7,9 @@ const ProductImages = ({ images, windowSize, name }) => {
     return <StackCards images={images} windowSize={windowSize} name={name} />
   } else {
     return (
-      <div className="flex flex-col items-center pt-6">
+      <div className="flex flex-col items-center pt-12 md:pt-6">
         <ImgIcon
-          fill="#4A4A4A"
+          fill="#6B6A6B"
           width={windowSize === "sm" || windowSize === "md" ? "6rem" : "9rem"}
         />
         <p className="text-xl mt-8">Documentation en cours</p>

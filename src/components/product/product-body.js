@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemHeading,
+  AccordionItemButton,
+  AccordionItemPanel,
+  AccordionItemState,
+} from "react-accessible-accordion"
 import ProductImages from "./product-images"
 import { sortProductUrls } from "../../utils/structure-data"
 import { bigLorem, getWindowSize } from "../../utils/utils"
@@ -68,10 +76,13 @@ const ProductBody = ({ product }) => {
   }
 
   return (
-    <div data-name="product-body" className="px-4 pt-4 md:flex">
+    <div
+      data-name="product-body"
+      className=" pb-20 md:pb-0 md:pt-4 md:px-4 md:flex"
+    >
       {/* PRODUCT DESCRIPTION */}
       <DescriptionDiv
-        className="mt-6 md:overflow-y-auto"
+        className="hidden md:block mt-6 md:overflow-y-auto"
         style={{ flexBasis: "40%" }}
       >
         <p className="">{bigLorem}</p>
@@ -79,10 +90,85 @@ const ProductBody = ({ product }) => {
       {/* -------- */}
 
       {/* LIST OF URLS */}
-      <div className="mt-6 px-4" style={{ flexBasis: "20%" }}>
+      <div className="hidden md:block mt-6 px-4" style={{ flexBasis: "20%" }}>
         <UrlBlocks urls={urls} />
       </div>
       {/* -------- */}
+
+      {/* MOBILE VIEW */}
+      <Accordion
+        allowZeroExpanded={true}
+        allowMultipleExpanded={true}
+        className="md:hidden"
+      >
+        <AccordionItem
+          key={`${product.name}-url`}
+          uuid={`${product.name}-url`}
+          className="border-b border-myGrey-secondary"
+        >
+          <AccordionItemHeading>
+            <AccordionItemButton className="outline-none">
+              <AccordionItemState>
+                {state => {
+                  return (
+                    <div className="flex justify-between text-myBlue px-4 py-2">
+                      <span>Click on links</span>
+                      {state.expanded ? (
+                        <span className="text-primary">&#9660;&#xFE0E;</span>
+                      ) : (
+                        <span className="text-secondary">&#9654;&#xFE0E;</span>
+                      )}
+                    </div>
+                  )
+                }}
+              </AccordionItemState>
+            </AccordionItemButton>
+          </AccordionItemHeading>
+          <AccordionItemPanel>
+            <div className="px-4 pb-2 px-8">
+              <UrlBlocks urls={urls} />
+            </div>
+          </AccordionItemPanel>
+        </AccordionItem>
+        <AccordionItem
+          key={`${product.name}-description`}
+          uuid={`${product.name}-description`}
+          className="border-b border-myGrey-secondary"
+        >
+          <AccordionItemHeading>
+            <AccordionItemButton className="outline-none">
+              <AccordionItemState>
+                {state => {
+                  return (
+                    <div className="flex justify-between text-primary px-4 py-2">
+                      {state.expanded ? (
+                        <span className="text-primary">
+                          Click on description
+                        </span>
+                      ) : (
+                        <span className="text-secondary">
+                          Click on description
+                        </span>
+                      )}
+                      {state.expanded ? (
+                        <span className="text-primary">&#9660;&#xFE0E;</span>
+                      ) : (
+                        <span className="text-secondary">&#9654;&#xFE0E;</span>
+                      )}
+                    </div>
+                  )
+                }}
+              </AccordionItemState>
+            </AccordionItemButton>
+          </AccordionItemHeading>
+          <AccordionItemPanel>
+            <div className="px-4 pb-2">
+              <p className="text-primary">{bigLorem}</p>
+            </div>
+          </AccordionItemPanel>
+        </AccordionItem>
+      </Accordion>
+      {/* ------------------ */}
 
       {/* CAROUSEL */}
       <div className="flex justify-center" style={{ flexBasis: "40%" }}>

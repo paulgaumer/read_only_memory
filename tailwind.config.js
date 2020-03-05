@@ -18,6 +18,12 @@ module.exports = {
           light: "#EEEEEF",
           dark: "#121012",
         },
+        hover: {
+          titles: "#1DFF00",
+          authors: "#53BDF9",
+          editors: "#0000FF",
+          collections: "#7E38DA",
+        },
       },
       screens: {
         xxl: "1360px",

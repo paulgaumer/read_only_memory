@@ -60,7 +60,7 @@ const ListItemOthers = ({ item, page, location }) => {
           >
             <ItemGrid
               data-name="list-item"
-              className={`md:grid border-b border-myGrey-secondary pb-2 px-4 grid-${page}`}
+              className={`md:grid border-b border-myGrey-secondary pb-2 px-4 grid-${page} hover:bg-hover-${page}`}
             >
               {/* NAME */}
               <div data-name="name" className="text-primary">

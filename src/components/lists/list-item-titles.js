@@ -55,7 +55,7 @@ const ListItemTitles = ({ item, page, location }) => {
     >
       <ItemGrid
         data-name="list-item"
-        className={`md:grid border-b border-myGrey-secondary pb-2 px-4 grid-titles`}
+        className={`md:grid border-b border-myGrey-secondary pb-2 px-4 grid-titles hover:bg-hover-${page}`}
       >
         {/* NAME */}
         <ItemName item={item} location={location} />

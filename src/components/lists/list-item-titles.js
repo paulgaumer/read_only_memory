@@ -48,6 +48,21 @@ const ItemCategory = ({ categoryInfo, name }) => {
 const ListItemTitles = ({ item, page, location }) => {
   const categories = ["titles", "authors", "editors", "collections"]
 
+  const pickHoverColor = page => {
+    switch (page) {
+      case "titles":
+        return "hover:bg-hover-titles"
+      case "authors":
+        return "hover:bg-hover-authors"
+      case "editors":
+        return "hover:bg-hover-editors"
+      case "collections":
+        return "hover:bg-hover-collections"
+      default:
+        break
+    }
+  }
+
   return (
     <Link
       to={`/titre/${sanitizeSlug(item.slug)}`}
@@ -55,7 +70,9 @@ const ListItemTitles = ({ item, page, location }) => {
     >
       <ItemGrid
         data-name="list-item"
-        className={`md:grid border-b border-myGrey-secondary pb-2 px-4 grid-titles hover:bg-hover-${page}`}
+        className={`md:grid border-b border-myGrey-secondary pb-2 px-4 grid-titles ${pickHoverColor(
+          page
+        )}`}
       >
         {/* NAME */}
         <ItemName item={item} location={location} />

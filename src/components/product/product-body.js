@@ -23,7 +23,13 @@ const UrlBlock = ({ url }) => {
   // console.log(url)
   return url.map(el => {
     return el.search("http") !== -1 ? (
-      <a href={el} target="_blank" rel="noopener noreferrer" key={el}>
+      <a
+        href={el}
+        className="visited:text-indigo-600"
+        target="_blank"
+        rel="noopener noreferrer"
+        key={el}
+      >
         {el}
       </a>
     ) : (

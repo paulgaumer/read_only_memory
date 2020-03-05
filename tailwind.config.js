@@ -18,12 +18,17 @@ module.exports = {
           light: "#EEEEEF",
           dark: "#121012",
         },
+        // -----------------------------------
+        // CHANGE HERE FOR CUSTOM HOVER COLORS
+        // -----------------------------------
         hover: {
           titles: "#1DFF00",
           authors: "#53BDF9",
           editors: "#0000FF",
           collections: "#7E38DA",
         },
+        // -----------------------------------
+        // -----------------------------------
       },
       screens: {
         xxl: "1360px",
@@ -32,6 +37,7 @@ module.exports = {
   },
   variants: {
     borderWidth: ["responsive", "first", "last", "hover", "focus"],
+    textColor: ["responsive", "hover", "focus", "visited"],
   },
   plugins: [],
 }

@@ -11,7 +11,7 @@ const About = ({ data, location }) => {
     <Layout location={location}>
       <SEO title="A propos" />
       <div>
-        <MyAccordion edges={edges} />
+        <MyAccordion edges={edges.reverse()} />
       </div>
     </Layout>
   )

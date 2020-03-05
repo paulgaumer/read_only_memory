@@ -23,16 +23,34 @@ const MyAccordion = ({ edges }) => {
                 <AccordionItemState>
                   {state => {
                     return (
-                      <div className="flex text-primary px-4">
-                        <span style={{ flex: "0 0 30%" }}>
-                          {node.data.name}
-                        </span>
+                      <div className="flex justify-between md:justify-start px-4">
+                        {state.expanded ? (
+                          <>
+                            <span
+                              style={{ flex: "0 0 30%" }}
+                              className="hidden md:inline text-primary"
+                            >
+                              {node.data.name}
+                            </span>
+                            <span className="md:hidden text-primary">
+                              {node.data.name}
+                            </span>
+                          </>
+                        ) : (
+                          <>
+                            <span
+                              style={{ flex: "0 0 30%" }}
+                              className="hidden md:inline"
+                            >
+                              {node.data.name}
+                            </span>
+                            <span className="md:hidden">{node.data.name}</span>
+                          </>
+                        )}
                         {state.expanded ? (
                           <span className="text-primary">&#9660;&#xFE0E;</span>
                         ) : (
-                          <span className="text-secondary">
-                            &#9654;&#xFE0E;
-                          </span>
+                          <span>&#9654;&#xFE0E;</span>
                         )}
                       </div>
                     )
@@ -41,8 +59,11 @@ const MyAccordion = ({ edges }) => {
               </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
-              <div className="flex text-myGrey-secondary px-4">
-                <span style={{ flex: "0 0 30%" }}></span>
+              <div className="flex text-primary px-4">
+                <span
+                  style={{ flex: "0 0 30%" }}
+                  className="hidden md:inline"
+                ></span>
                 <p>{node.data.content}</p>
               </div>
             </AccordionItemPanel>

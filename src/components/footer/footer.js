@@ -25,10 +25,10 @@ const Footer = ({ location }) => {
             .map(letter => {
               return (
                 <span
-                  className={`pr-4 md:pr-2 hover:${
+                  className={`pr-4 md:pr-2 ${
                     themeState === "light"
-                      ? "text-myBlack"
-                      : "text-myGrey-primary"
+                      ? "hover:text-myBlack"
+                      : "hover:text-myGrey-primary"
                   }`}
                   key={letter}
                 >

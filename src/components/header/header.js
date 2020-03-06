@@ -26,6 +26,22 @@ const Header = ({ location }) => {
   const navList = ["titres", "auteurs", "collections", "editeurs"]
   const isCategoryPage = () => navList.includes(location.pathname.slice(1))
 
+  // To position the active page as first menu item on mobile
+  const getNavList = () => {
+    switch (location.pathname.slice(1)) {
+      case "titres":
+        return ["titres", "auteurs", "collections", "editeurs"]
+      case "auteurs":
+        return ["auteurs", "titres", "collections", "editeurs"]
+      case "editeurs":
+        return ["editeurs", "titres", "auteurs", "collections"]
+      case "collections":
+        return ["collections", "titres", "auteurs", "editeurs"]
+      default:
+        return ["titres", "auteurs", "collections", "editeurs"]
+    }
+  }
+
   const navigateBack = () => {
     if (location.state !== null) {
       if (location.state !== undefined) {
@@ -61,8 +77,20 @@ const Header = ({ location }) => {
         <div className="w-full overflow-x-auto">
           {isCategoryPage() && (
             <div className="categories">
-              <ul className="flex">
+              {/* Keep fix navigation menu on desktop */}
+              <ul className="hidden md:flex">
                 {navList.map(category => (
+                  <NavListItem
+                    location={location}
+                    category={category}
+                    key={category}
+                  />
+                ))}
+              </ul>
+
+              {/* Keep active page as first menu item on mobile */}
+              <ul className="flex md:hidden">
+                {getNavList().map(category => (
                   <NavListItem
                     location={location}
                     category={category}

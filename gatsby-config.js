@@ -5,6 +5,8 @@ module.exports = {
     title: `readonlymemory`,
     description: `readonlymemory.net`,
     author: `Gilles Rouffineau`,
+    image: "/images/banner-seotags.png",
+    siteUrl: `https://readonlymemory.net/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

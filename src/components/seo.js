@@ -19,6 +19,8 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            image
+            siteUrl
           }
         }
       }
@@ -48,6 +50,18 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
         {
+          property: `og:image`,
+          content: `https://readonlymemory.net/images/banner-seo-v2.png`,
+        },
+        {
+          property: `og:image:width`,
+          content: `2400`,
+        },
+        {
+          property: `og:image:height`,
+          content: `1260`,
+        },
+        {
           property: `og:type`,
           content: `website`,
         },
@@ -67,13 +81,17 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `twitter:image`,
+          content: `https://japanlifestories.com/images/banner-seo-v2.png`,
+        },
       ].concat(meta)}
     />
   )
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `fr`,
   meta: [],
   description: ``,
 }

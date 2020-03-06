@@ -31,7 +31,6 @@ export const MaxHeightDiv = styled.div`
 `
 
 const UrlBlock = ({ url }) => {
-  // console.log(url)
   return url.map(el => {
     return el.search("http") !== -1 ? (
       <a
@@ -50,7 +49,6 @@ const UrlBlock = ({ url }) => {
 }
 
 const UrlBlocks = ({ urls }) => {
-  // console.log(urls)
   if (urls === null) {
     return <p className="text-myBlue">URL à compléter</p>
   }

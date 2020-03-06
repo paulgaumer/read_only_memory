@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { Link } from "gatsby"
 import { sanitizeSlug, capitalize } from "../../utils/utils"
 import {
@@ -27,14 +27,14 @@ const ItemCategories = ({ item, page }) => {
           className="px-4 text-primary pl-8 flex flex-wrap items-baseline"
         >
           {item["authors"].map((info, i) => (
-            <>
+            <Fragment key={info}>
               <p className="py-1" key={info}>
                 {info}
               </p>
               {i < item["authors"].length - 1 && (
                 <span className="pr-1">,</span>
               )}
-            </>
+            </Fragment>
           ))}
         </div>
       )}

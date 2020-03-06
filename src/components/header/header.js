@@ -25,7 +25,6 @@ const NavListItem = ({ location, category }) => {
 const Header = ({ location }) => {
   const navList = ["titres", "auteurs", "collections", "editeurs"]
   const isCategoryPage = () => navList.includes(location.pathname.slice(1))
-  console.log(isCategoryPage())
 
   // To position the active page as first menu item on mobile
   const getNavList = () => {

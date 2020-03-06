@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { Link } from "gatsby"
 import {
   AccordionItem,
@@ -23,14 +23,12 @@ const ItemCategories = ({ item, page }) => {
           className="px-4 text-primary pl-12 flex flex-wrap items-baseline"
         >
           {item["authors"].map((info, i) => (
-            <>
-              <p className="py-1" key={`${info}-${i}`}>
-                {info}
-              </p>
+            <Fragment key={`${info}-${i}`}>
+              <p className="py-1">{info}</p>
               {i < item["authors"].length - 1 && (
                 <span className="pr-1">,</span>
               )}
-            </>
+            </Fragment>
           ))}
         </div>
       )}
@@ -62,6 +60,7 @@ const ListItemOthers = ({ item, page, location }) => {
       {item.titles.map((title, i) => {
         return (
           <AccordionItem
+            key={`${item.name}-${i}`}
             uuid={`${item.name}-${i}`}
             className="border-b border-myGrey-secondary"
           >

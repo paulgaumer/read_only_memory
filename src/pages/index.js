@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import useDarkMode from "use-dark-mode"
+import { GlobalDispatchContext } from "../context/global-context-provider"
 import SEO from "../components/seo"
 import "../styles/global.scss"
 
@@ -11,9 +12,11 @@ const Container = styled.div`
 `
 
 const IndexPage = () => {
+  const themeDispatch = useContext(GlobalDispatchContext)
   // Setup the switch between dark & light mode
   const darkMode = useDarkMode(false)
   const handleClick = mode => {
+    themeDispatch({ type: mode })
     return mode === "dark" ? darkMode.enable() : darkMode.disable()
   }
 

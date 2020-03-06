@@ -15,7 +15,9 @@ const Footer = ({ location }) => {
     <footer
       className={`font-headerFooter fixed bottom-0 pt-2 w-full text-xl lg856:text-2xl lg999:text-3xl xl1141:text-4xl xxl:text-5xl ${
         isCategoryPage() ? "" : "border-t border-myGrey-secondary"
-      } ${isHomePage() ? "bg-homepage-light" : ""} flex justify-between`}
+      } ${
+        isHomePage() ? "bg-homepage-light" : ""
+      } flex justify-between items-center`}
     >
       <div className="hidden md:block px-4 overflow-x-auto">
         {/* Alphabet Nav */}

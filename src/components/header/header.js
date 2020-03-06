@@ -25,6 +25,7 @@ const NavListItem = ({ location, category }) => {
 const Header = ({ location }) => {
   const navList = ["titres", "auteurs", "collections", "editeurs"]
   const isCategoryPage = () => navList.includes(location.pathname.slice(1))
+  console.log(isCategoryPage())
 
   // To position the active page as first menu item on mobile
   const getNavList = () => {
@@ -62,7 +63,10 @@ const Header = ({ location }) => {
         isCategoryPage() ? "" : "border-b border-myGrey-secondary"
       }`}
     >
-      <div className="flex justify-between flex-row pt-2 pb-0 px-4 text-3xl lg:text-4xl xl:text-5xl ">
+      <div
+        className="flex justify-between flex-row pt-2 pb-0 pr-4 text-3xl lg:text-4xl xl:text-5xl"
+        style={{ paddingLeft: "13px" }}
+      >
         {/* Back button */}
         {!isCategoryPage() && (
           <div className="categories">

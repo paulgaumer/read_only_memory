@@ -39,7 +39,7 @@ const Footer = ({ location }) => {
               )
             })}
       </div>
-      <div className="px-4">
+      <div className="pr-4" style={{ paddingLeft: "13px" }}>
         <Link
           to="/a-propos/"
           className={`flex ${isAboutPage() ? "text-primary" : ""}`}

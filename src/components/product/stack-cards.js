@@ -69,16 +69,6 @@ const StackCards = ({ images, windowSize, name }) => {
         />
       </div>
     )
-  } else {
-    // return a single image
-    return (
-      <img
-        src={arr[0]}
-        alt={name}
-        style={{ maxWidth: imgWidth() }}
-        className="pt-8 lg:pt-0"
-      />
-    )
   }
 }
 

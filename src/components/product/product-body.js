@@ -11,11 +11,22 @@ import {
 import ProductImages from "./product-images"
 import { sortProductUrls } from "../../utils/structure-data"
 import { bigLorem, getWindowSize } from "../../utils/utils"
+import StackCards from "./stack-cards"
 
-const DescriptionDiv = styled.div`
-  /* Add scroll behaviour on the description text from screen size md */
+export const MaxHeightDiv = styled.div`
+  /* Add max-height to fit between header & footer. 
+  Add scroll behaviour on the description text from screen size md */
   @media (min-width: 768px) {
+    max-height: calc(100vh - 240px);
+  }
+  @media (min-width: 1024px) {
+    max-height: calc(100vh - 260px);
+  }
+  @media (min-width: 1280px) {
     max-height: calc(100vh - 270px);
+  }
+  @media (min-width: 1360px) {
+    max-height: calc(100vh - 290px);
   }
 `
 
@@ -86,19 +97,22 @@ const ProductBody = ({ product }) => {
       data-name="product-body"
       className=" pb-20 md:pb-0 md:pt-4 md:px-4 md:flex"
     >
-      {/* PRODUCT DESCRIPTION */}
-      <DescriptionDiv
-        className="hidden md:block mt-6 md:overflow-y-auto"
+      {/* PRODUCT DESCRIPTION DESKTOP */}
+      <MaxHeightDiv
+        className="hidden md:block mt-4 md:overflow-y-auto"
         style={{ flexBasis: "40%" }}
       >
         <p className="">{bigLorem}</p>
-      </DescriptionDiv>
+      </MaxHeightDiv>
       {/* -------- */}
 
-      {/* LIST OF URLS */}
-      <div className="hidden md:block mt-6 px-4" style={{ flexBasis: "20%" }}>
+      {/* LIST OF URLS DESKTOP */}
+      <MaxHeightDiv
+        className="hidden md:block mt-4 px-4"
+        style={{ flexBasis: "20%" }}
+      >
         <UrlBlocks urls={urls} />
-      </div>
+      </MaxHeightDiv>
       {/* -------- */}
 
       {/* MOBILE VIEW */}
@@ -177,13 +191,28 @@ const ProductBody = ({ product }) => {
       {/* ------------------ */}
 
       {/* CAROUSEL */}
-      <div className="flex justify-center" style={{ flexBasis: "40%" }}>
-        <ProductImages
-          images={images}
-          name={product.name}
-          windowSize={getWindowSize(windowWidth)}
-        />
-      </div>
+      {images.length <= 1 && (
+        <MaxHeightDiv
+          className="flex justify-center self-start md:mt-4 "
+          style={{ flexBasis: "40%" }}
+        >
+          <ProductImages
+            images={images}
+            name={product.name}
+            windowSize={getWindowSize(windowWidth)}
+          />
+        </MaxHeightDiv>
+      )}
+
+      {images.length > 1 && (
+        <div className="flex justify-center" style={{ flexBasis: "40%" }}>
+          <StackCards
+            images={images}
+            windowSize={getWindowSize(windowWidth)}
+            name={product.name}
+          />
+        </div>
+      )}
       {/* -------- */}
     </div>
   )

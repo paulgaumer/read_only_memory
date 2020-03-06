@@ -16,12 +16,10 @@ const ProductImages = ({ images, windowSize, name }) => {
     return (
       <img
         src={images[0]}
-        // alt={name}
+        alt={name}
         width="100%"
         height="100%"
-        className="object-contain m-6 md:m-0"
-        style={{ objectFit: "contain" }}
-        // className="pt-8 lg:pt-0"
+        className="object-contain p-6 md:p-0"
       />
     )
   }

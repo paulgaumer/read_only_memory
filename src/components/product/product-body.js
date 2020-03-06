@@ -25,7 +25,7 @@ export const MaxHeightDiv = styled.div`
   @media (min-width: 1280px) {
     max-height: calc(100vh - 270px);
   }
-  @media (min-width: 1360px) {
+  @media (min-width: 1425px) {
     max-height: calc(100vh - 290px);
   }
 `
@@ -193,7 +193,7 @@ const ProductBody = ({ product }) => {
       {/* CAROUSEL */}
       {images.length <= 1 && (
         <MaxHeightDiv
-          className="flex justify-center self-start md:mt-4 "
+          className="flex justify-center md:self-start md:mt-4 "
           style={{ flexBasis: "40%" }}
         >
           <ProductImages

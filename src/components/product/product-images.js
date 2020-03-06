@@ -19,7 +19,8 @@ const ProductImages = ({ images, windowSize, name }) => {
         alt={name}
         width="100%"
         height="100%"
-        className="object-contain p-6 md:p-0"
+        className="w-full h-full md:h-auto object-contain p-6 md:p-0"
+        // Need both height for Safari compatibility
       />
     )
   }

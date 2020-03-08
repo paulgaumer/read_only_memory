@@ -10,7 +10,8 @@ import {
 } from "react-accessible-accordion"
 import ProductImages from "./product-images"
 import { sortProductUrls } from "../../utils/structure-data"
-import { bigLorem, getWindowSize } from "../../utils/utils"
+import { getWindowSize } from "../../utils/utils"
+// import { bigLorem } from "../../utils/utils"
 import StackCards from "./stack-cards"
 
 export const MaxHeightDiv = styled.div`
@@ -100,7 +101,12 @@ const ProductBody = ({ product }) => {
         className="hidden md:block mt-4 md:overflow-y-auto"
         style={{ flexBasis: "40%" }}
       >
-        <p className="">{bigLorem}</p>
+        {/* <p className="">{bigLorem}</p> */}
+        {product.content === null ? (
+          <p>Documentation en cours</p>
+        ) : (
+          <p>{product.content}</p>
+        )}
       </MaxHeightDiv>
       {/* -------- */}
 
@@ -181,7 +187,12 @@ const ProductBody = ({ product }) => {
           </AccordionItemHeading>
           <AccordionItemPanel>
             <div className="px-4 pb-2">
-              <p className="text-primary">{bigLorem}</p>
+              {/* <p className="text-primary">{bigLorem}</p> */}
+              {product.content === null ? (
+                <p>Documentation en cours</p>
+              ) : (
+                <p>{product.content}</p>
+              )}
             </div>
           </AccordionItemPanel>
         </AccordionItem>

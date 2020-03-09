@@ -12,7 +12,7 @@ module.exports = {
           lightSecondary: "#6B6A6B",
           background: "#121012",
         },
-        myBlue: "#0B01AC",
+        myBlue: "#3E3CFF",
         myBlack: "#1B191B",
         homepage: {
           light: "#EEEEEF",

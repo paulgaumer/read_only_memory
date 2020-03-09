@@ -88,7 +88,7 @@ const ListItemTitles = ({ item, page, location }) => {
     >
       <ItemGrid
         data-name="list-item"
-        className={`md:grid border-b border-myGrey-secondary pb-2 px-4 grid-titles group ${pickHoverColor(
+        className={`md:grid border-b border-myGrey-secondary pb-2 px-4 grid-titles group hover:text-lg ${pickHoverColor(
           page
         )}`}
       >

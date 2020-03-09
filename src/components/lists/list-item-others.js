@@ -49,6 +49,21 @@ const ItemCategory = ({ categoryInfo, name, title }) => {
 const ListItemOthers = ({ item, page, location }) => {
   const categories = ["titles", "authors", "editors", "collections"]
 
+  const pickNameHoverColor = page => {
+    switch (page) {
+      case "titles":
+        return "group-hover:text-hover-titles"
+      case "authors":
+        return "group-hover:text-hover-authors"
+      case "editors":
+        return "group-hover:text-hover-editors"
+      case "collections":
+        return "group-hover:text-hover-collections"
+      default:
+        break
+    }
+  }
+
   return (
     <div id={item.name}>
       {item.titles.map((title, i) => {
@@ -66,9 +81,9 @@ const ListItemOthers = ({ item, page, location }) => {
               <div data-name="name" className="text-primary">
                 {/* Display name only for the first element of the array */}
                 <p
-                  className={`${
-                    i === 0 ? "visible" : "invisible"
-                  } group-hover:text-hover-${page}`}
+                  className={`
+                  ${i === 0 ? "visible" : "invisible"} 
+                  ${pickNameHoverColor(page)}`}
                 >
                   {capitalize(item.name)}
                 </p>

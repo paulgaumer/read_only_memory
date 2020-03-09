@@ -26,9 +26,24 @@ const ItemGrid = styled.div`
   }
 `
 const ItemName = ({ item, page }) => {
+  const pickNameHoverColor = page => {
+    switch (page) {
+      case "titles":
+        return "group-hover:text-hover-titles"
+      case "authors":
+        return "group-hover:text-hover-authors"
+      case "editors":
+        return "group-hover:text-hover-editors"
+      case "collections":
+        return "group-hover:text-hover-collections"
+      default:
+        break
+    }
+  }
+
   return (
     <div data-name="name">
-      <p className={`text-primary group-${pickHoverColor(page)}`}>
+      <p className={`text-primary ${pickNameHoverColor(page)}`}>
         {capitalize(item.name)}
       </p>
     </div>
@@ -47,23 +62,23 @@ const ItemCategory = ({ categoryInfo, name }) => {
   )
 }
 
-const pickHoverColor = page => {
-  switch (page) {
-    case "titles":
-      return "hover:text-hover-titles"
-    case "authors":
-      return "hover:text-hover-authors"
-    case "editors":
-      return "hover:text-hover-editors"
-    case "collections":
-      return "hover:text-hover-collections"
-    default:
-      break
-  }
-}
-
 const ListItemTitles = ({ item, page, location }) => {
   const categories = ["titles", "authors", "editors", "collections"]
+
+  const pickHoverColor = page => {
+    switch (page) {
+      case "titles":
+        return "hover:text-hover-titles"
+      case "authors":
+        return "hover:text-hover-authors"
+      case "editors":
+        return "hover:text-hover-editors"
+      case "collections":
+        return "hover:text-hover-collections"
+      default:
+        break
+    }
+  }
 
   return (
     <Link

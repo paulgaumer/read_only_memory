@@ -25,10 +25,12 @@ const ItemGrid = styled.div`
     grid-area: collections;
   }
 `
-const ItemName = ({ item }) => {
+const ItemName = ({ item, page }) => {
   return (
     <div data-name="name">
-      <p className="text-primary">{capitalize(item.name)}</p>
+      <p className={`text-primary group-${pickHoverColor(page)}`}>
+        {capitalize(item.name)}
+      </p>
     </div>
   )
 }
@@ -45,37 +47,38 @@ const ItemCategory = ({ categoryInfo, name }) => {
   )
 }
 
+const pickHoverColor = page => {
+  switch (page) {
+    case "titles":
+      return "hover:text-hover-titles"
+    case "authors":
+      return "hover:text-hover-authors"
+    case "editors":
+      return "hover:text-hover-editors"
+    case "collections":
+      return "hover:text-hover-collections"
+    default:
+      break
+  }
+}
+
 const ListItemTitles = ({ item, page, location }) => {
   const categories = ["titles", "authors", "editors", "collections"]
-
-  const pickHoverColor = page => {
-    switch (page) {
-      case "titles":
-        return "hover:bg-hover-titles"
-      case "authors":
-        return "hover:bg-hover-authors"
-      case "editors":
-        return "hover:bg-hover-editors"
-      case "collections":
-        return "hover:bg-hover-collections"
-      default:
-        break
-    }
-  }
 
   return (
     <Link
       to={`/titre/${sanitizeSlug(item.slug)}`}
       state={{ prevPath: location.pathname }}
+      className={``}
     >
       <ItemGrid
         data-name="list-item"
-        className={`md:grid border-b border-myGrey-secondary pb-2 px-4 grid-titles ${pickHoverColor(
+        className={`md:grid border-b border-myGrey-secondary pb-2 px-4 grid-titles group ${pickHoverColor(
           page
         )}`}
       >
         {/* NAME */}
-        <ItemName item={item} location={location} />
+        <ItemName item={item} location={location} page={page} />
         {/* CATEGORIES INFO */}
         {categories.map(category => {
           if (category !== page) {

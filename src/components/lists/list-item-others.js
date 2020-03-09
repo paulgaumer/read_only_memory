@@ -60,12 +60,16 @@ const ListItemOthers = ({ item, page, location }) => {
           >
             <ItemGrid
               data-name="list-item"
-              className={`md:grid border-b border-myGrey-secondary pb-2 px-4 grid-${page} hover:bg-hover-${page}`}
+              className={`md:grid border-b border-myGrey-secondary pb-2 px-4 grid-${page} group hover:text-hover-${page} hover:text-lg`}
             >
               {/* NAME */}
               <div data-name="name" className="text-primary">
                 {/* Display name only for the first element of the array */}
-                <p className={`${i === 0 ? "visible" : "invisible"}`}>
+                <p
+                  className={`${
+                    i === 0 ? "visible" : "invisible"
+                  } group-hover:text-hover-${page}`}
+                >
                   {capitalize(item.name)}
                 </p>
               </div>

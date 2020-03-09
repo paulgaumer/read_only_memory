@@ -40,7 +40,16 @@ module.exports = {
   },
   variants: {
     borderWidth: ["responsive", "first", "last", "hover", "focus"],
-    textColor: ["responsive", "hover", "focus", "visited"],
+    textColor: [
+      "responsive",
+      "hover",
+      "focus",
+      "visited",
+      "first",
+      "last",
+      "group-hover",
+    ],
+    fontSize: ["responsive", "hover", "group-hover", "focus"],
   },
   plugins: [],
 }

@@ -13,14 +13,12 @@ const Footer = ({ location }) => {
 
   return (
     <footer
-      className={`font-headerFooter fixed bottom-0 pt-2 w-full text-xl lg856:text-2xl lg999:text-3xl xl1141:text-4xl xxl:text-5xl ${
-        isCategoryPage() ? "" : "border-t border-myGrey-secondary"
-      } ${
-        isHomePage() ? "bg-homepage-light" : ""
-      } flex justify-between items-center`}
+      className={`fixed font-headerFooter bottom-0 pt-2 w-full text-3xl md:text-xl lg856:text-2xl lg999:text-3xl xl1141:text-4xl xxl:text-5xl flex flex-col md:flex-row md:justify-between md:items-center 
+      ${isCategoryPage() ? "" : "border-t border-myGrey-secondary"} 
+      ${isHomePage() ? "bg-homepage-light" : ""}`}
     >
-      <div className="hidden md:block px-4 overflow-x-auto">
-        {/* Alphabet Nav */}
+      {/* ALPHABET NAV */}
+      <div className="block px-4 overflow-x-auto">
         {isCategoryPage() &&
           azRange
             .filter(i => i !== "é")
@@ -39,17 +37,26 @@ const Footer = ({ location }) => {
               )
             })}
       </div>
-      <div className="pr-4" style={{ paddingLeft: "13px" }}>
-        <Link
-          to="/a-propos/"
-          className={`flex ${isAboutPage() ? "text-primary" : ""}`}
-        >
-          <span>&#9654;&#xFE0E;</span>
-          <p className="uppercase">à propos</p>
-        </Link>
-      </div>
-      <div className="md:hidden px-4">
-        <ThemeToggle />
+      <div
+        className={`flex justify-between pt-2 md:pt-0 
+        ${
+          isCategoryPage() ? "border-t border-myGrey-secondary" : ""
+        } md:border-0`}
+      >
+        {/* A PROPOS LINK */}
+        <div className="pr-4" style={{ paddingLeft: "13px" }}>
+          <Link
+            to="/a-propos/"
+            className={`flex ${isAboutPage() ? "text-primary" : ""}`}
+          >
+            <span>&#9654;&#xFE0E;</span>
+            <p className="uppercase">à propos</p>
+          </Link>
+        </div>
+        {/* THEME TOGGLE */}
+        <div className="md:hidden px-4">
+          <ThemeToggle />
+        </div>
       </div>
     </footer>
   )

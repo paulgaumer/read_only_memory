@@ -62,7 +62,7 @@ const ProductHeader = ({ product }) => {
                     <div className="flex justify-between text-primary px-4 pb-2">
                       <div>
                         <span>{product.name}</span>
-                        {product.year && <span> ({product.year})</span>}
+                        {product.year && <span> - {product.year}</span>}
                       </div>
                       {state.expanded ? (
                         <span className="text-primary">&#9660;&#xFE0E;</span>

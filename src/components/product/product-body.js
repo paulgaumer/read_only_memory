@@ -102,11 +102,16 @@ const ProductBody = ({ product }) => {
         style={{ flexBasis: "40%" }}
       >
         {/* <p className="">{bigLorem}</p> */}
+<<<<<<< HEAD
         {product.content === null ? (
           <p>Documentation en cours</p>
         ) : (
           <p>{product.content}</p>
         )}
+=======
+        {product.content === null && <p>Documentation en cours</p>}
+        {product.content !== null && <p>{product.content}</p>}
+>>>>>>> 784b54adf82dee7f9f6138d60b00b7e16c81bcae
       </MaxHeightDiv>
       {/* -------- */}
 

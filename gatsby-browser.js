@@ -1,3 +1,5 @@
+import "./src/styles/global.scss"
+
 // Allows us to keep the state given by React Context on page change
 
 // import React from "react"

@@ -63,10 +63,10 @@ const List = ({ edges, page, location }) => {
     }
   }, [])
 
-  return windowWidth <= 767 ? (
-    <ListMobile page={page} location={location} sortedList={sortedList} />
-  ) : (
+  return windowWidth >= 768 ? (
     <ListDesktop page={page} location={location} sortedList={sortedList} />
+  ) : (
+    <ListMobile page={page} location={location} sortedList={sortedList} />
   )
 }
 

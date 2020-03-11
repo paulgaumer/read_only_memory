@@ -1,13 +1,15 @@
 import React from "react"
 import { Link } from "gatsby"
 import ThemeToggle from "./theme-toggle"
+import { deleteTrailingSlash } from "../../utils/utils"
 
 const NavListItem = ({ location, category }) => {
   // Add the accent for proper display in the navbar
   const categoryName =
     category === "editeurs" ? category.replace("e", "é") : category
   // Check if the current location url matches the category
-  const isCurrentLocation = location.pathname === `/${category}`
+  const isCurrentLocation =
+    deleteTrailingSlash(location.pathname) === `/${category}`
 
   return (
     <li className={`${isCurrentLocation ? "text-primary" : ""} pr-5`}>
@@ -24,7 +26,27 @@ const NavListItem = ({ location, category }) => {
 
 const Header = ({ location }) => {
   const navList = ["titres", "auteurs", "collections", "editeurs"]
-  const isCategoryPage = () => navList.includes(location.pathname.slice(1))
+
+  // To display the correct info in the header based on currrent page type
+  const isCategoryPage = () => {
+    let loc = deleteTrailingSlash(location.pathname)
+    // Get rid of starting slash in url
+    return navList.includes(loc.slice(1))
+  }
+
+  const navigateBack = () => {
+    if (location.state !== null) {
+      if (location.state !== undefined) {
+        return location.state.prevPath !== undefined
+          ? location.state.prevPath
+          : "/titres"
+      } else {
+        return "/titres"
+      }
+    } else {
+      return "/titres"
+    }
+  }
 
   // To position the active page as first menu item on mobile
   const getNavList = () => {
@@ -39,20 +61,6 @@ const Header = ({ location }) => {
         return ["collections", "titres", "auteurs", "editeurs"]
       default:
         return ["titres", "auteurs", "collections", "editeurs"]
-    }
-  }
-
-  const navigateBack = () => {
-    if (location.state !== null) {
-      if (location.state !== undefined) {
-        return location.state.prevPath !== undefined
-          ? location.state.prevPath
-          : "/titres"
-      } else {
-        return "/titres"
-      }
-    } else {
-      return "/titres"
     }
   }
 

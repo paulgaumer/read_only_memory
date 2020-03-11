@@ -37,9 +37,10 @@ const SwitchExample = () => {
   }, [])
 
   return (
-    <label htmlFor="themeSwitch">
+    <label for="themeSwitch">
       <Switch
         id="themeSwitch"
+        role="switch"
         onChange={handleChange}
         checked={isChecked}
         offColor="#4A4A4A"

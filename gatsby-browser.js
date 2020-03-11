@@ -1,4 +1,5 @@
 import "./src/styles/global.scss"
+import "./static/fonts.css"
 
 // Allows us to keep the state given by React Context on page change
 

@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iAWriter";
-  src: url("iAWriterDuoS-Regular.ttf");
+  src: url("./fonts/iAWriterDuoS-Regular.ttf");
 }
 @font-face {
   font-family: "HelveticaLTStd-Roman";
-  src: url("HelveticaLTStd-Roman.otf");
+  src: url("./fonts/HelveticaLTStd-Roman.otf");
 }

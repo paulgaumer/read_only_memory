@@ -8,7 +8,7 @@ import { sortListByFirstCharacter } from "../../utils/structure-data"
 
 const ListDesktop = ({ sortedList, page, location }) => {
   return (
-    <div>
+    <div className="hidden md:block">
       {/* Display names matching the given range */}
       {azRange.map(letter => (
         <GroupByLetter

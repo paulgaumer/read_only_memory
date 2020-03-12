@@ -7,7 +7,7 @@ import { azRange } from "../../utils/utils"
 
 const ListMobile = ({ sortedList, page, location }) => {
   return (
-    <div>
+    <div className="md:hidden">
       {/* Display names matching the given range */}
       {azRange.map(letter => (
         <GroupByLetterMobile

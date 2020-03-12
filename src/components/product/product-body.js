@@ -13,6 +13,7 @@ import { sortProductUrls } from "../../utils/structure-data"
 import { getWindowSize } from "../../utils/utils"
 // import { bigLorem } from "../../utils/utils"
 import StackCards from "./stack-cards"
+import ImageSpread from "./image-spread"
 
 export const MaxHeightDiv = styled.div`
   /* Add max-height to fit between header & footer. 
@@ -200,7 +201,8 @@ const ProductBody = ({ product }) => {
       {/* ------------------ */}
 
       {/* CAROUSEL */}
-      {images.length <= 1 && (
+      <ImageSpread images={images} />
+      {/* {images.length <= 1 && (
         <MaxHeightDiv
           className="flex justify-center md:self-start md:mt-4 "
           style={{ flexBasis: "40%" }}
@@ -221,7 +223,7 @@ const ProductBody = ({ product }) => {
             name={product.name}
           />
         </div>
-      )}
+      )} */}
       {/* -------- */}
     </div>
   )

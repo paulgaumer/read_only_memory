@@ -20,7 +20,7 @@ const Footer = ({ location }) => {
 
   return (
     <footer
-      className={`fixed font-headerFooter bottom-0 pt-2 w-full text-3xl md:text-xl lg856:text-2xl lg999:text-3xl xl1141:text-4xl xxl:text-5xl flex flex-col md:flex-row md:justify-between md:items-center 
+      className={`fixed z-50 font-headerFooter bottom-0 pt-2 w-full text-3xl md:text-xl lg856:text-2xl lg999:text-3xl xl1141:text-4xl xxl:text-5xl flex flex-col md:flex-row md:justify-between md:items-center 
       ${isCategoryPage() ? "" : "border-t border-myGrey-secondary"} 
       ${isHomePage() ? "bg-homepage-light" : ""}`}
     >

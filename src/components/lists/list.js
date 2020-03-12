@@ -8,7 +8,7 @@ import { sortListByFirstCharacter } from "../../utils/structure-data"
 
 const ListDesktop = ({ sortedList, page, location }) => {
   return (
-    <div>
+    <div className="hidden md:block">
       {/* Display names matching the given range */}
       {azRange.map(letter => (
         <GroupByLetter
@@ -46,7 +46,7 @@ const ListDesktop = ({ sortedList, page, location }) => {
 const List = ({ edges, page, location }) => {
   // Filter the list to sort names starting with special character or normal letters
   const sortedList = sortListByFirstCharacter(edges, page, azRange)
-  const [windowWidth, setWindowWidth] = useState("")
+  const [windowWidth, setWindowWidth] = useState(768)
 
   const handleWindowResize = () => {
     setWindowWidth(window.innerWidth)
@@ -63,10 +63,10 @@ const List = ({ edges, page, location }) => {
     }
   }, [])
 
-  return windowWidth <= 767 ? (
-    <ListMobile page={page} location={location} sortedList={sortedList} />
-  ) : (
+  return windowWidth >= 768 ? (
     <ListDesktop page={page} location={location} sortedList={sortedList} />
+  ) : (
+    <ListMobile page={page} location={location} sortedList={sortedList} />
   )
 }
 

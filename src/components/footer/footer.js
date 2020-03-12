@@ -6,7 +6,14 @@ import { GlobalStateContext } from "../../context/global-context-provider"
 
 const Footer = ({ location }) => {
   const navList = ["titres", "auteurs", "editeurs", "collections"]
-  const isCategoryPage = () => navList.includes(location.pathname.slice(1))
+  const isCategoryPage = () => {
+    let loc = location.pathname
+    // Get rid of trailing slash in url
+    if (loc.charAt(loc.length - 1) === "/") {
+      loc = loc.slice(0, -1)
+    }
+    return navList.includes(loc.slice(1))
+  }
   const isHomePage = () => location.pathname === "/"
   const isAboutPage = () => location.pathname === "/a-propos/"
   const themeState = useContext(GlobalStateContext)
@@ -47,6 +54,7 @@ const Footer = ({ location }) => {
         <div className="pr-4" style={{ paddingLeft: "13px" }}>
           <Link
             to="/a-propos/"
+            state={{ prevPath: location.pathname }}
             className={`flex ${isAboutPage() ? "text-primary" : ""}`}
           >
             <span>&#9654;&#xFE0E;</span>

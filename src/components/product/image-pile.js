@@ -1,25 +1,35 @@
 import React, { useState } from "react"
 
-const ImageSpread = ({ images }) => {
-  const [visible, setVisible] = useState("")
+const ImagePile = ({ images }) => {
+  const [visiblePic, setVisiblePic] = useState(1)
 
-  function handleClick(id, e) {
+  function handleClick(picId, e) {
     console.log(e.target)
-    setVisible(id)
+    console.log(picId)
+    if (picId === images.length) {
+      setVisiblePic(1)
+    } else {
+      setVisiblePic(picId + 1)
+    }
   }
 
   return (
-    <div
-      className="relative border border-red-600"
-      style={{ flexBasis: "40%", height: "70vh" }}
-    >
-      {images.length}
+    <div className="relative border border-red-600 w-full">
+      <span>
+        {visiblePic}/{images.length}
+      </span>
+
       {images.map((image, i) => {
         let top = "0"
         let right = "0"
         let bottom = ""
         let left = ""
+        let transform = ""
 
+        if (i === 0) {
+          left = "50%"
+          transform = "translate(-50%)"
+        }
         if (i === 1) {
           top = "50px"
           left = "0"
@@ -34,7 +44,7 @@ const ImageSpread = ({ images }) => {
         }
         if (i === 4) {
           top = "250px"
-          left = "60px"
+          right = "30px"
         }
         if (i === 5) {
           top = "300px"
@@ -42,7 +52,7 @@ const ImageSpread = ({ images }) => {
         }
         if (i === 6) {
           top = "350px"
-          left = "70px"
+          right = "35px"
         }
 
         const picId = i + 1
@@ -53,7 +63,9 @@ const ImageSpread = ({ images }) => {
           left,
           bottom,
           right,
-          zIndex: visible === picId ? "45" : picId,
+          transform,
+          zIndex: visiblePic === picId ? "45" : picId,
+          visibility: picId <= visiblePic ? "visible" : "hidden",
         }
 
         return (
@@ -71,4 +83,4 @@ const ImageSpread = ({ images }) => {
   )
 }
 
-export default ImageSpread
+export default ImagePile

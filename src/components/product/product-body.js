@@ -13,7 +13,7 @@ import { sortProductUrls } from "../../utils/structure-data"
 import { getWindowSize } from "../../utils/utils"
 // import { bigLorem } from "../../utils/utils"
 import StackCards from "./stack-cards"
-import ImageSpread from "./image-spread"
+import ImagePile from "./image-pile"
 
 export const MaxHeightDiv = styled.div`
   /* Add max-height to fit between header & footer. 
@@ -201,8 +201,8 @@ const ProductBody = ({ product }) => {
       {/* ------------------ */}
 
       {/* CAROUSEL */}
-      <ImageSpread images={images} />
-      {/* {images.length <= 1 && (
+      {/* <ImagePile images={images} /> */}
+      {images.length <= 1 && (
         <MaxHeightDiv
           className="flex justify-center md:self-start md:mt-4 "
           style={{ flexBasis: "40%" }}
@@ -216,14 +216,27 @@ const ProductBody = ({ product }) => {
       )}
 
       {images.length > 1 && (
-        <div className="flex justify-center" style={{ flexBasis: "40%" }}>
-          <StackCards
-            images={images}
-            windowSize={getWindowSize(windowWidth)}
-            name={product.name}
-          />
-        </div>
-      )} */}
+        <>
+          {/* Visible on Mobile only */}
+          <div
+            className="flex justify-center md:hidden"
+            style={{ flexBasis: "40%" }}
+          >
+            <StackCards
+              images={images}
+              windowSize={getWindowSize(windowWidth)}
+              name={product.name}
+            />
+          </div>
+          {/* Visible on Desktop only */}
+          <div
+            className="hidden md:flex justify-center"
+            style={{ flexBasis: "40%", height: "calc(100vh - 300px" }}
+          >
+            <ImagePile images={images} />
+          </div>
+        </>
+      )}
       {/* -------- */}
     </div>
   )

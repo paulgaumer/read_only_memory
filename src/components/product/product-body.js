@@ -201,7 +201,6 @@ const ProductBody = ({ product }) => {
       {/* ------------------ */}
 
       {/* CAROUSEL */}
-      {/* <ImagePile images={images} /> */}
       {images.length <= 1 && (
         <MaxHeightDiv
           className="flex justify-center md:self-start md:mt-4 "
@@ -219,7 +218,7 @@ const ProductBody = ({ product }) => {
         <>
           {/* Visible on Mobile only */}
           <div
-            className="flex justify-center md:hidden"
+            className="flex justify-center md:hidden md:mt-4"
             style={{ flexBasis: "40%" }}
           >
             <StackCards
@@ -230,7 +229,7 @@ const ProductBody = ({ product }) => {
           </div>
           {/* Visible on Desktop only */}
           <div
-            className="hidden md:flex justify-center"
+            className="hidden md:flex justify-center md:mt-4"
             style={{ flexBasis: "40%", height: "calc(100vh - 300px" }}
           >
             <ImagePile images={images} />

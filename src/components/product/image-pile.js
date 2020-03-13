@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { array } from "prop-types"
 
 const ImagePile = ({ images }) => {
   const [visiblePic, setVisiblePic] = useState(1)
@@ -14,7 +15,7 @@ const ImagePile = ({ images }) => {
   }
 
   return (
-    <div className="relative border border-red-600 w-full">
+    <div className="relative w-full">
       <span>
         {visiblePic}/{images.length}
       </span>
@@ -29,30 +30,12 @@ const ImagePile = ({ images }) => {
         if (i === 0) {
           left = "50%"
           transform = "translate(-50%)"
-        }
-        if (i === 1) {
-          top = "50px"
-          left = "0"
-        }
-        if (i === 2) {
-          top = "150px"
-          right = "20px"
-        }
-        if (i === 3) {
-          top = "200px"
+        } else if (i % 2 !== 0) {
+          top = `${i * 50}px`
           left = "20px"
-        }
-        if (i === 4) {
-          top = "250px"
-          right = "30px"
-        }
-        if (i === 5) {
-          top = "300px"
-          left = "0"
-        }
-        if (i === 6) {
-          top = "350px"
-          right = "35px"
+        } else {
+          top = `${i * 50}px`
+          right = "20px"
         }
 
         const picId = i + 1

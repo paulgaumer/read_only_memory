@@ -4,8 +4,6 @@ const ImagePile = ({ images }) => {
   const [visiblePic, setVisiblePic] = useState(1)
 
   function handleClick(pictureId, e) {
-    console.log(e.target)
-    console.log(pictureId)
     if (pictureId === images.length) {
       // RESET
       setVisiblePic(1)
@@ -20,7 +18,7 @@ const ImagePile = ({ images }) => {
 
   return (
     <div className="relative w-full">
-      <span>
+      <span className="hidden md:inline-block">
         {visiblePic}/{images.length}
       </span>
 
@@ -35,10 +33,10 @@ const ImagePile = ({ images }) => {
           left = "50%"
           transform = "translate(-50%)"
         } else if (i % 2 !== 0) {
-          top = `${i * 20}px`
+          top = `${i * 23}px`
           left = "20px"
         } else {
-          top = `${i * 20}px`
+          top = `${i * 23}px`
           right = "20px"
         }
 

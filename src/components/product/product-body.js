@@ -217,7 +217,7 @@ const ProductBody = ({ product }) => {
       {images.length > 1 && (
         <>
           {/* Visible on Mobile only */}
-          <div
+          {/* <div
             className="flex justify-center md:hidden md:mt-4"
             style={{ flexBasis: "40%" }}
           >
@@ -226,10 +226,10 @@ const ProductBody = ({ product }) => {
               windowSize={getWindowSize(windowWidth)}
               name={product.name}
             />
-          </div>
+          </div> */}
           {/* Visible on Desktop only */}
           <div
-            className="hidden md:flex justify-center md:mt-4"
+            className="flex justify-center mt-4"
             style={{ flexBasis: "40%", height: "calc(100vh - 300px" }}
           >
             <ImagePile images={images} />

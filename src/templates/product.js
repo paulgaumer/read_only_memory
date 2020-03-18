@@ -29,6 +29,9 @@ export const productQuery = graphql`
         urls
         images {
           thumbnails {
+            large {
+              url
+            }
             full {
               url
             }

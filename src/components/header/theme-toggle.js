@@ -37,7 +37,7 @@ const SwitchExample = () => {
   }, [])
 
   return (
-    <label for="themeSwitch">
+    <label htmlFor="themeSwitch">
       <Switch
         id="themeSwitch"
         role="switch"

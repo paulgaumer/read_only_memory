@@ -11,9 +11,9 @@ import {
 import ProductImages from "./product-images"
 import { sortProductUrls } from "../../utils/structure-data"
 import { getWindowSize } from "../../utils/utils"
-// import { bigLorem } from "../../utils/utils"
-import StackCards from "./stack-cards"
 import ImagePile from "./image-pile"
+// import { bigLorem } from "../../utils/utils"
+// import StackCards from "./stack-cards"
 
 export const MaxHeightDiv = styled.div`
   /* Add max-height to fit between header & footer. 
@@ -32,33 +32,23 @@ export const MaxHeightDiv = styled.div`
   }
 `
 
-const UrlBlock = ({ url }) => {
-  return url.map(el => {
-    return el.search("http") !== -1 ? (
-      <a
-        href={el}
-        className="visited:text-indigo-600"
-        target="_blank"
-        rel="noopener noreferrer"
-        key={el}
-      >
-        {el}
-      </a>
-    ) : (
-      <p key={el}>{el}</p>
-    )
-  })
-}
-
 const UrlBlocks = ({ urls }) => {
   if (urls === null) {
     return <p className="text-myBlue">URL à compléter</p>
   }
 
-  return urls.map(url => {
+  return urls.map((url, i) => {
     return (
-      <div className="text-myBlue pb-3 break-all" key={url}>
-        <UrlBlock url={url} />
+      <div className="text-myBlue pb-3" key={url}>
+        <a
+          href={url[1]}
+          className="visited:text-indigo-600 break-all"
+          target="_blank"
+          rel="noopener noreferrer"
+          key={`${url[1]}-${i}`}
+        >
+          {url[0]}
+        </a>
       </div>
     )
   })
@@ -126,35 +116,7 @@ const ProductBody = ({ product }) => {
         allowMultipleExpanded={true}
         className="md:hidden"
       >
-        <AccordionItem
-          key={`${product.name}-url`}
-          uuid={`${product.name}-url`}
-          className="border-b border-myGrey-secondary"
-        >
-          <AccordionItemHeading>
-            <AccordionItemButton className="outline-none">
-              <AccordionItemState>
-                {state => {
-                  return (
-                    <div className="flex justify-between text-myBlue px-4 py-2">
-                      <span>Click on links</span>
-                      {state.expanded ? (
-                        <span className="text-primary">&#9660;&#xFE0E;</span>
-                      ) : (
-                        <span className="text-secondary">&#9654;&#xFE0E;</span>
-                      )}
-                    </div>
-                  )
-                }}
-              </AccordionItemState>
-            </AccordionItemButton>
-          </AccordionItemHeading>
-          <AccordionItemPanel>
-            <div className="px-4 pb-2 px-8">
-              <UrlBlocks urls={urls} />
-            </div>
-          </AccordionItemPanel>
-        </AccordionItem>
+        {/* MOBILE DESCRIPTION */}
         <AccordionItem
           key={`${product.name}-description`}
           uuid={`${product.name}-description`}
@@ -167,12 +129,10 @@ const ProductBody = ({ product }) => {
                   return (
                     <div className="flex justify-between text-primary px-4 py-2">
                       {state.expanded ? (
-                        <span className="text-primary">
-                          Click on description
-                        </span>
+                        <span className="text-primary">Fiche Descriptive</span>
                       ) : (
                         <span className="text-secondary">
-                          Click on description
+                          Fiche Descriptive
                         </span>
                       )}
                       {state.expanded ? (
@@ -194,6 +154,37 @@ const ProductBody = ({ product }) => {
               ) : (
                 <p>{product.content}</p>
               )}
+            </div>
+          </AccordionItemPanel>
+        </AccordionItem>
+
+        {/* MOBILE URLS */}
+        <AccordionItem
+          key={`${product.name}-url`}
+          uuid={`${product.name}-url`}
+          className="border-b border-myGrey-secondary"
+        >
+          <AccordionItemHeading>
+            <AccordionItemButton className="outline-none">
+              <AccordionItemState>
+                {state => {
+                  return (
+                    <div className="flex justify-between text-myBlue px-4 py-2">
+                      <span>Liens</span>
+                      {state.expanded ? (
+                        <span className="text-primary">&#9660;&#xFE0E;</span>
+                      ) : (
+                        <span className="text-secondary">&#9654;&#xFE0E;</span>
+                      )}
+                    </div>
+                  )
+                }}
+              </AccordionItemState>
+            </AccordionItemButton>
+          </AccordionItemHeading>
+          <AccordionItemPanel>
+            <div className="px-4 pb-2 px-8">
+              <UrlBlocks urls={urls} />
             </div>
           </AccordionItemPanel>
         </AccordionItem>
@@ -229,7 +220,7 @@ const ProductBody = ({ product }) => {
           </div> */}
           {/* Visible on Desktop only */}
           <div
-            className="flex justify-center mt-4"
+            className="flex justify-center mt-4 md:px-4"
             style={{ flexBasis: "40%", height: "calc(100vh - 300px" }}
           >
             <ImagePile images={images} />

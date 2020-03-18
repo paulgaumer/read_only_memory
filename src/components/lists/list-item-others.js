@@ -64,6 +64,21 @@ const ListItemOthers = ({ item, page, location }) => {
     }
   }
 
+  const pickBorderHoverColor = page => {
+    switch (page) {
+      case "titles":
+        return "hover:border-hover-titles"
+      case "authors":
+        return "hover:border-hover-authors"
+      case "editors":
+        return "hover:border-hover-editors"
+      case "collections":
+        return "hover:border-hover-collections"
+      default:
+        break
+    }
+  }
+
   return (
     <div id={item.name}>
       {item.titles.map((title, i) => {
@@ -75,7 +90,15 @@ const ListItemOthers = ({ item, page, location }) => {
           >
             <ItemGrid
               data-name="list-item"
-              className={`md:grid border-b border-myGrey-secondary pb-2 px-4 grid-${page} group hover:text-hover-${page} hover:text-lg`}
+              className={`
+              md:grid 
+              border-b 
+              border-myGrey-secondary 
+              ${pickBorderHoverColor(page)} 
+              pb-2 
+              px-4 
+              grid-${page} 
+              group hover:text-hover-${page}`}
             >
               {/* NAME */}
               <div data-name="name" className="text-primary">

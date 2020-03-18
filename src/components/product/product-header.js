@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 import {
   Accordion,
   AccordionItem,
@@ -15,7 +15,8 @@ const ProductHeader = ({ product }) => {
       {/* DESKTOP VIEW */}
       <div
         data-name="product-top-bar"
-        className="hidden md:grid grid-cols-4 px-4 pb-3 border-b border-myGrey-secondary text-primary"
+        className="hidden md:grid gap-4 px-4 pb-3 border-b border-myGrey-secondary text-primary"
+        style={{ gridTemplateColumns: "40% 1fr 1fr 1fr" }}
       >
         <div data-name="title-details">
           <h1>{product.name}</h1>
@@ -80,17 +81,20 @@ const ProductHeader = ({ product }) => {
               {product.authors !== null && (
                 <div data-name="authors" className="pb-2 pl-4 flex flex-wrap">
                   {product.authors.map((author, i) => (
-                    <>
+                    <Fragment key={author.id}>
                       <p key={author.id}>{author.data.name}</p>
                       {i < product.authors.length - 1 && <span>, </span>}
-                    </>
+                    </Fragment>
                   ))}
                 </div>
               )}
               {product.editors !== null && (
-                <div data-name="editors" className="pb-2 pl-8">
-                  {product.editors.map(editor => (
-                    <p key={editor.id}>{editor.data.name}</p>
+                <div data-name="editors" className="pb-2 pl-8 flex flex-wrap">
+                  {product.editors.map((editor, i) => (
+                    <Fragment key={editor.id}>
+                      <p key={editor.id}>{editor.data.name}</p>
+                      {i < product.editors.length - 1 && <span>, </span>}
+                    </Fragment>
                   ))}
                 </div>
               )}

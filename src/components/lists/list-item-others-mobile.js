@@ -18,13 +18,10 @@ const ItemCategories = ({ item, page }) => {
         </div>
       )}
       {page !== "authors" && item["authors"].length >= 1 && (
-        <div
-          data-name="authors"
-          className="px-4 text-primary pl-12 flex flex-wrap items-baseline"
-        >
+        <div data-name="authors" className="px-4 text-primary pl-12">
           {item["authors"].map((info, i) => (
             <Fragment key={`${info}-${i}`}>
-              <p className="py-1">{info}</p>
+              <span className="py-1">{info}</span>
               {i < item["authors"].length - 1 && (
                 <span className="pr-1">,</span>
               )}
@@ -35,18 +32,24 @@ const ItemCategories = ({ item, page }) => {
       {page !== "editors" && item["editors"].length >= 1 && (
         <div data-name="editors" className="px-4 text-primary pl-16">
           {item["editors"].map((info, i) => (
-            <p className="py-1" key={`${info}-${i}`}>
-              {info}
-            </p>
+            <Fragment key={`${info}-${i}`}>
+              <span className="py-1">{info}</span>
+              {i < item["editors"].length - 1 && (
+                <span className="pr-1">,</span>
+              )}
+            </Fragment>
           ))}
         </div>
       )}
       {page !== "collections" && item["collections"].length >= 1 && (
         <div data-name={"collections"} className="px-4 text-primary pl-20">
           {item["collections"].map((info, i) => (
-            <p className="py-1" key={`${info}-${i}`}>
-              {info}
-            </p>
+            <Fragment key={`${info}-${i}`}>
+              <span className="py-1">{info}</span>
+              {i < item["collections"].length - 1 && (
+                <span className="pr-1">,</span>
+              )}
+            </Fragment>
           ))}
         </div>
       )}

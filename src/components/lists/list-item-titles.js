@@ -43,7 +43,7 @@ const ItemName = ({ item, page }) => {
 
   return (
     <div data-name="name">
-      <p className={`text-primary ${pickNameHoverColor(page)}`}>
+      <p className={`py-1 text-primary ${pickNameHoverColor(page)}`}>
         {capitalize(item.name)}
       </p>
     </div>
@@ -65,7 +65,7 @@ const ItemCategory = ({ categoryInfo, name }) => {
 const ListItemTitles = ({ item, page, location }) => {
   const categories = ["titles", "authors", "editors", "collections"]
 
-  const pickHoverColor = page => {
+  const pickTextHoverColor = page => {
     switch (page) {
       case "titles":
         return "hover:text-hover-titles"
@@ -80,6 +80,21 @@ const ListItemTitles = ({ item, page, location }) => {
     }
   }
 
+  const pickBorderHoverColor = page => {
+    switch (page) {
+      case "titles":
+        return "hover:border-hover-titles"
+      case "authors":
+        return "hover:border-hover-authors"
+      case "editors":
+        return "hover:border-hover-editors"
+      case "collections":
+        return "hover:border-hover-collections"
+      default:
+        break
+    }
+  }
+
   return (
     <Link
       to={`/titre/${sanitizeSlug(item.slug)}`}
@@ -88,9 +103,16 @@ const ListItemTitles = ({ item, page, location }) => {
     >
       <ItemGrid
         data-name="list-item"
-        className={`md:grid border-b border-myGrey-secondary pb-2 px-4 grid-titles group hover:text-lg ${pickHoverColor(
-          page
-        )}`}
+        className={`
+        md:grid 
+        border-b 
+        border-myGrey-secondary 
+        ${pickBorderHoverColor(page)} 
+        pb-2 
+        px-4 
+        grid-titles 
+        group 
+        ${pickTextHoverColor(page)}`}
       >
         {/* NAME */}
         <ItemName item={item} location={location} page={page} />

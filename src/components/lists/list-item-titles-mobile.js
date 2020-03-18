@@ -22,15 +22,12 @@ const ItemCategories = ({ item, page }) => {
         </div>
       )}
       {page !== "authors" && item["authors"].length >= 1 && (
-        <div
-          data-name="authors"
-          className="px-4 text-primary pl-8 flex flex-wrap items-baseline"
-        >
+        <div data-name="authors" className="px-4 text-primary pl-8">
           {item["authors"].map((info, i) => (
             <Fragment key={info}>
-              <p className="py-1" key={info}>
+              <span className="py-1" key={info}>
                 {info}
-              </p>
+              </span>
               {i < item["authors"].length - 1 && (
                 <span className="pr-1">,</span>
               )}
@@ -40,19 +37,29 @@ const ItemCategories = ({ item, page }) => {
       )}
       {page !== "editors" && item["editors"].length >= 1 && (
         <div data-name="editors" className="px-4 text-primary pl-12">
-          {item["editors"].map(info => (
-            <p className="py-1" key={info}>
-              {info}
-            </p>
+          {item["editors"].map((info, i) => (
+            <Fragment key={info}>
+              <span className="py-1" key={info}>
+                {info}
+              </span>
+              {i < item["editors"].length - 1 && (
+                <span className="pr-1">,</span>
+              )}
+            </Fragment>
           ))}
         </div>
       )}
       {page !== "collections" && item["collections"].length >= 1 && (
         <div data-name={"collections"} className="px-4 text-primary pl-16">
-          {item["collections"].map(info => (
-            <p className="py-1" key={info}>
-              {info}
-            </p>
+          {item["collections"].map((info, i) => (
+            <Fragment key={info}>
+              <span className="py-1" key={info}>
+                {info}
+              </span>
+              {i < item["collections"].length - 1 && (
+                <span className="pr-1">,</span>
+              )}
+            </Fragment>
           ))}
         </div>
       )}

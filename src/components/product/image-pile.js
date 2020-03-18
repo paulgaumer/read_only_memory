@@ -18,7 +18,7 @@ const ImagePile = ({ images }) => {
 
   return (
     <div className="relative w-full">
-      <span className="hidden md:inline-block">
+      <span className="float-right md:float-none mr-2 md:mr-0">
         {visiblePic}/{images.length}
       </span>
 
@@ -55,6 +55,7 @@ const ImagePile = ({ images }) => {
 
         return (
           <img
+            key={image}
             index={i}
             src={image}
             alt=""

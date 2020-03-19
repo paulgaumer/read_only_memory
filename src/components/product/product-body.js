@@ -42,7 +42,7 @@ const UrlBlocks = ({ urls }) => {
       <div className="text-myBlue pb-3" key={url}>
         <a
           href={url[1]}
-          className="visited:text-indigo-600 break-all"
+          className="visited:text-indigo-600"
           target="_blank"
           rel="noopener noreferrer"
           key={`${url[1]}-${i}`}
@@ -87,10 +87,7 @@ const ProductBody = ({ product }) => {
   }
 
   return (
-    <div
-      data-name="product-body"
-      className=" pb-20 md:pb-0 md:pt-4 md:px-4 md:flex"
-    >
+    <div data-name="product-body" className="pb-0 md:pt-4 md:px-4 md:flex">
       {/* PRODUCT DESCRIPTION DESKTOP */}
       <MaxHeightDiv
         className="hidden md:block mt-4 md:overflow-y-auto"

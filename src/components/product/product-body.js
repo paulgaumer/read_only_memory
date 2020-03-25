@@ -136,7 +136,7 @@ const ProductBody = ({ product }) => {
                         <span className="text-primary">Fiche Descriptive</span>
                       ) : (
                         <span className="text-secondary">
-                          Fiche Descriptive
+                          Fiche descriptive
                         </span>
                       )}
                       {state.expanded ? (
@@ -154,7 +154,7 @@ const ProductBody = ({ product }) => {
             <div className="px-4 pb-2">
               {/* <p className="text-primary">{bigLorem}</p> */}
               {product.content === null ? (
-                <p>Documentation en cours</p>
+                <p>...en cours</p>
               ) : (
                 <p>{product.content}</p>
               )}
@@ -174,7 +174,7 @@ const ProductBody = ({ product }) => {
                 {state => {
                   return (
                     <div className="flex justify-between text-myBlue px-4 py-2">
-                      <span>Liens</span>
+                      <span>www</span>
                       {state.expanded ? (
                         <span className="text-primary">&#9660;&#xFE0E;</span>
                       ) : (

@@ -18,8 +18,10 @@ const ImagePile = ({ images }) => {
 
   return (
     <div className="relative w-full">
-      <span className="float-right md:float-none mr-2 md:mr-0">
-        {visiblePic}/{images.length}
+      <span className="flex flex-col md:inline-block float-right md:float-none mr-2 md:mr-0">
+        <span>{visiblePic}</span>
+        <span>/</span>
+        <span>{images.length}</span>
       </span>
 
       {images.map((image, i) => {

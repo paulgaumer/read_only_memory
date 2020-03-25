@@ -77,10 +77,12 @@ const ProductBody = ({ product }) => {
   // create an array of images from data
   if (product.images) {
     product.images.map(image => {
-      if (image.thumbnails.full !== null) {
-        images.push(image.thumbnails.full.url)
-      } else {
-        images.push(image.thumbnails.large.url)
+      if (image.thumbnails !== null) {
+        if (image.thumbnails.full !== null) {
+          images.push(image.thumbnails.full.url)
+        } else {
+          images.push(image.thumbnails.large.url)
+        }
       }
       return null
     })

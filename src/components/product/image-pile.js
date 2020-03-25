@@ -52,20 +52,24 @@ const ImagePile = ({ images }) => {
           right,
           transform,
           zIndex: visiblePic === pictureId ? "45" : pictureId,
-          visibility: pictureId <= visiblePic ? "visible" : "hidden",
+          display: pictureId <= visiblePic ? "inline" : "none",
         }
 
         return (
-          <img
+          <button
             key={image}
-            index={i}
-            src={image}
-            alt=""
-            className={`absolute`}
-            style={style}
             onClick={e => handleClick(pictureId, e)}
             onKeyDown={e => handleClick(pictureId, e)}
-          />
+          >
+            <img
+              key={image}
+              index={i}
+              src={image}
+              alt=""
+              className={`absolute`}
+              style={style}
+            />
+          </button>
         )
       })}
     </div>

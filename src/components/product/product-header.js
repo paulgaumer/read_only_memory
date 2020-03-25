@@ -82,7 +82,7 @@ const ProductHeader = ({ product }) => {
                 <div data-name="authors" className="pb-2 pl-4 flex flex-wrap">
                   {product.authors.map((author, i) => (
                     <Fragment key={author.id}>
-                      <p key={author.id}>{author.data.name}</p>
+                      <span key={author.id}>{author.data.name}</span>
                       {i < product.authors.length - 1 && <span>, </span>}
                     </Fragment>
                   ))}
@@ -92,7 +92,7 @@ const ProductHeader = ({ product }) => {
                 <div data-name="editors" className="pb-2 pl-8 flex flex-wrap">
                   {product.editors.map((editor, i) => (
                     <Fragment key={editor.id}>
-                      <p key={editor.id}>{editor.data.name}</p>
+                      <span key={editor.id}>{editor.data.name}</span>
                       {i < product.editors.length - 1 && <span>, </span>}
                     </Fragment>
                   ))}
@@ -100,8 +100,11 @@ const ProductHeader = ({ product }) => {
               )}
               {product.collections !== null && (
                 <div data-name="collections" className="pb-2 pl-12">
-                  {product.collections.map(collection => (
-                    <p key={collection.id}>{collection.data.name}</p>
+                  {product.collections.map((collection, i) => (
+                    <Fragment key={collection.id}>
+                      <span key={collection.id}>{collection.data.name}</span>
+                      {i < product.collections.length - 1 && <span>, </span>}
+                    </Fragment>
                   ))}
                 </div>
               )}

@@ -20,8 +20,10 @@ const ProductHeader = ({ product }) => {
       >
         <div data-name="title-details">
           <h1>
-            {product.name},{" "}
-            <span className="text-secondary">{product.subtitle}</span>
+            <span>{product.name}</span>
+            {product.subtitle !== null && (
+              <span className="text-secondary">, {product.subtitle}</span>
+            )}
           </h1>
         </div>
         <div data-name="authors">

@@ -47,7 +47,8 @@ const UrlBlocks = ({ urls }) => {
           rel="noopener noreferrer"
           key={`${url[1]}-${i}`}
         >
-          {url[0]}
+          <span className="text-lg align-middle pr-2">&#9655;&#xFE0E;</span>
+          <span className="align-middle">{url[0]}</span>
         </a>
       </div>
     )
@@ -132,7 +133,7 @@ const ProductBody = ({ product }) => {
                   return (
                     <div className="flex justify-between text-primary px-4 py-2">
                       {state.expanded ? (
-                        <span className="text-primary">Fiche Descriptive</span>
+                        <span className="text-primary">Fiche descriptive</span>
                       ) : (
                         <span className="text-secondary">
                           Fiche descriptive

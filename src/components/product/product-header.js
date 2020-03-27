@@ -16,11 +16,13 @@ const ProductHeader = ({ product }) => {
       <div
         data-name="product-top-bar"
         className="hidden md:grid gap-4 px-4 pb-3 border-b border-myGrey-secondary text-primary"
-        style={{ gridTemplateColumns: "40% 1fr 1fr 1fr" }}
+        style={{ gridTemplateColumns: "40% 1fr 1fr 1fr 1fr" }}
       >
         <div data-name="title-details">
-          <h1>{product.name}</h1>
-          <p>{product.year}</p>
+          <h1>
+            {product.name},{" "}
+            <span className="text-secondary">{product.subtitle}</span>
+          </h1>
         </div>
         <div data-name="authors">
           {product.authors !== null &&
@@ -39,6 +41,9 @@ const ProductHeader = ({ product }) => {
             product.collections.map(collection => (
               <p key={collection.id}>{collection.data.name}</p>
             ))}
+        </div>
+        <div data-name="year">
+          <p>{product.year}</p>
         </div>
       </div>
       {/* ------------------ */}

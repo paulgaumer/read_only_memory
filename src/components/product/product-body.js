@@ -12,7 +12,7 @@ import ProductImages from "./product-images"
 import { sortProductUrls } from "../../utils/structure-data"
 import { getWindowSize } from "../../utils/utils"
 import ImagePile from "./image-pile"
-// import { bigLorem } from "../../utils/utils"
+import { bigLorem } from "../../utils/utils"
 // import StackCards from "./stack-cards"
 
 export const MaxHeightDiv = styled.div`
@@ -96,12 +96,12 @@ const ProductBody = ({ product }) => {
         className="hidden md:block mt-4 md:overflow-y-auto"
         style={{ flexBasis: "40%" }}
       >
-        {/* <p className="">{bigLorem}</p> */}
-        {product.content === null ? (
+        <p className="">{bigLorem}</p>
+        {/* {product.content === null ? (
           <p>Documentation en cours</p>
         ) : (
           <p>{product.content}</p>
-        )}
+        )} */}
       </MaxHeightDiv>
       {/* -------- */}
 
@@ -198,7 +198,7 @@ const ProductBody = ({ product }) => {
       {/* CAROUSEL */}
       {images.length <= 1 && (
         <MaxHeightDiv
-          className="flex justify-center md:self-start md:mt-4 "
+          className="flex justify-center md:self-start md:mt-4 md:pl-4 "
           style={{ flexBasis: "40%" }}
         >
           <ProductImages

@@ -15,8 +15,8 @@ const ProductHeader = ({ product }) => {
       {/* DESKTOP VIEW */}
       <div
         data-name="product-top-bar"
-        className="hidden md:grid gap-4 px-4 pb-3 border-b border-myGrey-secondary text-primary"
-        style={{ gridTemplateColumns: "40% 1fr 1fr 1fr 1fr" }}
+        className="hidden md:grid px-4 pb-3 border-b border-myGrey-secondary text-primary"
+        style={{ gridTemplateColumns: "40% 20% 1fr 1fr 1fr" }}
       >
         <div data-name="title-details">
           <h1>
@@ -26,25 +26,25 @@ const ProductHeader = ({ product }) => {
             )}
           </h1>
         </div>
-        <div data-name="authors">
+        <div data-name="authors" className="pl-4">
           {product.authors !== null &&
             product.authors.map(author => (
               <p key={author.id}>{author.data.name}</p>
             ))}
         </div>
-        <div data-name="editors">
+        <div data-name="editors" className="pl-4">
           {product.editors !== null &&
             product.editors.map(editor => (
               <p key={editor.id}>{editor.data.name}</p>
             ))}
         </div>
-        <div data-name="collections">
+        <div data-name="collections" className="pl-4">
           {product.collections !== null &&
             product.collections.map(collection => (
               <p key={collection.id}>{collection.data.name}</p>
             ))}
         </div>
-        <div data-name="year">
+        <div data-name="year" className="pl-4" style={{ justifySelf: "end" }}>
           <p>{product.year}</p>
         </div>
       </div>

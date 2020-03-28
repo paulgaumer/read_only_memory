@@ -69,10 +69,7 @@ footer {
   }
 }
 
-/* Avoids within-page links to jumped the content right at the very top of the viewport, below the fixed header */
-// .filtered-group {
-//   scroll-margin-top: 80px;
-// }
+/* Avoids within-page links to jump the content right at the very top of the viewport, below the fixed header */
 .filtered-group::before {
   display: block;
   content: " ";

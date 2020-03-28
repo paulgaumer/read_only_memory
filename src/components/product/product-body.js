@@ -12,8 +12,7 @@ import ProductImages from "./product-images"
 import { sortProductUrls } from "../../utils/structure-data"
 import { getWindowSize } from "../../utils/utils"
 import ImagePile from "./image-pile"
-import { bigLorem } from "../../utils/utils"
-// import StackCards from "./stack-cards"
+// import { bigLorem } from "../../utils/utils"
 
 export const MaxHeightDiv = styled.div`
   /* Add max-height to fit between header & footer. 
@@ -96,12 +95,12 @@ const ProductBody = ({ product }) => {
         className="hidden md:block mt-4 md:overflow-y-auto"
         style={{ flexBasis: "40%" }}
       >
-        <p className="">{bigLorem}</p>
-        {/* {product.content === null ? (
+        {/* <p className="">{bigLorem}</p> */}
+        {product.content === null ? (
           <p>Documentation en cours</p>
         ) : (
           <p>{product.content}</p>
-        )} */}
+        )}
       </MaxHeightDiv>
       {/* -------- */}
 
@@ -210,26 +209,12 @@ const ProductBody = ({ product }) => {
       )}
 
       {images.length > 1 && (
-        <>
-          {/* Visible on Mobile only */}
-          {/* <div
-            className="flex justify-center md:hidden md:mt-4"
-            style={{ flexBasis: "40%" }}
-          >
-            <StackCards
-              images={images}
-              windowSize={getWindowSize(windowWidth)}
-              name={product.name}
-            />
-          </div> */}
-          {/* Visible on Desktop only */}
-          <div
-            className="flex justify-center mt-4 md:px-4"
-            style={{ flexBasis: "40%", height: "calc(100vh - 300px" }}
-          >
-            <ImagePile images={images} />
-          </div>
-        </>
+        <div
+          className="flex justify-center mt-4 md:px-4"
+          style={{ flexBasis: "40%", height: "calc(100vh - 300px" }}
+        >
+          <ImagePile images={images} />
+        </div>
       )}
       {/* -------- */}
     </div>

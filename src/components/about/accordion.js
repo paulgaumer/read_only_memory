@@ -1,4 +1,5 @@
 import React from "react"
+import styled from "styled-components"
 import {
   Accordion,
   AccordionItem,
@@ -7,6 +8,13 @@ import {
   AccordionItemPanel,
   AccordionItemState,
 } from "react-accessible-accordion"
+
+const MdContent = styled.div`
+  a {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+`
 
 const MyAccordion = ({ edges }) => {
   return (
@@ -65,7 +73,7 @@ const MyAccordion = ({ edges }) => {
                   className="hidden md:inline"
                 ></span>
                 {/* <p>{node.data.content}</p> */}
-                <div
+                <MdContent
                   dangerouslySetInnerHTML={{
                     __html: node.data.content.childMarkdownRemark.html,
                   }}

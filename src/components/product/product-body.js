@@ -31,6 +31,13 @@ export const MaxHeightDiv = styled.div`
   }
 `
 
+const MdContent = styled.div`
+  a {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+`
+
 const UrlBlocks = ({ urls }) => {
   if (urls === null) {
     return <p className="text-myBlue">URL à compléter</p>
@@ -100,7 +107,7 @@ const ProductBody = ({ product }) => {
           <p>Documentation en cours</p>
         ) : (
           // <p>{product.content}</p>
-          <div
+          <MdContent
             dangerouslySetInnerHTML={{
               __html: product.content.childMarkdownRemark.html,
             }}
@@ -161,7 +168,7 @@ const ProductBody = ({ product }) => {
                 <p>...en cours</p>
               ) : (
                 // <p>{product.content}</p>
-                <div
+                <MdContent
                   dangerouslySetInnerHTML={{
                     __html: product.content.childMarkdownRemark.html,
                   }}

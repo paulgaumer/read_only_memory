@@ -31,6 +31,13 @@ export const MaxHeightDiv = styled.div`
   }
 `
 
+const MdContent = styled.div`
+  a {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+`
+
 const UrlBlocks = ({ urls }) => {
   if (urls === null) {
     return <p className="text-myBlue">URL à compléter</p>
@@ -99,7 +106,12 @@ const ProductBody = ({ product }) => {
         {product.content === null ? (
           <p>Documentation en cours</p>
         ) : (
-          <p>{product.content}</p>
+          // <p>{product.content}</p>
+          <MdContent
+            dangerouslySetInnerHTML={{
+              __html: product.content.childMarkdownRemark.html,
+            }}
+          />
         )}
       </MaxHeightDiv>
       {/* -------- */}
@@ -155,7 +167,12 @@ const ProductBody = ({ product }) => {
               {product.content === null ? (
                 <p>...en cours</p>
               ) : (
-                <p>{product.content}</p>
+                // <p>{product.content}</p>
+                <MdContent
+                  dangerouslySetInnerHTML={{
+                    __html: product.content.childMarkdownRemark.html,
+                  }}
+                />
               )}
             </div>
           </AccordionItemPanel>

@@ -22,6 +22,7 @@
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-airtable": "^2.0.12",
     "gatsby-source-filesystem": "^2.1.46",
+    "gatsby-transformer-remark": "^2.7.1",
     "gatsby-transformer-sharp": "^2.3.13",
     "node-sass": "^4.13.1",
     "prop-types": "^15.7.2",

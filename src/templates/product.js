@@ -24,8 +24,11 @@ export const productQuery = graphql`
     airtable(id: { eq: $id }) {
       data {
         name
-        subtitle: name_
-        content
+        content {
+          childMarkdownRemark {
+            html
+          }
+        }
         year
         urls
         images {

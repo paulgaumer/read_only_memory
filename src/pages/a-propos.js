@@ -27,7 +27,11 @@ export const aboutQuery = graphql`
           data {
             id
             name
-            content
+            content {
+              childMarkdownRemark {
+                html
+              }
+            }
           }
         }
       }

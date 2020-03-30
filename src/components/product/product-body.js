@@ -99,7 +99,12 @@ const ProductBody = ({ product }) => {
         {product.content === null ? (
           <p>Documentation en cours</p>
         ) : (
-          <p>{product.content}</p>
+          // <p>{product.content}</p>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: product.content.childMarkdownRemark.html,
+            }}
+          />
         )}
       </MaxHeightDiv>
       {/* -------- */}
@@ -155,7 +160,12 @@ const ProductBody = ({ product }) => {
               {product.content === null ? (
                 <p>...en cours</p>
               ) : (
-                <p>{product.content}</p>
+                // <p>{product.content}</p>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: product.content.childMarkdownRemark.html,
+                  }}
+                />
               )}
             </div>
           </AccordionItemPanel>

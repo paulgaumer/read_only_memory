@@ -64,7 +64,12 @@ const MyAccordion = ({ edges }) => {
                   style={{ flex: "0 0 30%" }}
                   className="hidden md:inline"
                 ></span>
-                <p>{node.data.content}</p>
+                {/* <p>{node.data.content}</p> */}
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: node.data.content.childMarkdownRemark.html,
+                  }}
+                />
               </div>
             </AccordionItemPanel>
           </AccordionItem>

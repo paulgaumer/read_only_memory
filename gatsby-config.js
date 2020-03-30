@@ -18,6 +18,7 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
+    "gatsby-transformer-remark",
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     {
@@ -58,6 +59,7 @@ module.exports = {
           {
             baseId: `app9UK9ZbcSlC8PhP`,
             tableName: `titles`,
+            mapping: { content: `text/markdown` },
             tableLinks: [`authors`, `editors`, `collections`],
           },
           {
@@ -78,6 +80,7 @@ module.exports = {
           {
             baseId: `app9UK9ZbcSlC8PhP`,
             tableName: `annexes`,
+            mapping: { content: `text/markdown` },
           },
         ],
       },

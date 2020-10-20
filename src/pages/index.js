@@ -1,9 +1,16 @@
 import React, { useContext } from "react"
 import { Link } from "gatsby"
+import styled from "styled-components"
 import useDarkMode from "use-dark-mode"
 import { GlobalDispatchContext } from "../context/global-context-provider"
 import SEO from "../components/seo"
 import "../styles/global.scss"
+
+const Container = styled.div`
+  position: fixed;
+  height: 100%;
+  width: 100%;
+`
 
 const IndexPage = () => {
   const themeDispatch = useContext(GlobalDispatchContext)
@@ -17,7 +24,7 @@ const IndexPage = () => {
   return (
     <>
       <SEO title="Home" />
-      <div className="flex flex-col min-h-screen text-3xl lg:text-4xl xl:text-5xl">
+      <Container className="flex flex-col text-3xl lg:text-4xl xl:text-5xl">
         <Link
           to="/titres"
           className="flex flex-col flex-auto block"
@@ -47,7 +54,7 @@ const IndexPage = () => {
             </div>
           </div>
         </Link>
-      </div>
+      </Container>
     </>
   )
 }

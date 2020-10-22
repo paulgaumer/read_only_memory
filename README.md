@@ -1,34 +1,78 @@
-<h1 align="center">
-  ReadOnlyMemory
-</h1>
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/paulgaumer/read_only_memory">
+    <img src="static/images/banner-seotags.png" alt="Logo" width="500">
+  </a>
 
-Built with Gatsby.js and Airtable
+  <h3 align="center">Read Only Memory</h3>
 
-_Website: [readyonlymemory.net](https://readonlymemory.net/)_
+  <p align="center">
+    A web archive gathering 30 years of digital products.
+    <br />
+    <br />
+    <a href="https://readonlymemory.net/">View Website</a>
+    ·
+    <a href="https://www.paulgaumer.com/#contact-form">Report Bug</a>
+    ·
+  </p>
+</p>
 
-## 🚀 Quick start
+<!-- TABLE OF CONTENTS -->
 
-1.  **Clone the repository.**
+## Table of Contents
 
-    In the folder of your choice, run
+- [About the Project](#about-the-project)
+  - [Built With](#built-with)
+- [Installation](#installation)
+- [Contact](#contact)
 
-    ```shell
-    # clone the project on your computer
-    git clone git@gitlab.jungle.pm:readonlymemory/readonlymemory.git
-    ```
+<!-- ABOUT THE PROJECT -->
 
-1.  **Start developing.**
+## About The Project
 
-    Navigate into your new site’s directory and start it up.
+A web archive gathering 30 years of digital products, created for a special exhibition led by Gilles Rouffineau, researcher in arts and design. Project done in collaboration with the [Jungle collective](https://www.jungleprogram.com/). Design by [Chloé Barria](http://12h.studio/).
 
-    ```shell
-    cd readonlymemory/
-    yarn install
-    gatsby develop
-    ```
+### Built With
 
-1.  **Open the source code and start editing!**
+- [Gatsby.js](https://www.gatsbyjs.com/) - front-end
+- [Airtable](https://airtable.com/) - back-end
+- [Tailwind CSS](https://tailwindcss.com)
+- [Styled Components](https://styled-components.com/)
+- [Netlify](https://netlify.com) - hosting
 
-    Your site is now running at `http://localhost:8000`!
+<!-- GETTING STARTED -->
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+## Installation
+
+1. Clone the repo
+
+```sh
+git clone git@github.com:paulgaumer/read_only_memory.git
+```
+
+2. Install NPM packages
+
+```sh
+yarn install
+```
+
+3. Start your local Gatsby server
+
+```sh
+gatsby develop
+```
+
+### Environment variables
+
+The following variables are needed:
+
+- `GATSBY_AIRTABLE_API_KEY` from the [Airtable API](https://airtable.com/)
+
+<!-- CONTACT -->
+
+## Contact
+
+[Paul Gaumer](https://paulgaumer.com) - [@PaulGaumer](https://twitter.com/@PaulGaumer) - hello@paulgaumer.com
+
+Project Link: [https://github.com/paulgaumer/read_only_memory](https://github.com/paulgaumer/read_only_memory)

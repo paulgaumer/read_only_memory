@@ -1,7 +1,13 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import "./static/fonts.css"
+import "./src/styles/global.scss"
 
-// You can delete this file if you're not using it
+// Allows us to keep the state given by React Context on page change
+
+// import React from "react"
+import GlobalContextProvider from "./src/context/global-context-provider"
+const React = require("react")
+// const GlobalContextProvider = require("./src/context/global-context-provider")
+
+export const wrapRootElement = ({ element }) => {
+  return <GlobalContextProvider>{element}</GlobalContextProvider>
+}

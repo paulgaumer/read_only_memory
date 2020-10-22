@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import List from "../components/list"
+import List from "../components/lists/list"
 
 const Editors = ({ data, location }) => {
   const { edges } = data.allAirtable
@@ -10,7 +10,7 @@ const Editors = ({ data, location }) => {
   return (
     <Layout location={location}>
       <SEO title="Editeurs" />
-      <List edges={edges} page={"editors"} />
+      <List edges={edges} page={"editors"} location={location} />
     </Layout>
   )
 }
@@ -22,21 +22,23 @@ export const allEditorsQuery = graphql`
     allAirtable(filter: { table: { eq: "editors" } }) {
       edges {
         node {
+          id
           data {
             name
             titles {
               data {
+                slug
                 name
                 authors {
                   data {
                     name
                   }
                 }
-              }
-            }
-            collections {
-              data {
-                name
+                collections {
+                  data {
+                    name
+                  }
+                }
               }
             }
           }

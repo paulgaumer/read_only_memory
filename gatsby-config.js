@@ -5,6 +5,8 @@ module.exports = {
     title: `readonlymemory`,
     description: `readonlymemory.net`,
     author: `Gilles Rouffineau`,
+    image: "/images/banner-seotags.png",
+    siteUrl: `https://readonlymemory.net/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -16,8 +18,16 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
+    "gatsby-transformer-remark",
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        // Configure SASS to process Tailwind
+        postCssPlugins: [require("tailwindcss"), require("autoprefixer")],
+      },
+    },
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
@@ -33,6 +43,15 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        custom: {
+          families: ["iAWriter", "HelveticaLTStd-Roman"],
+          urls: ["/fonts/fonts.css"],
+        },
+      },
+    },
+    {
       resolve: `gatsby-source-airtable`,
       options: {
         apiKey: process.env.GATSBY_AIRTABLE_API_KEY,
@@ -40,6 +59,7 @@ module.exports = {
           {
             baseId: `app9UK9ZbcSlC8PhP`,
             tableName: `titles`,
+            mapping: { content: `text/markdown` },
             tableLinks: [`authors`, `editors`, `collections`],
           },
           {
@@ -60,8 +80,18 @@ module.exports = {
           {
             baseId: `app9UK9ZbcSlC8PhP`,
             tableName: `annexes`,
+            mapping: { content: `text/markdown` },
           },
         ],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-use-dark-mode",
+      options: {
+        classNameDark: "dark-mode",
+        classNameLight: "light-mode",
+        storageKey: "darkMode",
+        minify: true,
       },
     },
     {
@@ -73,7 +103,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/rename-icon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

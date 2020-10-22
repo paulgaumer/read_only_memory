@@ -1,5 +1,8 @@
 import { deleteMultiples } from "./utils"
 
+// --------------------------------------------------------------
+// USED IN INDEXES TO STRUCTURE THE RAW DATA COMING FROM AIRTABLE
+// --------------------------------------------------------------
 const structureData = (list, origin) => {
   const titlesList = list.map(({ node }) => {
     const { data } = node
@@ -36,6 +39,7 @@ const structureData = (list, origin) => {
       }
 
       const structuredData = {
+        id: node.id,
         name: data.name,
         slug: data.slug,
         titles: deleteMultiples(titles),
@@ -50,30 +54,24 @@ const structureData = (list, origin) => {
     // DATA COMING FROM AUTHORS
     if (origin === "authors") {
       if (data.titles !== null) {
-        titles = data.titles.map(title => {
+        data.titles.map(title => {
           if (title.data.name !== null) {
-            return title.data.name
-          }
-          return null
-        })
-        data.titles.map(title => {
-          if (title.data.editors !== null) {
-            title.data.editors.map(editor => {
-              if (editor.data.name !== null) {
-                return editors.push(editor.data.name)
-              }
-              return null
-            })
-          }
-          return null
-        })
-        data.titles.map(title => {
-          if (title.data.collections !== null) {
-            title.data.collections.map(collection => {
-              if (collection.data.name !== null) {
-                return collections.push(collection.data.name)
-              }
-              return null
+            if (title.data.editors !== null) {
+              editors = title.data.editors.map(editor => {
+                return editor.data.name
+              })
+            }
+            if (title.data.collections !== null) {
+              collections = title.data.collections.map(collection => {
+                return collection.data.name
+              })
+            }
+            titles.push({
+              id: title.id,
+              slug: `/titre/${title.data.slug}`,
+              name: title.data.name,
+              editors: editors,
+              collections: collections,
             })
           }
           return null
@@ -81,11 +79,9 @@ const structureData = (list, origin) => {
       }
 
       const structuredData = {
+        id: node.id,
         name: data.name,
-        titles: deleteMultiples(titles),
-        authors: deleteMultiples(authors),
-        editors: deleteMultiples(editors),
-        collections: deleteMultiples(collections),
+        titles: titles,
       }
 
       return structuredData
@@ -93,20 +89,25 @@ const structureData = (list, origin) => {
 
     // DATA COMING FROM EDITORS
     if (origin === "editors") {
-      if (data.collections !== null) {
-        collections = data.collections.map(collection => collection.data.name)
-      }
       if (data.titles !== null) {
-        titles = data.titles.map(title => {
-          if (title.data.name !== null) {
-            return title.data.name
-          }
-          return null
-        })
         data.titles.map(title => {
-          if (title.data.authors !== null) {
-            title.data.authors.map(author => {
-              return authors.push(author.data.name)
+          if (title.data.name !== null) {
+            if (title.data.authors !== null) {
+              authors = title.data.authors.map(author => {
+                return author.data.name
+              })
+            }
+            if (title.data.collections !== null) {
+              collections = title.data.collections.map(collection => {
+                return collection.data.name
+              })
+            }
+            titles.push({
+              id: title.id,
+              slug: `/titre/${title.data.slug}`,
+              name: title.data.name,
+              authors: authors,
+              collections: collections,
             })
           }
           return null
@@ -114,11 +115,9 @@ const structureData = (list, origin) => {
       }
 
       const structuredData = {
+        id: node.id,
         name: data.name,
-        titles: deleteMultiples(titles),
-        authors: deleteMultiples(authors),
-        editors: deleteMultiples(editors),
-        collections: deleteMultiples(collections),
+        titles: titles,
       }
 
       return structuredData
@@ -126,20 +125,25 @@ const structureData = (list, origin) => {
 
     // DATA COMING FROM COLLECTIONS
     if (origin === "collections") {
-      if (data.editors !== null) {
-        editors = data.editors.map(editor => editor.data.name)
-      }
       if (data.titles !== null) {
-        titles = data.titles.map(title => {
-          if (title.data.name !== null) {
-            return title.data.name
-          }
-          return null
-        })
         data.titles.map(title => {
-          if (title.data.authors !== null) {
-            title.data.authors.map(author => {
-              return authors.push(author.data.name)
+          if (title.data.name !== null) {
+            if (title.data.authors !== null) {
+              authors = title.data.authors.map(author => {
+                return author.data.name
+              })
+            }
+            if (title.data.editors !== null) {
+              editors = title.data.editors.map(editors => {
+                return editors.data.name
+              })
+            }
+            titles.push({
+              id: title.id,
+              slug: `/titre/${title.data.slug}`,
+              name: title.data.name,
+              authors: authors,
+              editors: editors,
             })
           }
           return null
@@ -147,21 +151,21 @@ const structureData = (list, origin) => {
       }
 
       const structuredData = {
+        id: node.id,
         name: data.name,
-        titles: deleteMultiples(titles),
-        authors: deleteMultiples(authors),
-        editors: deleteMultiples(editors),
-        collections: deleteMultiples(collections),
+        titles: titles,
       }
 
       return structuredData
     }
-
     return null
   })
   return titlesList
 }
 
+// ---------------------------------------------------------
+// USED IN INDEXES TO STRUCTURE THE DATA INTO SIMILAR BLOCKS
+// ---------------------------------------------------------
 export const sortListByFirstCharacter = (list, origin, range) => {
   // Get list of structured data
   const titlesList = structureData(list, origin)
@@ -186,4 +190,29 @@ export const sortListByFirstCharacter = (list, origin, range) => {
     return null
   })
   return { normal, special }
+}
+
+// ----------------------------------------------------------
+// USED IN PRODUCT PAGE TO SORT THE URLS STRING FROM AIRTABLE
+// ----------------------------------------------------------
+export const sortProductUrls = entry => {
+  if (entry !== null) {
+    // Split string
+    const splitEntry = entry.split(";")
+
+    // Get rid of empty strings created by the split()
+    const filteredUrls = splitEntry.filter(url => url !== "")
+
+    // Divide url description & url link
+    const urlBlocks = filteredUrls.map(url => {
+      return url.split("\n")
+    })
+
+    // Get rid of empty strings created by the split()
+    const final = urlBlocks.map(block => block.filter(e => e !== ""))
+
+    return final
+  } else {
+    return entry
+  }
 }

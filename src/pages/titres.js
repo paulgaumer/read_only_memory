@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import List from "../components/list"
+import List from "../components/lists/list"
 
 const Titles = ({ data, location }) => {
   const { edges } = data.allAirtable
@@ -10,7 +10,7 @@ const Titles = ({ data, location }) => {
   return (
     <Layout location={location}>
       <SEO title="Titres" />
-      <List edges={edges} page={"titles"} />
+      <List edges={edges} page={"titles"} location={location} />
     </Layout>
   )
 }
@@ -25,6 +25,7 @@ export const allTitlesQuery = graphql`
     ) {
       edges {
         node {
+          id
           data {
             name
             slug

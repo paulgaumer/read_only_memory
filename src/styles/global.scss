@@ -1,0 +1,86 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+/* *************************** */
+/* CUSTOM CSS*/
+/* --------------------------- */
+
+// Theme color sets. Change these variables to change the dark & light mode preferences.
+$background-color-dark: theme("colors.myGrey.background");
+$text-color-primary-dark: theme("colors.myGrey.primary");
+$text-color-secondary-dark: theme("colors.myGrey.secondary");
+$background-color-light: theme("colors.myGrey.primary");
+$text-color-primary-light: theme("colors.myBlack");
+$text-color-secondary-light: theme("colors.myGrey.lightSecondary");
+
+html {
+  scroll-behavior: smooth !important;
+
+  // // Custom scrollbar - works only on Chrome
+  // ::-webkit-scrollbar {
+  //   width: 15px;
+  // }
+  // /* Track */
+  // ::-webkit-scrollbar-track {
+  //   background: #f1f1f1;
+  //   border-radius: 12px;
+  // }
+  // /* Handle */
+  // ::-webkit-scrollbar-thumb {
+  //   background: #888;
+  //   border-radius: 12px;
+  // }
+  // /* Handle on hover */
+  // ::-webkit-scrollbar-thumb:hover {
+  //   background: #555;
+  // }
+}
+
+body {
+  background-color: $background-color-dark;
+  color: $text-color-secondary-dark;
+  &.light-mode {
+    background-color: $background-color-light;
+    color: $text-color-secondary-light;
+  }
+}
+
+.text-primary {
+  color: $text-color-primary-dark;
+  .light-mode & {
+    color: $text-color-primary-light;
+  }
+}
+.text-secondary {
+  color: $text-color-secondary-dark;
+  .light-mode & {
+    color: $text-color-secondary-light;
+  }
+}
+
+header,
+footer {
+  background-color: $background-color-dark;
+  .light-mode & {
+    background-color: $background-color-light;
+  }
+}
+
+/* Avoids within-page links to jump the content right at the very top of the viewport, below the fixed header */
+.filtered-group::before {
+  display: block;
+  content: " ";
+  visibility: hidden;
+  pointer-events: none;
+  margin-top: -80px;
+  height: 80px;
+
+  @media (max-width: 1023px) {
+    margin-top: -55px;
+    height: 55px;
+  }
+}
+/* *************************** */

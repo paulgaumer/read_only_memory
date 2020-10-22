@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import MyAccordion from "../components/accordion"
+import MyAccordion from "../components/about/accordion"
 
 const About = ({ data, location }) => {
   const { edges } = data.allAirtable
@@ -11,7 +11,7 @@ const About = ({ data, location }) => {
     <Layout location={location}>
       <SEO title="A propos" />
       <div>
-        <MyAccordion edges={edges} />
+        <MyAccordion edges={edges.reverse()} />
       </div>
     </Layout>
   )
@@ -27,7 +27,11 @@ export const aboutQuery = graphql`
           data {
             id
             name
-            content
+            content {
+              childMarkdownRemark {
+                html
+              }
+            }
           }
         }
       }
